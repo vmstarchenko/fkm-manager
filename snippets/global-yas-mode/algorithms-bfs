@@ -1,0 +1,41 @@
+# -*- mode: snippet -*-
+# name: algorithms-bfs
+# key: algorithms-bfs
+# --
+
+// G - graph
+// G.v - list of vertexes
+// G.v.adjacent - adjacent vertex for v
+// parent - parent[i] contains parent of vertex i
+// visited - visited[i] contains bool value if we just visited vertex i
+// disttance - distance[i] distance to vertex i.
+//     0 for source, inf for not visited
+void bfs(graph G, int source) {
+  // definition
+  size = G.v.size;
+  int parent[size];
+  bool visited[size];
+  int distance[size];
+  queue que;
+  // initializaion
+  for (i = 0; i < size; ++i) {
+    visited[i] = 0;
+    distance[i] = inf;
+    parent[i] = -1;
+  \}
+  visited[source] = True;
+  distance[source] = 0;
+  que.push(source);
+  // algorithm
+  while (!que.empty()) {
+    u = queue.back(); // current vertex
+    for (v in G.v.adjacent) {
+      if (!visited[v]) {
+        visited[v] = True;
+        distance[v] = distance[u] + 1;
+        parent[v] = u;
+        que.push(v);
+      \}
+    \}
+  \}
+\}

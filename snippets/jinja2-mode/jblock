@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: jblock
+# key: jblock
+# --
+{% block $1 %\}$>
+$0$>
+{% endblock %\}$>

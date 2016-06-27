@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: script
+# key: script
+# --
+<script src="${2:main.js}">
+$1$0
+</script>

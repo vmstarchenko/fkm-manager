@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: jmacro
+# key: jmacro
+# --
+{% macro $1 %\}$>
+$0$>
+{% endmacro %\}$>

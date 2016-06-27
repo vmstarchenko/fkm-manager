@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+<!DOCTYPE html>
+<html lang="ru/en">
+  <head>
+    <meta http-equiv="${3:Content-Type}" content="${4:text/html}" charset="${5:utf-8}">
+    <title>${2:HTML Document}</title>
+  </head>
+  <body>
+    $1$0
+  </body>
+</html>

@@ -1,0 +1,3 @@
+add .emacs
+add to .emacs
+(require 'xopeck-mode)

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: jexp
+# key: jexp
+# --
+\{% $0 %\}

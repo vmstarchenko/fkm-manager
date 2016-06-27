@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: img_src
+# key: img_src
+# --
+<img src="${2:}">$1$0

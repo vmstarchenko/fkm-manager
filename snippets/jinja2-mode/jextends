@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: jextends
+# key: jextends
+# --
+{% extends "$0" %\}$>

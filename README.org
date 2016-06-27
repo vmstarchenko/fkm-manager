@@ -1,0 +1,2 @@
+other packages install
+sudo apt-get install git -y -f

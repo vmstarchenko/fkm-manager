@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: jset
+# key: jset
+# --
+{% set $0 %\}$>
