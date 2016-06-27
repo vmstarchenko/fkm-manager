@@ -346,7 +346,6 @@
 (define-key ac-completing-map (kbd "M-s-k") 'ac-next)   ;; следующая строка в ac
 (define-key ac-completing-map (kbd "M-s-i") 'ac-previous)   ;; предыдущая строка в ac
 (global-set-key (kbd "<tab>") 'ac-start)   ;; start show auto completion
-(define-key ac-completing-map (kbd "<tab>") 'ac-stop)   ;; start show auto completion
 (define-key minibuffer-local-map (kbd "<tab>") 'minibuffer-complete)   ;; auto completion in minibuffer
 ;; Сочетание клавиш   Мод   Команда   Действие
 (define-key moz-controller-mode-map (kbd "C-M-u") 'moz-controller-page-refresh)   ;; Обновить страницу
@@ -651,7 +650,6 @@ ________________________________________________________________________________
  M-s-k            | ac-next                             | ac-completing-map             | следующая строка в ac
  M-s-i            | ac-previous                         | ac-completing-map             | предыдущая строка в ac
  <tab>            | ac-start                            |                               | start show auto completion
- <tab>            | ac-stop                             | ac-completing-map             | start show auto completion
  <tab>            | minibuffer-complete                 | minibuffer-local-map          | auto completion in minibuffer
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 

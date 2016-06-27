@@ -176,7 +176,6 @@ C-g              ## undo-tree-visualizer-quit           ## undo-tree-visualizer-
 M-s-k            ## ac-next                             ## ac-completing-map             ## следующая строка в ac
 M-s-i            ## ac-previous                         ## ac-completing-map             ## предыдущая строка в ac
 <tab>            ## ac-start                            ##                               ## start show auto completion
-<tab>            ## ac-stop                             ## ac-completing-map             ## start show auto completion
 <tab>            ## minibuffer-complete                 ## minibuffer-local-map          ## auto completion in minibuffer
 
 
