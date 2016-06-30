@@ -323,7 +323,7 @@
 (global-set-key (kbd "s-h a") 'apropos)   ;; Поиск в справке по строке/регулярному выражению
 (global-set-key (kbd "s-h e") 'view-emacs-FAQ)   ;; Показать Emacs FAQ
 (global-set-key (kbd "s-h i") 'info)   ;; Показать документацию по Emacs (Info)
-(global-set-key (kbd "s-h p") 'show-python-docs-in-vwindow)   ;; Показать документацию по Python в горизонтальном окне
+(define-key python-mode-map (kbd "s-h d") 'jedi:show-doc)   ;; Показать Python документацию
 (global-set-key (kbd "s-h c") 'show-c++-docs)   ;; Показать документацию по C++ по слову под курсором
 (global-set-key (kbd "s-h h") 'show-hotkeys)   ;; Показать горячие клавиши emacs
 (define-key ac-completing-map (kbd "s-h d") 'ac-help)   ;; ac-help
@@ -620,7 +620,7 @@ ________________________________________________________________________________
  s-h a            | apropos                             |                               | Поиск в справке по строке/регулярному выражению
  s-h e            | view-emacs-FAQ                      |                               | Показать Emacs FAQ
  s-h i            | info                                |                               | Показать документацию по Emacs (Info)
- s-h p            | show-python-docs-in-vwindow         |                               | Показать документацию по Python в горизонтальном окне
+ s-h d            | jedi:show-doc                       | python-mode-map               | Показать Python документацию
  s-h c            | show-c++-docs                       |                               | Показать документацию по C++ по слову под курсором
  s-h h            | show-hotkeys                        |                               | Показать горячие клавиши emacs
  s-h d            | ac-help                             | ac-completing-map             | ac-help

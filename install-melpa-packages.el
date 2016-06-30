@@ -26,6 +26,7 @@
     powerline
     emmet-mode
     jedi
+    sr-speedbar
     ))
 
 (defun packages-installed-p ()

@@ -150,7 +150,7 @@ s-h k            ## describe-key                        ##                      
 s-h a            ## apropos                             ##                               ## Поиск в справке по строке/регулярному выражению
 s-h e            ## view-emacs-FAQ                      ##                               ## Показать Emacs FAQ
 s-h i            ## info                                ##                               ## Показать документацию по Emacs (Info)
-s-h p            ## show-python-docs-in-vwindow         ##                               ## Показать документацию по Python в горизонтальном окне
+s-h d            ## jedi:show-doc                       ## python-mode-map               ## Показать Python документацию
 s-h c            ## show-c++-docs                       ##                               ## Показать документацию по C++ по слову под курсором
 s-h h            ## show-hotkeys                        ##                               ## Показать горячие клавиши emacs
 s-h d            ## ac-help                             ## ac-completing-map             ## ac-help
