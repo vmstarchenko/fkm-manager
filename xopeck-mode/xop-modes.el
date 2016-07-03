@@ -94,7 +94,7 @@
 ;; start yasnippet with emacs
 ;; depandance: xop-complete
 (defun load-yasnippet()
- (interactive)
+  (interactive)
 	(require 'yasnippet)
 	(yas-global-mode 1)
 	(yas/load-directory "~/.emacs.d/snippets") ;; folder
@@ -105,8 +105,8 @@
 ;; depandence: xop-complete
 (semantic-mode 1)
 (defun add-semantic-autocomplete() 
- (add-to-list 'ac-sources 'ac-source-semantic)
- )
+  (add-to-list 'ac-sources 'ac-source-semantic)
+  )
 (add-hook 'c-mode-common-hook 'add-semantic-autocomplete)
 
 ;; emmet
@@ -124,36 +124,34 @@
        (require 'flycheck-google-cpplint)
        (flycheck-add-next-checker 'c/c++-cppcheck
                                   '(warning . c/c++-googlelint))))
-   (executable-find "cpplint.py") ;; todo: rm maybe?
-   (custom-set-variables
-    '(flycheck-googlelint-verbose "3")
-    '(flycheck-googlelint-filter "-legal/copyright,-runtime/explicit,-whitespace/indent,-whitespace/end_of_line")
-    '(flycheck-googlelint-root "project/src")
-    '(flycheck-googlelint-linelength "120"))
-   (setq flycheck-gcc-language-standard "c++11")
-   (setq flycheck-check-syntax-automatically '(idle-change))
-   )
+  (executable-find "cpplint.py") ;; todo: rm maybe?
+  (custom-set-variables
+   '(flycheck-googlelint-verbose "3")
+   '(flycheck-googlelint-filter "-legal/copyright,-runtime/explicit,-whitespace/indent,-whitespace/end_of_line")
+   '(flycheck-googlelint-root "project/src")
+   '(flycheck-googlelint-linelength "120"))
+  (setq flycheck-gcc-language-standard "c++11")
+  (setq flycheck-check-syntax-automatically '(idle-change))
+  )
 (add-hook 'c++-mode-hook #'flycheck-cpp-setup)
 
-;; ;; flycheck javascript
-;; (defun flycheck-javascript-setup()
-;; 	(require 'flycheck)
-;; 	;; (global-flycheck-mode)
-;; 	(flycheck-define-checker javascript-jslint-reporter
-;; 		"A JavaScript syntax and style checker based on JSLint Reporter.
-;;      See URL `https://github.com/FND/jslint-reporter'."
-;; 		:command ("~/.emacs.d/jslint-reporter" source)
-;; 		:error-patterns
-;; 		((error line-start (1+ nonl) ":" line ":" column ":" (message) line-end))
-;; 		:modes (js-mode js2-mode js3-mode))
-;; 	(add-to-list 'flycheck-checkers 'javascript-jslint-reporter)
-;; 	(message "iii"))
+;; flycheck javascript
+(defun flycheck-js-setup()
+	(flycheck-mode)
+  )
+(add-hook 'js-mode-hook #'flycheck-js-setup)
+(add-hook 'js2-mode-hook #'flycheck-js-setup)
+(add-hook 'js3-mode-hook #'flycheck-js-setup)
 
-;; (add-hook 'js-mode-hook #'flycheck-javascript-setup)
+;; flycheck for css
+(defun flycheck-css-setup()
+  (flycheck-mode)
+  )
+(add-hook 'css-mode-hook #'flycheck-css-setup)
 
 ;; flycheck python
 (defun flycheck-python-setup ()
- (flycheck-mode))
+  (flycheck-mode))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
 
 ;; flycheck java
@@ -161,16 +159,6 @@
 ;;   (flycheck-mode))
 ;; (add-hook 'java-mode-hook #'flycheck-java-setup)
 ;;; modes.el ends here
-
-;; css
-;; (defun flycheck-css-setup ()
-;;   (flycheck-mode)
-;;   (eval-after-load 'flycheck
-;;   '(progn
-;;      (require 'flycheck-css-colorguard)
-;;      (flycheck-add-next-checker 'css-csslint
-;;                                 'css-colorguard 'append))))
-;; (add-hook 'css-mode-hook #'flycheck-css-setup)
 
 ;; LaTeX
 ;;(load "auctex.el" nil t t)
@@ -191,76 +179,76 @@
 
 ;; unset keys
 (defun unset-elisp-mode-keys()
- (interactive)
- (define-key lisp-interaction-mode-map (kbd "C-M-i") nil)
- (define-key lisp-interaction-mode-map (kbd "C-M-x") nil)
- (define-key emacs-lisp-mode-map (kbd "C-M-i") nil)
- (define-key emacs-lisp-mode-map (kbd "C-M-x") nil))
+  (interactive)
+  (define-key lisp-interaction-mode-map (kbd "C-M-i") nil)
+  (define-key lisp-interaction-mode-map (kbd "C-M-x") nil)
+  (define-key emacs-lisp-mode-map (kbd "C-M-i") nil)
+  (define-key emacs-lisp-mode-map (kbd "C-M-x") nil))
 (add-hook 'lisp-interaction-mode-hook 'unset-elisp-mode-keys)
 
 (defun unset-js-mode-keys()
- (interactive)
- (define-key js-mode-map (kbd "C-M-x") nil)
- (define-key js-mode-map (kbd "M-.") nil))
+  (interactive)
+  (define-key js-mode-map (kbd "C-M-x") nil)
+  (define-key js-mode-map (kbd "M-.") nil))
 (add-hook 'js-mode-hook 'unset-js-mode-keys)
 
 
 (defun unset-c++-mode-keys()
- (interactive)
- (define-key c++-mode-map (kbd "C-d") nil)
- (define-key c++-mode-map (kbd "C-M-e") nil)
- (define-key c++-mode-map (kbd "C-;") nil)
- (define-key c++-mode-map (kbd "C-M-q") nil))
+  (interactive)
+  (define-key c++-mode-map (kbd "C-d") nil)
+  (define-key c++-mode-map (kbd "C-M-e") nil)
+  (define-key c++-mode-map (kbd "C-;") nil)
+  (define-key c++-mode-map (kbd "C-M-q") nil))
 (add-hook 'c++-mode-hook 'unset-c++-mode-keys)
 
 (defun unset-python-mode-keys()
- (interactive)
- (define-key python-mode-map (kbd "C-M-x") nil))
+  (interactive)
+  (define-key python-mode-map (kbd "C-M-x") nil))
 (add-hook 'python-mode-hook 'unset-python-mode-keys)
 
 (defun unset-makefile-mode-keys()
- (interactive)
- (define-key makefile-mode-map (kbd "M-p") nil))
+  (interactive)
+  (define-key makefile-mode-map (kbd "M-p") nil))
 (add-hook 'makefile-mode-hook 'unset-makefile-mode-keys)
 
 (defun unset-slime-repl-mode-keys()
- (interactive)
- (define-key slime-repl-mode-map (kbd "M-p") nil)
- (define-key slime-repl-mode-map (kbd "M-s") nil))
+  (interactive)
+  (define-key slime-repl-mode-map (kbd "M-p") nil)
+  (define-key slime-repl-mode-map (kbd "M-s") nil))
 (add-hook 'slime-repl-mode-hook 'unset-slime-repl-mode-keys)
 
 (defun unset-shell-mode-keys()
- (interactive)
- (define-key shell-mode-map (kbd "C-M-l") nil)
- (define-key shell-mode-map (kbd "M-p") nil)
- (define-key shell-mode-map (kbd "C-d") nil)
- (define-key shell-mode-map (kbd "M-r") nil))
+  (interactive)
+  (define-key shell-mode-map (kbd "C-M-l") nil)
+  (define-key shell-mode-map (kbd "M-p") nil)
+  (define-key shell-mode-map (kbd "C-d") nil)
+  (define-key shell-mode-map (kbd "M-r") nil))
 (add-hook 'shell-mode-hook 'unset-shell-mode-keys)
 
 (defun unset-eshell-mode-keys()
- (interactive)
- (use-local-map emacs-shell-mode-map)
- (define-key eshell-mode-map (kbd "M-p") nil)
- (define-key eshell-mode-map (kbd "C-m") nil)
- (define-key eshell-mode-map (kbd "M-s") nil)
- (define-key eshell-mode-map (kbd "M-r") nil)
- (define-key shell-mode-map (kbd "C-M-l") nil))
+  (interactive)
+  (use-local-map emacs-shell-mode-map)
+  (define-key eshell-mode-map (kbd "M-p") nil)
+  (define-key eshell-mode-map (kbd "C-m") nil)
+  (define-key eshell-mode-map (kbd "M-s") nil)
+  (define-key eshell-mode-map (kbd "M-r") nil)
+  (define-key shell-mode-map (kbd "C-M-l") nil))
 (add-hook 'eshell-mode-hook 'unset-eshell-mode-keys)
 
 (defun unset-python-shell-mode-keys()
- (interactive)
- (define-key inferior-python-mode-map (kbd "M-p") nil) ;; dot't work
- (define-key inferior-python-mode-map (kbd "M-r") nil))
+  (interactive)
+  (define-key inferior-python-mode-map (kbd "M-p") nil) ;; dot't work
+  (define-key inferior-python-mode-map (kbd "M-r") nil))
 (add-hook 'inferior-python-mode-hook 'unset-python-mode-keys)
 
 (defun unset-ido-mode-keys()
- (interactive)
- (define-key ido-file-dir-completion-map (kbd "M-p") nil))
+  (interactive)
+  (define-key ido-file-dir-completion-map (kbd "M-p") nil))
 (add-hook 'ido-setup-hook 'unset-ido-mode-keys)
 
 (defun unset-dired-mode-keys()
- (interactive)
- (define-key dired-mode-map (kbd "M-s") nil))
+  (interactive)
+  (define-key dired-mode-map (kbd "M-s") nil))
 (add-hook 'dired-mode-hook 'unset-dired-mode-keys)
 
 ;;(defun preview-latex-setup()
@@ -273,12 +261,12 @@
 ;;(add-hook 'LaTeX-mode-hook #'preview-latex-setup)
 
 (defun unset-org-mode-keys()
- (define-key org-mode-map (kbd "C-y") nil)
- (define-key org-mode-map (kbd "M-RET") nil)
- (define-key org-mode-map (kbd "M-h") nil)
- (define-key org-mode-map (kbd "C-M-t") nil)
- (define-key org-mode-map (kbd "M-e") nil)
- )
+  (define-key org-mode-map (kbd "C-y") nil)
+  (define-key org-mode-map (kbd "M-RET") nil)
+  (define-key org-mode-map (kbd "M-h") nil)
+  (define-key org-mode-map (kbd "C-M-t") nil)
+  (define-key org-mode-map (kbd "M-e") nil)
+  )
 (add-hook 'org-mode-hook 'unset-org-mode-keys)
 
 (defun unset-jinja2-mode-keys()
@@ -287,8 +275,8 @@
 (add-hook 'jinja2-mode-hook 'unset-jinja2-mode-keys)
 
 (defun unset-undo-tree-mode-keys()
- (define-key undo-tree-map (kbd "C-/") nil)
- )
+  (define-key undo-tree-map (kbd "C-/") nil)
+  )
 (add-hook 'undo-tree-mode-hook 'unset-undo-tree-mode-keys)
 
 ;; minibuffer

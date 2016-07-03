@@ -43,6 +43,11 @@ sudo apt-get install python3-pip -y -f #~
 sudo pip3 install pylint #~
 ###sudo apt-get install pylint -y -f # rm or do something for using 3 and 2 pylint
 sudo pip2 install virtualenv #~
+## flycheck for css and js
+sudo apt-get install nodejs-legacy -y -f
+sudo apt-get install npm -y -f
+sudo npm install -g jshint
+sudo npm install -g csslint
 
 # install melpa plugins
 # todo: add close emacs after installing melpa packages
