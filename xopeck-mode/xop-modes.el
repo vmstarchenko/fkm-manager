@@ -42,7 +42,7 @@
 
 ;; scss-mode
 (require 'scss-mode)
-(setq scss-compile-at-save t)
+(setq scss-compile-at-save nil)
 
 ;; highlight-indentation
 (require 'highlight-indentation)

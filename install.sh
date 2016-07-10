@@ -51,6 +51,8 @@ sudo npm install -g csslint
 ## scss
 sudo apt-get install ruby -y -f
 sudo gem install sass
+#sudo gem install scss_lint
+#sudo gem install scss_lint_reporter_checkstyle
 
 # install melpa plugins
 # todo: add close emacs after installing melpa packages

@@ -146,38 +146,21 @@
 ;; (add-hook 'jinja2-mode-hook (lambda() (electric-pair-mode -1)))
 ;; (add-hook 'html-mode-hook (lambda() (electric-pair-mode -1)))
 
-;; размер таба
+;;; размер таба + пробелы вместо табов
 (setq indent-tabs-mode nil)
 (setq-default indent-tabs-mode nil)
 (add-hook 'fundamental-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'text-mode-hook (lambda() (setq tab-width 2)))
-(add-hook 'python-mode-hook (lambda() (setq tab-width 4)))
-(add-hook 'c++-mode-hook (lambda() (setq tab-width 2)))
+(add-hook 'python-mode-hook (lambda() (setq tab-width 4) (setq indent-tabs-mode nil))) ;;+
+(add-hook 'c++-mode-hook (lambda() (setq tab-width 2) (setq indent-tabs-mode nil))) ;;c-basic-indent???
+(add-hook 'org-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
 (add-hook 'emacs-lisp-mode-hook (lambda() (setq tab-width 2)))
+(add-hook 'lisp-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
 (add-hook 'js-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'jinja2-mode-hook (lambda() (setq tab-width 2)))
-(add-hook 'css-mode-hook (lambda() (setq tab-width 4)))
-;; пробелы вместо табов
-(add-hook 'python-mode-hook
-          (lambda()
-            (setq tab-width 4)
-            (setq indent-tabs-mode nil)
-            ))
-(add-hook 'c++-mode-hook
-          (lambda()
-            (setq tab-width 2)
-            (setq indent-tabs-mode nil)
-            ))
-(add-hook 'org-mode
-          (lambda()
-            (setq tab-width 2)
-            (setq indent-tabs-mode nil)
-            ))
-(add-hook 'lisp-mode
-          (lambda()
-            (setq tab-width 2)
-            (setq indent-tabs-mode nil)
-            ))
+(add-hook 'css-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
+(add-hook 'scss-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
+(add-hook 'makefile-mode-hook (lambda() (setq indent-tabs-mode t) (setq tab-width 4))) ;;+
 
 
 ;; ;; Связять расширения с модами
@@ -260,7 +243,7 @@
 (setq bookmark-save-flag t)
 
 ;; sr-speedbar
-;(require 'sr-speedbar)
+                                        ;(require 'sr-speedbar)
 (setq speedbar-frame-parameters
       '((minibuffer)
         (width . 40)
@@ -294,33 +277,6 @@
 
 ;; (with-current-buffer sr-speedbar-buffer-name ;; фиксированный размер окна
 ;;   (setq window-size-fixed 'width)) 
-
-
-;; (setq speedbar-expand-image-button-alist
-;;       '(("<+>" . sbimage-directory-plus)
-;;         ("<->" . sbimage-directory-minus)
-;;         ("< >" . sbimage-directory)
-;;         ("[+]" . sbimage-page-plus)
-;;         ("[-]" . sbimage-page-minus)
-;;         ("[?]" . sbimage-page)
-;;         ("[ ]" . sbimage-page)
-;;         ("{+}" . sbimage-box-plus)
-;;         ("{-}" . sbimage-box-minus)
-;;         ("<M>" . sbimage-mail)
-;;         ("<d>" . sbimage-document-tag)
-;;         ("<i>" . sbimage-info-tag)
-;;         (" =>" . sbimage-tag)
-;;         (" +>" . sbimage-tag-gt)
-;;         (" ->" . sbimage-tag-v)
-;;         (">"   . sbimage-tag)
-;;         ("@"   . sbimage-tag-type)
-;;         ("  @" . sbimage-tag-type)
-;;         ("*"   . sbimage-checkout)
-;;         ("#"   . sbimage-object)
-;;         ("!"   . sbimage-object-out-of-date)
-;;         ("//"  . sbimage-label)
-;;         ("%"   . sbimage-lock)
-;;         ))
 
 (c-add-style "openbsd"
              '("bsd"
