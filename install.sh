@@ -48,6 +48,9 @@ sudo apt-get install nodejs-legacy -y -f
 sudo apt-get install npm -y -f
 sudo npm install -g jshint
 sudo npm install -g csslint
+## scss
+sudo apt-get install ruby -y -f
+sudo gem install sass
 
 # install melpa plugins
 # todo: add close emacs after installing melpa packages

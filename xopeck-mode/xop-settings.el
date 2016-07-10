@@ -12,17 +12,12 @@
 ;; y/n вместо yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-
-
 ;; Название открытого буфера в шапке окна
 (setq frame-title-format "Emacs:   %b")
 
 ;; modeline
-(unless (string-match "*" (buffer-name))
-  (line-number-mode 1))
+(line-number-mode)
 (column-number-mode) ;; отображать номер столбца
-;; (line-number-mode -1) ;; не отображать номер строки
-;; (size-indication-mode) ;; размер файла?
 
 ;; (setq
 ;;  global-mode-string
@@ -61,7 +56,7 @@
                                         ;(powerline-buffer-size nil 'l)
                                 (powerline-raw "%p" nil 'l) ;; Процент прокрутки
                                 (powerline-raw "%2cC" nil 'l) ;; номер столбца
-																(powerline-raw (if (string-match "*" (buffer-name)) "%lL " " ") nil 'l) ;; номер столбца если не linum
+																(powerline-raw "%2lL " nil 'l) ;; номер строки
                                         ;                                (powerline-raw "")
                                 (funcall separator-left mode-line face1)
                                 (powerline-raw " " face1 'l)

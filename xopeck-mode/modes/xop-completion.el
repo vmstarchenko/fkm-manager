@@ -10,6 +10,11 @@
 ;;(setq ac-auto-show-menu t)
 ;;(setq ac-auto-start nil)
 
+(defun configure-auto-complete-for-scss ()
+  (add-to-list 'ac-sources 'ac-source-css-property))
+(add-hook 'scss-mode-hook 'configure-auto-complete-for-scss)
+(add-to-list 'ac-modes 'scss-mode)
+
 ;; latex completion
 ;;(add-to-list 'load-path "~/elisp")
 ;;(require 'ac-math)

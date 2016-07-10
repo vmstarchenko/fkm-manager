@@ -40,6 +40,10 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+;; scss-mode
+(require 'scss-mode)
+(setq scss-compile-at-save t)
+
 ;; highlight-indentation
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook '(lambda() (highlight-indentation-mode t)))
@@ -104,7 +108,7 @@
 ;; semantic
 ;; depandence: xop-complete
 (semantic-mode 1)
-(defun add-semantic-autocomplete() 
+(defun add-semantic-autocomplete()
   (add-to-list 'ac-sources 'ac-source-semantic)
   )
 (add-hook 'c-mode-common-hook 'add-semantic-autocomplete)
@@ -113,6 +117,7 @@
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'html-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
+(add-hook 'scss-mode-hook  'emmet-mode)
 (add-hook 'jinja2-mode-hook  'emmet-mode)
 
 ;; flycheck cpp
@@ -148,6 +153,7 @@
   (flycheck-mode)
   )
 (add-hook 'css-mode-hook #'flycheck-css-setup)
+(add-hook 'scss-mode-hook #'flycheck-css-setup)
 
 ;; flycheck python
 (defun flycheck-python-setup ()
@@ -243,7 +249,9 @@
 
 (defun unset-ido-mode-keys()
   (interactive)
-  (define-key ido-file-dir-completion-map (kbd "M-p") nil))
+  (define-key ido-file-dir-completion-map (kbd "M-p") nil)
+  (define-key ido-file-dir-completion-map (kbd "M-l") nil)
+  )
 (add-hook 'ido-setup-hook 'unset-ido-mode-keys)
 
 (defun unset-dired-mode-keys()
@@ -279,11 +287,18 @@
   )
 (add-hook 'undo-tree-mode-hook 'unset-undo-tree-mode-keys)
 
+(defun unset-bash-mode-keys()
+  (define-key sh-mode-map (kbd "C-M-x") nil)
+  )
+(add-hook 'sh-mode-hook 'unset-bash-mode-keys)
+
+
 ;; minibuffer
 ;; minibuffer-inactive-mode
 (define-key minibuffer-local-map (kbd "M-s") nil)
 (define-key minibuffer-local-map (kbd "M-r") nil)
 (define-key minibuffer-local-map (kbd "M-p") nil)
+
 
 ;; colors
 (add-hook 'css-mode-hook 'hex-color)
