@@ -50,8 +50,13 @@
               ;;(bibtex-mode ("@\\S(*\\(\\s(\\)" 1))
               ;;(java-mode "{" "}" "/[*/]" nil nil)
               (js-mode "{" "}" "/[*/]" nil))))
+  (require 'hideshow-fringe)
+  ;; (require 'hideshowvis)
+  ;; (hideshowvis-enable)
+  ;; (hideshowvis-symbols)
   )
 (add-hook 'js-mode-hook 'setup-hs-mode)
+
 
 
 ;; scss-mode

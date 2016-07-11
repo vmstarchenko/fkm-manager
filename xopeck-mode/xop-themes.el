@@ -155,6 +155,11 @@
    '(ac-completion-face                   ((t (                      :foreground "#eeeeee"                     ))))        ;; "Face for inline completion"
    '(ac-selection-face                    ((t (:background "#000000" :foreground "#ff8000" :bold t             ))))        ;; "Face for selected candidate."
 
+   ;; hide show
+   '(hs-fringe-face                       ((t (                      :foreground "#ffffff" :bold t             ))))        ;; hideshow plus in fringe
+   '(hideshowvis-hidable-face             ((t (                      :foreground "#ffffff" :bold t             ))))        ;; hideshow minus in fringe
+   '(hs-face                              ((t (:background "#000000" :foreground "#ffffff" :bold t             ))))        ;; hideshow {(n)...} face
+
    ;; variables
    '(variable-pitch ((t (:height 0.9)))) ;; height
 
