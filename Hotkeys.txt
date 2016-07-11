@@ -209,6 +209,15 @@ C-M-p v          ## projectile-grep                     ##                      
 C-M-p b          ## projectile-replace                  ##                               ## Поиск по проекту
 
 
+  Hide-show-mode
+M-=              ## hs-show-block                       ##                               ## показать блок
+M--              ## hs-hide-block                       ##                               ## скрыть блок
+C-=              ## hs-show-all                         ##                               ## показать всё (замена уровню)
+C--              ## hs-hide-level                       ##                               ## скрыть уровень
+C-M-=            ## hs-show-all                         ##                               ## показать всё
+C-M--            ## hs-hide-all                         ##                               ## скрыть всё
+
+
   Artist-mode
 Сочетание клавиш ## Команда                             ## Мод                           ## Действие
 C-M-\\ a         ## artist-mode                         ##                               ## Запустить Artist-mode

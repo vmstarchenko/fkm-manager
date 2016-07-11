@@ -40,6 +40,20 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+;; hs-mode
+(defun setup-hs-mode()
+  (hs-minor-mode)
+  (defvar hs-special-modes-alist
+    (mapcar 'purecopy
+            '(;;(c-mode "{" "}" "/[*/]" nil nil)
+              ;;(c++-mode "{" "}" "/[*/]" nil nil)
+              ;;(bibtex-mode ("@\\S(*\\(\\s(\\)" 1))
+              ;;(java-mode "{" "}" "/[*/]" nil nil)
+              (js-mode "{" "}" "/[*/]" nil))))
+  )
+(add-hook 'js-mode-hook 'setup-hs-mode)
+
+
 ;; scss-mode
 (require 'scss-mode)
 (setq scss-compile-at-save nil)
