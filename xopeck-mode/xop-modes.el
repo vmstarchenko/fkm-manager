@@ -42,6 +42,7 @@
 
 ;; hs-mode
 (defun setup-hs-mode()
+  (interactive)
   (hs-minor-mode)
   (defvar hs-special-modes-alist
     (mapcar 'purecopy
@@ -54,8 +55,10 @@
   ;; (require 'hideshowvis)
   ;; (hideshowvis-enable)
   ;; (hideshowvis-symbols)
+  (setq hide-string " [ %d ] ")
   )
 (add-hook 'js-mode-hook 'setup-hs-mode)
+
 
 
 

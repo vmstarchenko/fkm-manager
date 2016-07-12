@@ -83,6 +83,11 @@
 
 (defconst hideshowvis-version "v0.5" "Version of hideshowvis minor mode")
 
+(defcustom hide-string "(%d)..."
+  "String that appear instead hidden text.
+  if have %d specifier - insert amount of hidden lines."
+  :group 'hideshow)
+
 (defface hideshowvis-hidable-face
   '((t (:foreground "#ccc" :box t)))
   "Face to highlight foldable regions"
@@ -213,7 +218,7 @@ the end of the line for hidden regions."
     (when (eq 'code (overlay-get ov 'hs))
       (let* ((marker-string "*fringe-dummy*")
              (marker-length (length marker-string))
-             (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
+             (display-string (format hide-string (count-lines (overlay-start ov) (overlay-end ov))))
              )
         (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
         (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)

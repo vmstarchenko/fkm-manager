@@ -138,8 +138,8 @@
 (setq mouse-wheel-follow-mosue 't) ; scroll window under mouse
 (setq scroll-step 1) ; keyboard scroll one line at a time
 (setq scroll-conservatively 10000)
-(setq scroll-margin 3);
-(setq scroll-preserve-screen-position 1); 
+(setq scroll-margin 3)
+(setq scroll-preserve-screen-position 1)
 
 ;; парные скобки
 (electric-pair-mode 1)
@@ -156,7 +156,7 @@
 (add-hook 'org-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
 (add-hook 'emacs-lisp-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'lisp-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
-(add-hook 'js-mode-hook (lambda() (setq tab-width 2)))
+(add-hook 'js-mode-hook (lambda() (setq js-indent-level 2))) ;;+
 (add-hook 'jinja2-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'css-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
 (add-hook 'scss-mode-hook (lambda() (setq css-indent-offset 2))) ;;+

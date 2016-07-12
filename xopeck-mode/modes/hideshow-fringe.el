@@ -1,4 +1,8 @@
 (require 'hideshow)
+(defcustom hide-string "(%d)..."
+  "String that appear instead hidden text.
+  if have %d specifier - insert amount of hidden lines."
+  :group 'hideshow)
 
 (define-fringe-bitmap 'hs-marker [0 24 24 126 126 24 24 0])
 (defcustom hs-fringe-face 'hs-fringe-face
@@ -21,7 +25,7 @@
   (when (eq 'code (overlay-get ov 'hs))
     (let* ((marker-string "*fringe-dummy*")
            (marker-length (length marker-string))
-           (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
+           (display-string (format hide-string (count-lines (overlay-start ov) (overlay-end ov))))
            )
       ;; On hover over the overlay display the hidden text.
       (overlay-put ov 'help-echo (buffer-substring (overlay-start ov)
