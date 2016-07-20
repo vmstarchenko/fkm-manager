@@ -23,6 +23,7 @@
 (require 'xop-cursor) ;; colored cursor
 (require 'xop-brackets) ;; brackets
 ;;(require 'xop-abbrev") ;; abbrev
+(require 'tr-mode)
 
 ;;; local modes
 ;; moz-controller (todo: need firefox plugin)

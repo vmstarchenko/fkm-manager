@@ -160,6 +160,9 @@
    '(hideshowvis-hidable-face             ((t (                      :foreground "#ff8000" :bold t             ))))        ;; hideshow minus in fringe
    '(hs-face                              ((t (:background "#202020" :foreground "#ffff00" :bold nil :italic t             ))))        ;; hideshow {(n)...} face
 
+   ;; tr
+   '(tr-default-font-face                 default)        ;; hideshow {(n)...} face
+
    ;; variables
    '(variable-pitch ((t (:height 0.9)))) ;; height
 
