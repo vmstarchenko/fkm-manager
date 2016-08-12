@@ -14,6 +14,7 @@
 
 (defconst tr-font-lock-keywords-1
   (list
+   '("“.*”" . font-lock-string-face)
    '("\\[ *\\(\\(\\w+=\\w*\\)\\( +\\w+=\\w*\\)*\\)* *\\]" . font-lock-variable-name-face)
    '("{" . font-lock-variable-name-face)
    '("}" . font-lock-variable-name-face)
@@ -48,8 +49,8 @@
   :group 'tr
   (set (make-local-variable 'comment-start) "/*")
   (set (make-local-variable 'comment-start-skip) "/*")
-  ;; (set (make-local-variable 'comment-end) "*/")
-  ;; (set (make-local-variable 'comment-end-skip) "*/")
+  (set (make-local-variable 'comment-end) "*/")
+  (set (make-local-variable 'comment-end-skip) "*/")
   (set (make-local-variable 'font-lock-defaults) '(tr-font-lock-keywords))
   )
 
