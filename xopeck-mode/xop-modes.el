@@ -221,6 +221,14 @@
   (define-key js-mode-map (kbd "M-.") nil))
 (add-hook 'js-mode-hook 'unset-js-mode-keys)
 
+(defun unset-js2-mode-keys()
+  (interactive)
+  (define-key js2-mode-map (kbd "M-j") nil)
+  (define-key js2-mode-map (kbd "C-c") nil)
+  (define-key js2-mode-map "\t" nil)
+  (define-key js2-mode-map (kbd "<backtab>") nil)
+  )
+(add-hook 'js2-mode-hook 'unset-js2-mode-keys)
 
 (defun unset-c++-mode-keys()
   (interactive)

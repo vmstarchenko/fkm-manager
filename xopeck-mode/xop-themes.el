@@ -155,6 +155,12 @@
    '(ac-completion-face                   ((t (                      :foreground "#eeeeee"                     ))))        ;; "Face for inline completion"
    '(ac-selection-face                    ((t (:background "#000000" :foreground "#ff8000" :bold t             ))))        ;; "Face for selected candidate."
 
+   ;; js2-mode
+   '(js2-function-param                   ((t (                      :foreground "#ffc480" :bold t             ))))        ;; переменные
+   '(js2-warning                          ((t ())))
+   '(js2-error                            ((t ())))
+   '(js2-external-variable                ((t ())))
+
    ;; hide show
    '(hs-fringe-face                       ((t (                      :foreground "#ff8000" :bold t             ))))        ;; hideshow plus in fringe
    '(hideshowvis-hidable-face             ((t (                      :foreground "#ff8000" :bold t             ))))        ;; hideshow minus in fringe

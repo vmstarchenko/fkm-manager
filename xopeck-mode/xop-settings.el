@@ -157,6 +157,7 @@
 (add-hook 'emacs-lisp-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'lisp-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
 (add-hook 'js-mode-hook (lambda() (setq js-indent-level 2))) ;;+
+(add-hook 'js2-mode-hook (lambda() (setq js2-basic-offset 2))) ;;+
 (add-hook 'jinja2-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'css-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
 (add-hook 'scss-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
@@ -187,7 +188,10 @@
  '( "\\.h$". c++-mode))
 (add-to-list
  'auto-mode-alist
- '("\\.json$" . js-mode))
+ '("\\.json$" . js2-mode))
+(add-to-list
+ 'auto-mode-alist
+ '("\\.js$" . js2-mode))
 (add-to-list
  'auto-mode-alist
  '("\\.html$" . jinja2-mode))

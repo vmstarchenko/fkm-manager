@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: headerw
+# key: headerw
+# --
+/** ${1:FileName}.js */
+
+$0
+
+/* $1.js ends here **/
