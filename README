@@ -1,0 +1,4 @@
+other packages install
+sudo apt-get install git -y -f
+
+TODO: add cp from config-files (.jslintrc, .pylintrc ...)
