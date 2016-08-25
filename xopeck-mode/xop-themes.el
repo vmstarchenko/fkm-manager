@@ -159,7 +159,10 @@
    '(js2-function-param                   ((t (                      :foreground "#ffc480" :bold t             ))))        ;; переменные
    '(js2-warning                          ((t ())))
    '(js2-error                            ((t ())))
-   '(js2-external-variable                ((t ())))
+   '(js2-external-variable                ((t (:background "#ff8000" :foreground "#000000" :bold t             ))))
+   '(js2-jsdoc-tag                        ((t (                      :foreground "#cc33ff" :bold t             ))))        ;; переменные
+   '(js2-jsdoc-type                       ((t (                      :foreground "#ff4400"                     ))))
+   '(js2-jsdoc-value                      ((t (                      :foreground "#ffc480" :bold t             ))))        ;; переменные
 
    ;; hide show
    '(hs-fringe-face                       ((t (                      :foreground "#ff8000" :bold t             ))))        ;; hideshow plus in fringe
@@ -254,7 +257,7 @@
    '(which-func ((t (:foreground "#91bb9e"))))
    ))
 
-(orange-theme)
+;; (orange-theme)
 
 ;; шрифты
 ;;     "DejaVu Sans Mono-12")
