@@ -53,7 +53,6 @@ C-SPC            ## just-one-space                      ##                      
 C-M-q            ## quoted-insert                       ##                               ## Ввод неклавиатурного символа
 C-M-`            ## insert-character                    ##                               ## Ввод неклавиатурного символа
 C-M-3            ## comment-dwim                        ##                               ## Закомментировать/Раскомментировать регион
-C-M-;            ## iedit                               ##                               ## Изменить название переменной
 C-M-f            ## move-region-right                   ##                               ## Сдвинуть регион на 1 уровень вправо
 C-M-d            ## move-region                         ##                               ## Сдвинуть регион на (-)n пробелов
 C-M-s            ## move-region-left                    ##                               ## Сдвинуть регион на 1 уровень влево
@@ -75,7 +74,7 @@ C-M-a e u        ## upcase-previous-word                ##                      
 C-M-a s          ## sort-lines                          ##                               ## Отсортировать регион
 C-M-a c          ## count-words                         ##                               ## Посчитать статистику строк, слов, символов.
 C-M-a SPC        ## delete-trailing-whitespace          ##                               ## Удалить конечные пробелы
-C-M-a b          ## iedit-mode                          ##                               ## 
+C-M-a b          ## iedit-mode                          ##                               ## Изменить название переменной в файле
 
 
   Макросы
