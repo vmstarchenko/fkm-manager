@@ -1,65 +1,65 @@
-;;; xopeck-theme.el --- Dark low contrast theme with soft and muted colors.
+;;; xopeck-light-theme.el --- Dark low contrast theme with soft and muted colors.
 
 ;;; Code:
 
-(deftheme xopeck-theme)
+(deftheme xopeck-light-theme)
 (let* ((class '((class color) (min-colors 89)))
        ;; colors
-       (default-bg "#303030")
-       (default-fg "#ecdfff")
-       (cursor-bg  "#00ffff")
-       (cursor-fg  "#000000")
-       (fringe-bg  "#000000")
+       (default-bg "#ffffff")
+       (default-fg "#303030")
+       (cursor-bg  "#ff80ff")
+       (cursor-fg  "#ffffff")
+       (fringe-bg  "#eeeeee")
        (fringe-fg default-fg)
 
-       (builtin-fg "#ff80df")
+       (builtin-fg "#000000")
 
        ;; faces
        (default          `((,class (:background ,default-bg :foreground ,default-fg))))
-       (default2         `((,class (:background "#252525"   :foreground "#ff8000"))))
+       (default2         `((,class (:background "#eeeeee"   :foreground "#5d000f"))))
        (cursor           `((,class (:background ,cursor-bg  :foreground ,cursor-fg ))))
-       (default-active   `((,class (                        :foreground ,builtin-fg))))
-       (default-inactive `((,class (                        :foreground "#000000"  ))))
-       (hl               `((,class (:background "#000000"   :foreground ,default-fg))))
-       (hl-active        `((,class (:background "#000000"   :foreground "#ff4400" :bold t))))
-       (hl-info          `((,class (:background "#000000"   :foreground "#a681a6"  ))))
-       (hl-warning       `((,class (:background "#000000"   :foreground "#ff8000"  ))))
-       (hl-error         `((,class (:background "#000000"   :foreground "#ff0000"  ))))
+       (default-active   `((,class (                        :foreground "#000000"))))
+       (default-inactive `((,class (                        :foreground "#bbbbbb"  ))))
+       (hl               `((,class (:background "#bbbbbb"   :foreground ,default-fg))))
+       (hl-active        `((,class (:background "#aaaaff"   :foreground "#5d000f" :bold t))))
+       (hl-info          `((,class (:background "#bbbbbb"   :foreground "#a681a6"  ))))
+       (hl-warning       `((,class (:background "#bbbbbb"   :foreground "#ff8000"  ))))
+       (hl-error         `((,class (:background "#bbbbbb"   :foreground "#ff0000"  ))))
        (fringe           `((,class (:background ,fringe-bg  :foreground ,fringe-fg ))))
        (fringe-border    `((,class (:background ,fringe-bg  :foreground ,fringe-bg ))))
-       (builtin          `((,class (                        :foreground ,builtin-fg :bold t))))
        (fringe-info      `((,class (:background "#a681a6"   :foreground ,fringe-bg ))))
        (fringe-warning   `((,class (:background "#ff8000"   :foreground ,fringe-bg ))))
        (fringe-error     `((,class (:background "#ff0000"   :foreground ,fringe-bg ))))
-       (comment          `((,class (                        :foreground "#ffe500" :italic t ))))
-       (comment-symbol   `((,class (                        :foreground "#ff0000" :italic nil ))))
-       (constant         `((,class (                        :foreground "#cc33ff" :bold t ))))        ;; цвет std в С
-       (function-name    `((,class (                        :foreground "#ff6666" :bold t ))))        ;; имена функций
-       (keyword          `((,class (                        :foreground "#ff80df" :bold t ))))        ;; ключевые слова
+       (builtin          `((,class (                        :foreground "#e00800" :bold t))))
+       (comment          `((,class (                        :foreground "#766f00" :italic t ))))
+       (comment-symbol   `((,class (                        :foreground "#76006f" :italic nil :bold t ))))
+       (constant         `((,class (                        :foreground "#820565" :bold t ))))        ;; цвет std в С
+       (function-name    `((,class (                        :foreground "#4a2978" :bold t ))))        ;; имена функций
+       (keyword          `((,class (                        :foreground "#d50085" :bold t ))))        ;; ключевые слова
        (negation-char    `((,class (                        :foreground "#ff0000" :bold t ))))        ;; Символ отрицания
-       (preprocessor     `((,class (                        :foreground "#ff3333"         ))))        ;; обращение к препроцессору
-       (str              `((,class (                        :foreground "#ff8000"         ))))        ;; строковые литералы
+       (preprocessor     `((,class (                        :foreground "#000000"         ))))        ;; обращение к препроцессору
+       (str              `((,class (                        :foreground "#5d000f"         ))))        ;; строковые литералы
        (regexp           str)
-       (type             `((,class (                        :foreground "#ff4400"         ))))        ;; другие встроенные функции
-       (variable-name    `((,class (                        :foreground "#ffc480" :bold t ))))        ;; переменные
-       (tip              `((,class (:background "#eeeeee"   :foreground "#202020"         ))))        ;; совет,хелп,документация
+       (type             `((,class (                        :foreground "#662985"         ))))        ;; другие встроенные функции
+       (variable-name    `((,class (                        :foreground "#f00063" ))))        ;; переменные
+       (tip              `((,class (:background "#aaffaa"   :foreground "#000000"         ))))        ;; совет,хелп,документация
 
-       (directory        `((,class (                        :foreground "#ff8000" :bold t ))))
-       (symlink          `((,class (                        :foreground "#008000" :bold t ))))
+       (directory        `((,class (                        :foreground "#80008f" :bold t ))))
+       (symlink          `((,class (                        :foreground "#005d0f" :bold t ))))
        (file             `((,class (                        :foreground ,default-fg :bold nil ))))
        (linum            `((,class (:background ,default-bg :foreground ,default-fg :bold nil :italic nil ))))
-       (header           `((,class (                        :foreground "#ff4400" ))))
+       (header           `((,class (                        :foreground "#000000" ))))
 
-       (prompt           `((,class (                        :foreground "#ffc0cb" :bold t ))))
-       (promptf          `((,class (                        :foreground "#80ffff" :bold t ))))
+       (prompt           `((,class (                        :foreground "#f000f0" :bold t ))))
+       (promptf          `((,class (                        :foreground "#70e070" :bold t ))))
 
-       (but              `((,class (                        :foreground "#ff6666" :bold t :box t))))
+       (but              `((,class (                        :foreground "#000000" :bold t :box t))))
 
        (dummy            `((,class (:background "#fff000"   :foreground "#000000" :bold t ))))
        (empty            `((,class ())))
        )
   (custom-theme-set-faces
-   'xopeck-theme
+   'xopeck-light-theme
    ;; Ensure sufficient contrast on low-color terminals.
    `(cursor  ,cursor ) ;; курсор
    `(default ,default) ;; цвет фона и шрифта по умолчанию 303040 403030 304030 :family "DejaVu Sans Mono-11" ecdfff
@@ -977,11 +977,11 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'xopeck-theme)
-(provide 'xopeck-theme)
+(provide-theme 'xopeck-light-theme)
+(provide 'xopeck-light-theme)
 
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
 
-;;; xopeck-theme.el ends here
+;;; xopeck-light-theme.el ends here

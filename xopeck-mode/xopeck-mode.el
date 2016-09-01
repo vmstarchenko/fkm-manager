@@ -13,6 +13,7 @@
 ; custom hotkeys
 (load "xop-hotkeys")
 
+;(require 'xopeck-light-theme)
 (require 'xopeck-theme)
 
 
