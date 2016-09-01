@@ -268,6 +268,8 @@
 (global-set-key (kbd "C-M-a e u") 'upcase-previous-word)   ;; Перевести предыдущее слово в верхний регистр
 (global-set-key (kbd "C-M-a s") 'sort-lines)   ;; Отсортировать регион
 (global-set-key (kbd "C-M-a c") 'count-words)   ;; Посчитать статистику строк, слов, символов.
+(global-set-key (kbd "C-M-a SPC") 'delete-trailing-whitespace)   ;; Удалить конечные пробелы
+(global-set-key (kbd "C-M-a b") 'iedit-mode)   ;; 
 ;; Сочетание клавиш   Мод   Команда   Действие
 (global-set-key (kbd "C-M-c") 'start-kbd-macro)   ;; Начать запись макроса
 (global-set-key (kbd "C-M-v") 'end-kbd-macro)   ;; Закончтиь запись макроса
@@ -524,6 +526,8 @@ ________________________________________________________________________________
  C-M-a e u        | upcase-previous-word                |                               | Перевести предыдущее слово в верхний регистр
  C-M-a s          | sort-lines                          |                               | Отсортировать регион
  C-M-a c          | count-words                         |                               | Посчитать статистику строк, слов, символов.
+ C-M-a SPC        | delete-trailing-whitespace          |                               | Удалить конечные пробелы
+ C-M-a b          | iedit-mode                          |                               | 
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 

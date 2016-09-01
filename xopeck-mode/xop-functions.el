@@ -401,14 +401,6 @@
 	(interactive)
 	(load "xopeck-mode"))
 
-;; iedit-mode
-;; (defun iedit()
-;; 	(interactive)
-;; 	(iedit-mode t)
-;; 	;; (load "hotkeys")
-;; 	(message ""))
-;; todo: bind function iedit-mode
-
 ;; css-colors
 (defun hex-color ()
   "Syntax color text of the form #ff1100 in current buffer"

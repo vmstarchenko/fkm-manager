@@ -33,6 +33,9 @@
 (display-time-mode 1)
 (setq display-time-interval 10)
 
+;; fix iedit keybindings
+(setq iedit-toggle-key-default nil)
+
 ;; powerline
 (defun powerline-xopeck-theme ()
   "Setup a mode-line with major and minor modes centered."

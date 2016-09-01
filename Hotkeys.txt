@@ -74,6 +74,8 @@ C-M-a e r        ## upcase-region                       ##                      
 C-M-a e u        ## upcase-previous-word                ##                               ## Перевести предыдущее слово в верхний регистр
 C-M-a s          ## sort-lines                          ##                               ## Отсортировать регион
 C-M-a c          ## count-words                         ##                               ## Посчитать статистику строк, слов, символов.
+C-M-a SPC        ## delete-trailing-whitespace          ##                               ## Удалить конечные пробелы
+C-M-a b          ## iedit-mode                          ##                               ## 
 
 
   Макросы
