@@ -251,12 +251,6 @@
 (global-set-key (kbd "C-M-f") 'move-region-right)   ;; Сдвинуть регион на 1 уровень вправо
 (global-set-key (kbd "C-M-d") 'move-region)   ;; Сдвинуть регион на (-)n пробелов
 (global-set-key (kbd "C-M-s") 'move-region-left)   ;; Сдвинуть регион на 1 уровень влево
-(global-set-key (kbd "C-M-a r i") 'upcase-region)   ;; Перевести регион в верхний регистр
-(global-set-key (kbd "C-M-a r k") 'downcase-region)   ;; Перевести регион в нижний регистр
-(global-set-key (kbd "C-M-a o i") 'upcase-word)   ;; Перевести следующее слово в верхний регистр
-(global-set-key (kbd "C-M-a o k") 'downcase-word)   ;; Перевести следующее в нижний регистр
-(global-set-key (kbd "C-M-a u i") 'upcase-previous-word)   ;; Перевести предыдущее слово в верхний регистр
-(global-set-key (kbd "C-M-a u k") 'downcase-previous-word)   ;; Перевести предыдущее в нижний регистр
 (global-set-key (kbd "C-M-t e") 'translate-to-english)   ;; Слово под курсором на английский
 (global-set-key (kbd "C-M-t r") 'translate-to-russian)   ;; Слово под курсором на русский
 (global-set-key (kbd "C-M-t t r") 'turn-in-russian)   ;; Перевести побуквенно регион в русский текст
@@ -266,6 +260,14 @@
 (global-set-key (kbd "C-M-'") 'docs-string)   ;; Вставляет заготовку для документации кода
 (define-key python-mode-map (kbd "C-M-p f") 'switch-flycheck)   ;; Включить/выключить flycheck
 (global-set-key (kbd "C-M-2") 'indent)   ;; Пересчитать отступы в регионе или во всем буфере
+(global-set-key (kbd "C-M-a d o") 'downcase-word)   ;; Перевести следующее в нижний регистр
+(global-set-key (kbd "C-M-a d r") 'downcase-region)   ;; Перевести регион в нижний регистр
+(global-set-key (kbd "C-M-a d u") 'downcase-previous-word)   ;; Перевести предыдущее в нижний регистр
+(global-set-key (kbd "C-M-a e o") 'upcase-word)   ;; Перевести следующее слово в верхний регистр
+(global-set-key (kbd "C-M-a e r") 'upcase-region)   ;; Перевести регион в верхний регистр
+(global-set-key (kbd "C-M-a e u") 'upcase-previous-word)   ;; Перевести предыдущее слово в верхний регистр
+(global-set-key (kbd "C-M-a s") 'sort-lines)   ;; Отсортировать регион
+(global-set-key (kbd "C-M-a c") 'count-words)   ;; Посчитать статистику строк, слов, символов.
 ;; Сочетание клавиш   Мод   Команда   Действие
 (global-set-key (kbd "C-M-c") 'start-kbd-macro)   ;; Начать запись макроса
 (global-set-key (kbd "C-M-v") 'end-kbd-macro)   ;; Закончтиь запись макроса
@@ -505,12 +507,6 @@ ________________________________________________________________________________
  C-M-f            | move-region-right                   |                               | Сдвинуть регион на 1 уровень вправо
  C-M-d            | move-region                         |                               | Сдвинуть регион на (-)n пробелов
  C-M-s            | move-region-left                    |                               | Сдвинуть регион на 1 уровень влево
- C-M-a r i        | upcase-region                       |                               | Перевести регион в верхний регистр
- C-M-a r k        | downcase-region                     |                               | Перевести регион в нижний регистр
- C-M-a o i        | upcase-word                         |                               | Перевести следующее слово в верхний регистр
- C-M-a o k        | downcase-word                       |                               | Перевести следующее в нижний регистр
- C-M-a u i        | upcase-previous-word                |                               | Перевести предыдущее слово в верхний регистр
- C-M-a u k        | downcase-previous-word              |                               | Перевести предыдущее в нижний регистр
  C-M-t e          | translate-to-english                |                               | Слово под курсором на английский
  C-M-t r          | translate-to-russian                |                               | Слово под курсором на русский
  C-M-t t r        | turn-in-russian                     |                               | Перевести побуквенно регион в русский текст
@@ -520,6 +516,14 @@ ________________________________________________________________________________
  C-M-'            | docs-string                         |                               | Вставляет заготовку для документации кода
  C-M-p f          | switch-flycheck                     | python-mode-map               | Включить/выключить flycheck
  C-M-2            | indent                              |                               | Пересчитать отступы в регионе или во всем буфере
+ C-M-a d o        | downcase-word                       |                               | Перевести следующее в нижний регистр
+ C-M-a d r        | downcase-region                     |                               | Перевести регион в нижний регистр
+ C-M-a d u        | downcase-previous-word              |                               | Перевести предыдущее в нижний регистр
+ C-M-a e o        | upcase-word                         |                               | Перевести следующее слово в верхний регистр
+ C-M-a e r        | upcase-region                       |                               | Перевести регион в верхний регистр
+ C-M-a e u        | upcase-previous-word                |                               | Перевести предыдущее слово в верхний регистр
+ C-M-a s          | sort-lines                          |                               | Отсортировать регион
+ C-M-a c          | count-words                         |                               | Посчитать статистику строк, слов, символов.
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 

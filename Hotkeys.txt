@@ -57,12 +57,6 @@ C-M-;            ## iedit                               ##                      
 C-M-f            ## move-region-right                   ##                               ## Сдвинуть регион на 1 уровень вправо
 C-M-d            ## move-region                         ##                               ## Сдвинуть регион на (-)n пробелов
 C-M-s            ## move-region-left                    ##                               ## Сдвинуть регион на 1 уровень влево
-C-M-a r i        ## upcase-region                       ##                               ## Перевести регион в верхний регистр
-C-M-a r k        ## downcase-region                     ##                               ## Перевести регион в нижний регистр
-C-M-a o i        ## upcase-word                         ##                               ## Перевести следующее слово в верхний регистр
-C-M-a o k        ## downcase-word                       ##                               ## Перевести следующее в нижний регистр
-C-M-a u i        ## upcase-previous-word                ##                               ## Перевести предыдущее слово в верхний регистр
-C-M-a u k        ## downcase-previous-word              ##                               ## Перевести предыдущее в нижний регистр
 C-M-t e          ## translate-to-english                ##                               ## Слово под курсором на английский
 C-M-t r          ## translate-to-russian                ##                               ## Слово под курсором на русский
 C-M-t t r        ## turn-in-russian                     ##                               ## Перевести побуквенно регион в русский текст
@@ -72,6 +66,14 @@ C-M-[            ## insert-brace                        ##                      
 C-M-'            ## docs-string                         ##                               ## Вставляет заготовку для документации кода
 C-M-p f          ## switch-flycheck                     ## python-mode-map               ## Включить/выключить flycheck
 C-M-2            ## indent                              ##                               ## Пересчитать отступы в регионе или во всем буфере
+C-M-a d o        ## downcase-word                       ##                               ## Перевести следующее в нижний регистр
+C-M-a d r        ## downcase-region                     ##                               ## Перевести регион в нижний регистр
+C-M-a d u        ## downcase-previous-word              ##                               ## Перевести предыдущее в нижний регистр
+C-M-a e o        ## upcase-word                         ##                               ## Перевести следующее слово в верхний регистр
+C-M-a e r        ## upcase-region                       ##                               ## Перевести регион в верхний регистр
+C-M-a e u        ## upcase-previous-word                ##                               ## Перевести предыдущее слово в верхний регистр
+C-M-a s          ## sort-lines                          ##                               ## Отсортировать регион
+C-M-a c          ## count-words                         ##                               ## Посчитать статистику строк, слов, символов.
 
 
   Макросы
