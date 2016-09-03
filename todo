@@ -1,3 +1,4 @@
 add .emacs
 add to .emacs
 (require 'xopeck-mode)
+add normal rename function for current file and buffer

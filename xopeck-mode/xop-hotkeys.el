@@ -247,7 +247,6 @@
 (global-set-key (kbd "C-M-q") 'quoted-insert)   ;; Ввод неклавиатурного символа
 (global-set-key (kbd "C-M-`") 'insert-character)   ;; Ввод неклавиатурного символа
 (global-set-key (kbd "C-M-3") 'comment-dwim)   ;; Закомментировать/Раскомментировать регион
-(global-set-key (kbd "C-M-;") 'iedit)   ;; Изменить название переменной
 (global-set-key (kbd "C-M-f") 'move-region-right)   ;; Сдвинуть регион на 1 уровень вправо
 (global-set-key (kbd "C-M-d") 'move-region)   ;; Сдвинуть регион на (-)n пробелов
 (global-set-key (kbd "C-M-s") 'move-region-left)   ;; Сдвинуть регион на 1 уровень влево
@@ -268,8 +267,9 @@
 (global-set-key (kbd "C-M-a e u") 'upcase-previous-word)   ;; Перевести предыдущее слово в верхний регистр
 (global-set-key (kbd "C-M-a s") 'sort-lines)   ;; Отсортировать регион
 (global-set-key (kbd "C-M-a c") 'count-words)   ;; Посчитать статистику строк, слов, символов.
+(global-set-key (kbd "C-M-a v") 'occur)   ;; Мультипоиск по буферу
+(global-set-key (kbd "C-M-a b") 'iedit-mode)   ;; Изменить название переменной в файле
 (global-set-key (kbd "C-M-a SPC") 'delete-trailing-whitespace)   ;; Удалить конечные пробелы
-(global-set-key (kbd "C-M-a b") 'iedit-mode)   ;; 
 ;; Сочетание клавиш   Мод   Команда   Действие
 (global-set-key (kbd "C-M-c") 'start-kbd-macro)   ;; Начать запись макроса
 (global-set-key (kbd "C-M-v") 'end-kbd-macro)   ;; Закончтиь запись макроса
@@ -307,8 +307,9 @@
 (global-set-key (kbd "s-r") 'find-file-read-only)   ;; Открыть файл в режиме чтения
 (global-set-key (kbd "s-s") 'save-buffer)   ;; Сохранить буфер на диске
 (global-set-key (kbd "s-w") 'write-file)   ;; Сохранить буфер в файле с новым именем
+(global-set-key (kbd "s-e") 'rename-file)   ;; Переименовать файл
 (global-set-key (kbd "s-d") 'dired)   ;; Открыть файловый менеджер
-(global-set-key (kbd "s-e") 'bookmark-bmenu-list)   ;; Открыть закладки
+(global-set-key (kbd "s-n") 'bookmark-bmenu-list)   ;; Открыть закладки
 (global-set-key (kbd "s-b") 'bookmark-set)   ;; Добавить закладку
 (global-set-key (kbd "C-M-y") 'yas-expand)   ;; Дополнить
 (define-key yas-minor-mode-map (kbd "C-M-h") 'yas-exit-snippet)   ;; Окончить набор сниппета
@@ -505,7 +506,6 @@ ________________________________________________________________________________
  C-M-q            | quoted-insert                       |                               | Ввод неклавиатурного символа
  C-M-`            | insert-character                    |                               | Ввод неклавиатурного символа
  C-M-3            | comment-dwim                        |                               | Закомментировать/Раскомментировать регион
- C-M-;            | iedit                               |                               | Изменить название переменной
  C-M-f            | move-region-right                   |                               | Сдвинуть регион на 1 уровень вправо
  C-M-d            | move-region                         |                               | Сдвинуть регион на (-)n пробелов
  C-M-s            | move-region-left                    |                               | Сдвинуть регион на 1 уровень влево
@@ -526,8 +526,9 @@ ________________________________________________________________________________
  C-M-a e u        | upcase-previous-word                |                               | Перевести предыдущее слово в верхний регистр
  C-M-a s          | sort-lines                          |                               | Отсортировать регион
  C-M-a c          | count-words                         |                               | Посчитать статистику строк, слов, символов.
+ C-M-a v          | occur                               |                               | Мультипоиск по буферу
+ C-M-a b          | iedit-mode                          |                               | Изменить название переменной в файле
  C-M-a SPC        | delete-trailing-whitespace          |                               | Удалить конечные пробелы
- C-M-a b          | iedit-mode                          |                               | 
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 
@@ -600,8 +601,9 @@ ________________________________________________________________________________
  s-r              | find-file-read-only                 |                               | Открыть файл в режиме чтения
  s-s              | save-buffer                         |                               | Сохранить буфер на диске
  s-w              | write-file                          |                               | Сохранить буфер в файле с новым именем
+ s-e              | rename-file                         |                               | Переименовать файл
  s-d              | dired                               |                               | Открыть файловый менеджер
- s-e              | bookmark-bmenu-list                 |                               | Открыть закладки
+ s-n              | bookmark-bmenu-list                 |                               | Открыть закладки
  s-b              | bookmark-set                        |                               | Добавить закладку
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 

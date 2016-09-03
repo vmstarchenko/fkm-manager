@@ -233,6 +233,7 @@
 (defun unset-c++-mode-keys()
   (interactive)
   (define-key c++-mode-map (kbd "C-d") nil)
+  (define-key c++-mode-map (kbd "C-M-a") nil)
   (define-key c++-mode-map (kbd "C-M-e") nil)
   (define-key c++-mode-map (kbd "C-;") nil)
   (define-key c++-mode-map (kbd "C-M-q") nil))

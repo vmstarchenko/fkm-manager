@@ -73,8 +73,9 @@ C-M-a e r        ## upcase-region                       ##                      
 C-M-a e u        ## upcase-previous-word                ##                               ## Перевести предыдущее слово в верхний регистр
 C-M-a s          ## sort-lines                          ##                               ## Отсортировать регион
 C-M-a c          ## count-words                         ##                               ## Посчитать статистику строк, слов, символов.
-C-M-a SPC        ## delete-trailing-whitespace          ##                               ## Удалить конечные пробелы
+C-M-a v          ## occur                               ##                               ## Мультипоиск по буферу
 C-M-a b          ## iedit-mode                          ##                               ## Изменить название переменной в файле
+C-M-a SPC        ## delete-trailing-whitespace          ##                               ## Удалить конечные пробелы
 
 
   Макросы
@@ -127,8 +128,9 @@ s-f              ## find-file                           ##                      
 s-r              ## find-file-read-only                 ##                               ## Открыть файл в режиме чтения
 s-s              ## save-buffer                         ##                               ## Сохранить буфер на диске
 s-w              ## write-file                          ##                               ## Сохранить буфер в файле с новым именем
+s-e              ## rename-file                         ##                               ## Переименовать файл
 s-d              ## dired                               ##                               ## Открыть файловый менеджер
-s-e              ## bookmark-bmenu-list                 ##                               ## Открыть закладки
+s-n              ## bookmark-bmenu-list                 ##                               ## Открыть закладки
 s-b              ## bookmark-set                        ##                               ## Добавить закладку
 
 
