@@ -190,17 +190,20 @@
 ;;; modes.el ends here
 
 ;; LaTeX
-;;(load "auctex.el" nil t t)
-;;(load "preview-latex.el" nil t t)
-;;(defun set-docview-mode-keys()
-;;  (define-key (current-local-map)
-;;    [remap forward-paragraph]
-;;    'doc-view-next-page)
-;;  (define-key
-;;    (current-local-map)
-;;    [remap backward-paragraph]
-;;    'doc-view-previous-page))
-;;(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
+(add-hook 'TeX-mode-hook
+          '(lambda()
+             (message "load")
+             (latex-preview-pane-mode t)))
+;; fix docview-mode keys
+(defun set-docview-mode-keys()
+ (define-key (current-local-map)
+   [remap forward-paragraph]
+   'doc-view-next-page)
+ (define-key
+   (current-local-map)
+   [remap backward-paragraph]
+   'doc-view-previous-page))
+(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 ;; hs
 ;; (add-hook 'c-mode-common-hook #'hs-minor-mode)

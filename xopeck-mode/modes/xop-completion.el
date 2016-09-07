@@ -17,13 +17,15 @@
 
 ;; latex completion
 ;;(add-to-list 'load-path "~/elisp")
-;;(require 'ac-math)
-;;(add-to-list 'ac-modes 'latex-mode)
-;;(defun ac-latex-mode-setup ()
-;;  (setq ac-sources
-;;        (append '(ac-source-math-latex ac-source-latex-commands  ac-source-;math-unicode)
-;;                ac-sources)))
-;;(add-hook 'LaTeX-mode-hook 'ac-latex-mode-setup)
+
+(require 'ac-math)
+(add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
+(defun ac-LaTeX-mode-setup () ; add ac-sources to default ac-sources
+  (setq ac-sources
+        (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
+                ac-sources)))
+(add-hook 'LaTeX-mode-hook 'ac-LaTeX-mode-setup)
+(setq ac-math-unicode-in-math-p t)
 
 ;; autocomplete c-headers
 ;;(defun ac-c-header-init ()

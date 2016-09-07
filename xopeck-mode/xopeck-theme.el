@@ -46,6 +46,7 @@
 
        (directory        `((,class (                        :foreground "#ff8000" :bold t ))))
        (symlink          `((,class (                        :foreground "#008000" :bold t ))))
+       (link-face        `((,class (                        :foreground "#008000" :bold t ))))
        (file             `((,class (                        :foreground ,default-fg :bold nil ))))
        (linum            `((,class (:background ,default-bg :foreground ,default-fg :bold nil :italic nil ))))
        (header           `((,class (                        :foreground "#ff4400" ))))
@@ -98,8 +99,8 @@
    `(ace-jump-face-foreground ,dummy)
 
    ;; Button and link faces
-   `(link         ,dummy)
-   `(link-visited ,dummy)
+   `(link         ,link-face)
+   `(link-visited ,link-face)
 
    ;; CPerl
    `(cperl-array-face          ,dummy)

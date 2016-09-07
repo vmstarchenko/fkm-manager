@@ -14,11 +14,14 @@
     projectile
 		;; my
     ;; auto-complete-c-headers
-    ;; ac-math
     flycheck
     google-translate
     iedit
-    ;; latex-preview-pane
+
+    auctex
+    latex-preview-pane
+    ac-math
+
     yasnippet
 
     ;; other

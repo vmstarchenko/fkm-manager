@@ -59,6 +59,8 @@ sudo npm install babel-plugin-transform-es2015-modules-amd
 sudo npm install -g browserify
 sudo npm install -g watchify
 
+## latex
+sudo apt-get install texlive -f -y
 
 # install melpa plugins
 # todo: add close emacs after installing melpa packages
