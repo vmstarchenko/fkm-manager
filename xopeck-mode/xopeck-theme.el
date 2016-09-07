@@ -3,62 +3,62 @@
 ;;; Code:
 
 (deftheme xopeck-theme)
-(let* ((class '((class color) (min-colors 89)))
-       ;; colors
-       (default-bg "#303030")
-       (default-fg "#ecdfff")
-       (cursor-bg  "#00ffff")
-       (cursor-fg  "#000000")
-       (fringe-bg  "#000000")
-       (fringe-fg default-fg)
+(let*
+    ((class '((class color) (min-colors 89)))
+     ;; colors
+     (default-bg "#303030")
+     (default-fg "#ecdfff")
+     (cursor-bg  "#00ffff")
+     (cursor-fg  "#000000")
+     (fringe-bg  "#000000")
+     (fringe-fg default-fg)
 
-       (builtin-fg "#ff80df")
+     (builtin-fg "#ff80df")
 
-       ;; faces
-       (default          `((,class (:background ,default-bg :foreground ,default-fg))))
-       (default2         `((,class (:background "#252525"   :foreground "#ff8000"))))
-       (cursor           `((,class (:background ,cursor-bg  :foreground ,cursor-fg ))))
-       (default-active   `((,class (                        :foreground ,builtin-fg))))
-       (default-inactive `((,class (                        :foreground "#000000"  ))))
-       (hl               `((,class (:background "#000000"   :foreground ,default-fg))))
-       (hl-active        `((,class (:background "#000000"   :foreground "#ff4400" :bold t))))
-       (hl-info          `((,class (:background "#000000"   :foreground "#a681a6"  ))))
-       (hl-warning       `((,class (:background "#000000"   :foreground "#ff8000"  ))))
-       (hl-error         `((,class (:background "#000000"   :foreground "#ff0000"  ))))
-       (fringe           `((,class (:background ,fringe-bg  :foreground ,fringe-fg ))))
-       (fringe-border    `((,class (:background ,fringe-bg  :foreground ,fringe-bg ))))
-       (builtin          `((,class (                        :foreground ,builtin-fg :bold t))))
-       (fringe-info      `((,class (:background "#a681a6"   :foreground ,fringe-bg ))))
-       (fringe-warning   `((,class (:background "#ff8000"   :foreground ,fringe-bg ))))
-       (fringe-error     `((,class (:background "#ff0000"   :foreground ,fringe-bg ))))
-       (comment          `((,class (                        :foreground "#ffe500" :italic t ))))
-       (comment-symbol   `((,class (                        :foreground "#ff0000" :italic nil ))))
-       (constant         `((,class (                        :foreground "#cc33ff" :bold t ))))        ;; цвет std в С
-       (function-name    `((,class (                        :foreground "#ff6666" :bold t ))))        ;; имена функций
-       (keyword          `((,class (                        :foreground "#ff80df" :bold t ))))        ;; ключевые слова
-       (negation-char    `((,class (                        :foreground "#ff0000" :bold t ))))        ;; Символ отрицания
-       (preprocessor     `((,class (                        :foreground "#ff3333"         ))))        ;; обращение к препроцессору
-       (str              `((,class (                        :foreground "#ff8000"         ))))        ;; строковые литералы
-       (regexp           str)
-       (type             `((,class (                        :foreground "#ff4400"         ))))        ;; другие встроенные функции
-       (variable-name    `((,class (                        :foreground "#ffc480" :bold t ))))        ;; переменные
-       (tip              `((,class (:background "#eeeeee"   :foreground "#202020"         ))))        ;; совет,хелп,документация
+     ;; faces
+     (default          `((,class (:background ,default-bg :foreground ,default-fg))))
+     (default2         `((,class (:background "#252525"   :foreground "#ff8000"))))
+     (cursor           `((,class (:background ,cursor-bg  :foreground ,cursor-fg ))))
+     (default-active   `((,class (                        :foreground ,builtin-fg))))
+     (default-inactive `((,class (                        :foreground "#000000"  ))))
+     (hl               `((,class (:background "#000000"   :foreground ,default-fg))))
+     (hl-active        `((,class (:background "#000000"   :foreground "#ff4400" :bold t))))
+     (hl-info          `((,class (:background "#000000"   :foreground "#a681a6"  ))))
+     (hl-warning       `((,class (:background "#000000"   :foreground "#ff8000"  ))))
+     (hl-error         `((,class (:background "#000000"   :foreground "#ff0000"  ))))
+     (fringe           `((,class (:background ,fringe-bg  :foreground ,fringe-fg ))))
+     (fringe-border    `((,class (:background ,fringe-bg  :foreground ,fringe-bg ))))
+     (builtin          `((,class (                        :foreground ,builtin-fg :bold t))))
+     (fringe-info      `((,class (:background "#a681a6"   :foreground ,fringe-bg ))))
+     (fringe-warning   `((,class (:background "#ff8000"   :foreground ,fringe-bg ))))
+     (fringe-error     `((,class (:background "#ff0000"   :foreground ,fringe-bg ))))
+     (comment          `((,class (                        :foreground "#ffe500" :italic t ))))
+     (comment-symbol   `((,class (                        :foreground "#ff0000" :italic nil ))))
+     (constant         `((,class (                        :foreground "#cc33ff" :bold t ))))        ;; цвет std в С
+     (function-name    `((,class (                        :foreground "#ff6666" :bold t ))))        ;; имена функций
+     (keyword          `((,class (                        :foreground "#ff80df" :bold t ))))        ;; ключевые слова
+     (negation-char    `((,class (                        :foreground "#ff0000" :bold t ))))        ;; Символ отрицания
+     (preprocessor     `((,class (                        :foreground "#ff3333"         ))))        ;; обращение к препроцессору
+     (str              `((,class (                        :foreground "#ff8000"         ))))        ;; строковые литералы
+     (regexp           str)
+     (type             `((,class (                        :foreground "#ff4400"         ))))        ;; другие встроенные функции
+     (variable-name    `((,class (                        :foreground "#ffc480" :bold t ))))        ;; переменные
+     (tip              `((,class (:background "#eeeeee"   :foreground "#202020"         ))))        ;; совет,хелп,документация
 
-       (directory        `((,class (                        :foreground "#ff8000" :bold t ))))
-       (symlink          `((,class (                        :foreground "#008000" :bold t ))))
-       (link-face        `((,class (                        :foreground "#008000" :bold t ))))
-       (file             `((,class (                        :foreground ,default-fg :bold nil ))))
-       (linum            `((,class (:background ,default-bg :foreground ,default-fg :bold nil :italic nil ))))
-       (header           `((,class (                        :foreground "#ff4400" ))))
+     (directory        `((,class (                        :foreground "#ff8000" :bold t ))))
+     (symlink          `((,class (                        :foreground "#008000" :bold t ))))
+     (link-face        `((,class (                        :foreground "#008000" :bold t ))))
+     (file             `((,class (                        :foreground ,default-fg :bold nil ))))
+     (linum            `((,class (:background ,default-bg :foreground ,default-fg :bold nil :italic nil ))))
+     (header           `((,class (                        :foreground "#ff4400" ))))
 
-       (prompt           `((,class (                        :foreground "#ffc0cb" :bold t ))))
-       (promptf          `((,class (                        :foreground "#80ffff" :bold t ))))
+     (prompt           `((,class (                        :foreground "#ffc0cb" :bold t ))))
+     (promptf          `((,class (                        :foreground "#80ffff" :bold t ))))
 
-       (but              `((,class (                        :foreground "#ff6666" :bold t :box t))))
+     (but              `((,class (                        :foreground "#ff6666" :bold t :box t))))
 
-       (dummy            `((,class (:background "#fff000"   :foreground "#000000" :bold t ))))
-       (empty            `((,class ())))
-       )
+     (dummy            `((,class (:background "#fff000"   :foreground "#000000" :bold t ))))
+     (empty            `((,class ()))))
   (custom-theme-set-faces
    'xopeck-theme
    ;; Ensure sufficient contrast on low-color terminals.
@@ -270,7 +270,7 @@
    `(font-lock-string-face               ,str           ) ;; строковые литералы
    `(font-lock-type-face                 ,type          ) ;; другие встроенные функции
    `(font-lock-variable-name-face        ,variable-name ) ;; переменные
-   `(font-lock-warning-face              ,dummy         ) ;; ???
+   `(font-lock-warning-face              ,dummy         ) ;; autoload word color(from ;;;###autoload)
 
    ;; Gnus
    `(gnus-button                      ,dummy)
@@ -786,7 +786,24 @@
    `(ivy-virtual                 ,dummy)
 
    ;; latex
-   `(font-latex-math-face ,str)
+   `(font-latex-bold-face                 ,dummy)
+   `(font-latex-doctex-documentation-face ,dummy)
+   `(font-latex-doctex-preprocessor-face  ,dummy)
+   `(font-latex-italic-face               ,dummy)
+   `(font-latex-math-face                 ,str)
+   `(font-latex-sectioning-5-face         ,empty)
+   `(font-latex-sectioning-4-face         ,empty)
+   `(font-latex-sectioning-3-face         ,empty)
+   `(font-latex-sectioning-2-face         ,empty)
+   `(font-latex-sectioning-1-face         ,empty)
+   `(font-latex-sedate-face               ,builtin)
+   `(font-latex-slide-title-face          ,dummy)
+   `(font-latex-string-face               ,str)
+   `(font-latex-subscript-face            ,empty)
+   `(font-latex-superscript-face          ,empty)
+   `(font-latex-verbatim-face             ,dummy)
+   `(font-latex-warning-face              ,dummy)
+
    ;; notmuch
    `(notmuch-search-unread-face ,dummy)
 

@@ -294,12 +294,15 @@
   (define-key dired-mode-map (kbd "M-s") nil))
 (add-hook 'dired-mode-hook 'unset-dired-mode-keys)
 
+;; TODO: write normal latex unset function (for LaTeX and preview-pane)
 (defun preview-latex-setup()
   ;; (latex-preview-pane-mode 1)
   (define-key latex-preview-pane-mode-map (kbd "M-p") nil)
   (define-key latex-preview-pane-mode-map (kbd "s-p") nil)
   (define-key latex-preview-pane-mode-map (kbd "M-P") nil)
   (define-key latex-preview-pane-mode-map (kbd "s-P") nil)
+  ;; (define-key latex-preview-pane-mode-map (kbd "C-M-a") nil)
+  (define-key LaTeX-mode-map (kbd "C-M-a") nil)
   (latex-preview-update))
 (add-hook 'LaTeX-mode-hook 'preview-latex-setup)
 
