@@ -296,10 +296,10 @@
 
 (defun preview-latex-setup()
   ;; (latex-preview-pane-mode 1)
-  (define-key latex-preview-pane-mode-map (kbd "M-p") nil) ; unset key
-  (define-key latex-preview-pane-mode-map (kbd "s-p") nil) ; unset key
-  (define-key latex-preview-pane-mode-map (kbd "M-P") nil) ; unset key
-  (define-key latex-preview-pane-mode-map (kbd "s-P") nil) ; unset key
+  (define-key latex-preview-pane-mode-map (kbd "M-p") nil)
+  (define-key latex-preview-pane-mode-map (kbd "s-p") nil)
+  (define-key latex-preview-pane-mode-map (kbd "M-P") nil)
+  (define-key latex-preview-pane-mode-map (kbd "s-P") nil)
   (latex-preview-update))
 (add-hook 'LaTeX-mode-hook 'preview-latex-setup)
 

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+\\documentclass[12pt]\{article\}
+
+\\begin\{document\}
+$0
+\\end\{document\}
