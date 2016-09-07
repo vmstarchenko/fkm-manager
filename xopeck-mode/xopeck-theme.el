@@ -68,7 +68,7 @@
    ;; Highlighting faces
    `(fringe                ,fringe    ) ;; бортик
    `(header-line           ,dummy     )
-   `(help-argument-name    ,dummy     )
+   `(help-argument-name    ,builtin   )
    `(highlight             ,hl        ) ;; Фон при подсветке мышки
    `(highlight-symbol-face ,dummy     )
    `(hl-line               ,dummy     )
@@ -785,6 +785,8 @@
    `(ivy-subdir                  ,dummy)
    `(ivy-virtual                 ,dummy)
 
+   ;; latex
+   `(font-latex-math-face ,str)
    ;; notmuch
    `(notmuch-search-unread-face ,dummy)
 
