@@ -15,6 +15,8 @@
 	"Keymap for `org-mode'.")
 (defvar xorg-mode-map (make-sparse-keymap)
 	"Keymap for `xorg-mode'.")
+(defvar c++-mode-map (make-sparse-keymap)
+	"Keymap for `c++-mode'.")
 
 ;;; inline modes
 (require 'xop-linum) ;; нумерация строк

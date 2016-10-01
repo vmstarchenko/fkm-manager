@@ -223,6 +223,8 @@
 (global-set-key (kbd "C-v") 'isearch-forward-regexp)   ;; Поиск вперед по регулярному выражению
 (define-key isearch-mode-map (kbd "M-s-i") 'isearch-repeat-backward)   ;; Повторить поиск назад
 (define-key isearch-mode-map (kbd "M-s-k") 'isearch-repeat-forward)   ;; Повторить поиск вперед
+(define-key python-mode-map (kbd "M-a j") 'jedi:goto-definition)   ;; goto defenition
+(define-key python-mode-map (kbd "M-a l") 'jedi:goto-definition-pop-marker)   ;; return from defenition
 ;; Сочетание клавиш   Мод   Команда   Действие
 (define-key input-decode-map "\C-j" [\?C-256])
 (global-set-key [\?C-256] 'backward-delete-char)   ;; Удаление символа или отступа перед точкой
@@ -329,9 +331,10 @@
 (global-set-key (kbd "s-h e") 'view-emacs-FAQ)   ;; Показать Emacs FAQ
 (global-set-key (kbd "s-h i") 'info)   ;; Показать документацию по Emacs (Info)
 (define-key python-mode-map (kbd "s-h d") 'jedi:show-doc)   ;; Показать Python документацию
-(global-set-key (kbd "s-h c") 'show-c++-docs)   ;; Показать документацию по C++ по слову под курсором
-(global-set-key (kbd "s-h h") 'show-hotkeys)   ;; Показать горячие клавиши emacs
+(define-key c++-mode-map (kbd "s-h d") 'show-c++-docs)   ;; Показать документацию по C++ по слову под курсором
 (define-key ac-completing-map (kbd "s-h d") 'ac-help)   ;; ac-help
+(define-key python-mode-map (kbd "s-h s") 'jedi:get-in-function-call)   ;; show function signature
+(global-set-key (kbd "s-h h") 'show-hotkeys)   ;; Показать горячие клавиши emacs
 (global-set-key (kbd "s-i") 'shrink-window)   ;; Уменьшить окно по вертикали
 (global-set-key (kbd "s-k") 'enlarge-window)   ;; Увеличить окно по вертикали
 (global-set-key (kbd "s-j") 'shrink-window-horizontally)   ;; Уменьшить окно по горизонтали
@@ -352,6 +355,7 @@
 (define-key ac-completing-map (kbd "M-s-i") 'ac-previous)   ;; предыдущая строка в ac
 (global-set-key (kbd "<tab>") 'ac-start)   ;; start show auto completion
 (define-key minibuffer-local-map (kbd "<tab>") 'minibuffer-complete)   ;; auto completion in minibuffer
+(define-key python-mode-map (kbd "<tab>") 'jedi:complete)   ;; auto completion for python mode
 ;; Сочетание клавиш   Мод   Команда   Действие
 (define-key moz-controller-mode-map (kbd "C-M-u") 'moz-controller-page-refresh)   ;; Обновить страницу
 ;; Сочетание клавиш   Мод   Команда   Действие
@@ -470,6 +474,8 @@ ________________________________________________________________________________
  C-v              | isearch-forward-regexp              |                               | Поиск вперед по регулярному выражению
  M-s-i            | isearch-repeat-backward             | isearch-mode-map              | Повторить поиск назад
  M-s-k            | isearch-repeat-forward              | isearch-mode-map              | Повторить поиск вперед
+ M-a j            | jedi:goto-definition                | python-mode-map               | goto defenition
+ M-a l            | jedi:goto-definition-pop-marker     | python-mode-map               | return from defenition
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 
@@ -637,9 +643,10 @@ ________________________________________________________________________________
  s-h e            | view-emacs-FAQ                      |                               | Показать Emacs FAQ
  s-h i            | info                                |                               | Показать документацию по Emacs (Info)
  s-h d            | jedi:show-doc                       | python-mode-map               | Показать Python документацию
- s-h c            | show-c++-docs                       |                               | Показать документацию по C++ по слову под курсором
- s-h h            | show-hotkeys                        |                               | Показать горячие клавиши emacs
+ s-h d            | show-c++-docs                       | c++-mode-map                  | Показать документацию по C++ по слову под курсором
  s-h d            | ac-help                             | ac-completing-map             | ac-help
+ s-h s            | jedi:get-in-function-call           | python-mode-map               | show function signature
+ s-h h            | show-hotkeys                        |                               | Показать горячие клавиши emacs
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 
@@ -667,6 +674,7 @@ ________________________________________________________________________________
  M-s-i            | ac-previous                         | ac-completing-map             | предыдущая строка в ac
  <tab>            | ac-start                            |                               | start show auto completion
  <tab>            | minibuffer-complete                 | minibuffer-local-map          | auto completion in minibuffer
+ <tab>            | jedi:complete                       | python-mode-map               | auto completion for python mode
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 

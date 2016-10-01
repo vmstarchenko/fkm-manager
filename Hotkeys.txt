@@ -25,6 +25,8 @@ C-c              ## isearch-backward-regexp             ##                      
 C-v              ## isearch-forward-regexp              ##                               ## Поиск вперед по регулярному выражению
 M-s-i            ## isearch-repeat-backward             ## isearch-mode-map              ## Повторить поиск назад
 M-s-k            ## isearch-repeat-forward              ## isearch-mode-map              ## Повторить поиск вперед
+M-a j            ## jedi:goto-definition                ## python-mode-map               ## goto defenition
+M-a l            ## jedi:goto-definition-pop-marker     ## python-mode-map               ## return from defenition
 
 
   Форматирование
@@ -156,9 +158,10 @@ s-h a            ## apropos                             ##                      
 s-h e            ## view-emacs-FAQ                      ##                               ## Показать Emacs FAQ
 s-h i            ## info                                ##                               ## Показать документацию по Emacs (Info)
 s-h d            ## jedi:show-doc                       ## python-mode-map               ## Показать Python документацию
-s-h c            ## show-c++-docs                       ##                               ## Показать документацию по C++ по слову под курсором
-s-h h            ## show-hotkeys                        ##                               ## Показать горячие клавиши emacs
+s-h d            ## show-c++-docs                       ## c++-mode-map                  ## Показать документацию по C++ по слову под курсором
 s-h d            ## ac-help                             ## ac-completing-map             ## ac-help
+s-h s            ## jedi:get-in-function-call           ## python-mode-map               ## show function signature
+s-h h            ## show-hotkeys                        ##                               ## Показать горячие клавиши emacs
 
 
   Дополнительные сочетания
@@ -182,6 +185,7 @@ M-s-k            ## ac-next                             ## ac-completing-map    
 M-s-i            ## ac-previous                         ## ac-completing-map             ## предыдущая строка в ac
 <tab>            ## ac-start                            ##                               ## start show auto completion
 <tab>            ## minibuffer-complete                 ## minibuffer-local-map          ## auto completion in minibuffer
+<tab>            ## jedi:complete                       ## python-mode-map               ## auto completion for python mode
 
 
   Firefox
