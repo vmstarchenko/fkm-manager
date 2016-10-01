@@ -26,11 +26,11 @@
 
     ;; other
     js2-mode ;; not checked
-    jinja2-mode
     powerline
     emmet-mode
     jedi
     sr-speedbar
+    web-mode
     ))
 
 (defun packages-installed-p ()

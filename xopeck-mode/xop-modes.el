@@ -34,7 +34,7 @@
 (add-hook 'css-mode-hook 'load-moz-controller)
 (add-hook 'js-mode-hook 'load-moz-controller)
 (add-hook 'html-mode-hook 'load-moz-controller)
-(add-hook 'jinja2-mode-hook 'load-moz-controller)
+(add-hook 'web-mode-hook 'load-moz-controller)
 (add-hook 'python-mode-hook 'load-moz-controller)
 
 ;; undo-tree
@@ -141,7 +141,16 @@
 (add-hook 'html-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
 (add-hook 'scss-mode-hook  'emmet-mode)
-(add-hook 'jinja2-mode-hook  'emmet-mode)
+(add-hook 'web-mode-hook  'emmet-mode)
+
+;; web-mode settings
+(setq web-mode-enable-auto-pairing t)
+(setq web-mode-enable-css-colorization t)
+(setq web-mode-enable-block-face t)
+(setq web-mode-enable-part-face t)
+(setq web-mode-enable-comment-keywords t)
+(setq web-mode-enable-heredoc-fontification t)
+
 
 ;; flycheck cpp
 (defun flycheck-cpp-setup()
@@ -315,10 +324,11 @@
   )
 (add-hook 'org-mode-hook 'unset-org-mode-keys)
 
-(defun unset-jinja2-mode-keys()
+(defun unset-web-mode-keys()
   (interactive)
-  (define-key jinja2-mode-map (kbd "C-M-i") nil))
-(add-hook 'jinja2-mode-hook 'unset-jinja2-mode-keys)
+  (define-key web-mode-map (kbd "M-;") nil)
+  (define-key web-mode-map (kbd "C-c") nil))
+(add-hook 'web-mode-hook 'unset-web-mode-keys)
 
 (defun unset-undo-tree-mode-keys()
   (define-key undo-tree-map (kbd "C-/") nil)

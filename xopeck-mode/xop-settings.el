@@ -146,7 +146,7 @@
 
 ;; парные скобки
 (electric-pair-mode 1)
-;; (add-hook 'jinja2-mode-hook (lambda() (electric-pair-mode -1)))
+(add-hook 'web-mode-hook (lambda() (electric-pair-mode -1)))
 ;; (add-hook 'html-mode-hook (lambda() (electric-pair-mode -1)))
 
 ;;; размер таба + пробелы вместо табов
@@ -161,7 +161,6 @@
 (add-hook 'lisp-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
 (add-hook 'js-mode-hook (lambda() (setq js-indent-level 2))) ;;+
 (add-hook 'js2-mode-hook (lambda() (setq js2-basic-offset 2))) ;;+
-(add-hook 'jinja2-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'css-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
 (add-hook 'scss-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
 (add-hook 'makefile-mode-hook (lambda() (setq indent-tabs-mode t) (setq tab-width 4))) ;;+
@@ -186,18 +185,11 @@
 ;; (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
 
 ;; Связять расширения с модами
-(add-to-list
- 'auto-mode-alist
- '( "\\.h$". c++-mode))
-(add-to-list
- 'auto-mode-alist
- '("\\.json$" . js-mode))
-(add-to-list
- 'auto-mode-alist
- '("\\.js$" . js2-mode))
-(add-to-list
- 'auto-mode-alist
- '("\\.html$" . jinja2-mode))
+(add-to-list 'auto-mode-alist '( "\\.h$". c++-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml$" . web-mode))
 
 ;; (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
 

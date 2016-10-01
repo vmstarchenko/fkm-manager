@@ -67,7 +67,7 @@
 
    ;; Highlighting faces
    `(fringe                ,fringe    ) ;; бортик
-   `(header-line           ,dummy     )
+   `(header-line           ,header    )
    `(help-argument-name    ,builtin   )
    `(highlight             ,hl        ) ;; Фон при подсветке мышки
    `(highlight-symbol-face ,dummy     )
@@ -88,11 +88,11 @@
    `(vertical-border     ,fringe-border) ;; вертикальный бордер на границе буферов
 
    ;; Escape and prompt faces
-   `(error             ,dummy )
-   `(escape-glyph      ,dummy )
-   `(minibuffer-prompt ,prompt)
-   `(success           ,dummy )
-   `(warning           ,dummy )
+   `(error             ,dummy   )
+   `(escape-glyph      ,constant) ;; symbols like 
+   `(minibuffer-prompt ,prompt  )
+   `(success           ,dummy   )
+   `(warning           ,dummy   )
 
    ;; Ace-jump
    `(ace-jump-face-background ,dummy)
@@ -786,10 +786,10 @@
    `(ivy-virtual                 ,dummy)
 
    ;; latex
-   `(font-latex-bold-face                 ,dummy)
+   `(font-latex-bold-face                 ,empty)
    `(font-latex-doctex-documentation-face ,dummy)
    `(font-latex-doctex-preprocessor-face  ,dummy)
-   `(font-latex-italic-face               ,dummy)
+   `(font-latex-italic-face               ,empty)
    `(font-latex-math-face                 ,str)
    `(font-latex-sectioning-5-face         ,empty)
    `(font-latex-sectioning-4-face         ,empty)
@@ -929,11 +929,74 @@
    `(vhl/default-face ,dummy)
 
    ;; web-mode
-   `(web-mode-comment-face                   ,dummy)
+   `(web-mode-block-attr-name-face           ,dummy)
+   `(web-mode-block-attr-value-face          ,dummy)
+   `(web-mode-block-comment-face             ,dummy)
+   `(web-mode-block-control-face             ,keyword)
+   `(web-mode-block-delimiter-face           ,function-name)
+   `(web-mode-block-face                     ,default)
+   `(web-mode-block-string-face              ,str)
+   `(web-mode-bold-face                      ,dummy)
+   `(web-mode-builtin-face                   ,dummy)
+   `(web-mode-comment-face                   ,comment)
+   `(web-mode-comment-keyword-face           ,dummy)
+   `(web-mode-constant-face                  ,dummy)
+   `(web-mode-css-at-rule-face               ,dummy)
+   `(web-mode-css-color-face                 ,dummy)
+   `(web-mode-css-comment-face               ,dummy)
+   `(web-mode-css-function-face              ,dummy)
+   `(web-mode-css-priority-face              ,dummy)
+   `(web-mode-css-property-name-face         ,dummy)
+   `(web-mode-css-pseudo-class-face          ,dummy)
+   `(web-mode-css-selector-face              ,dummy)
+   `(web-mode-css-string-face                ,dummy)
+   `(web-mode-css-variable-face              ,dummy)
    `(web-mode-current-column-highlight-face  ,dummy)
    `(web-mode-current-element-highlight-face ,dummy)
+   `(web-mode-doctype-face                   ,keyword)
+   `(web-mode-error-face                     ,dummy)
+   `(web-mode-filter-face                    ,dummy)
+   `(web-mode-folded-face                    ,dummy)
+   `(web-mode-function-call-face             ,default)
+   `(web-mode-function-name-face             ,dummy)
+   `(web-mode-html-attr-custom-face          ,dummy)
+   `(web-mode-html-attr-engine-face          ,dummy)
+   `(web-mode-html-attr-equal-face           ,default)
+   `(web-mode-html-attr-name-face            ,variable-name)
+   `(web-mode-html-attr-value-face           ,str)
+   `(web-mode-html-entity-face               ,dummy)
+   `(web-mode-html-tag-bracket-face          ,function-name)
+   `(web-mode-html-tag-custom-face           ,dummy)
+   `(web-mode-html-tag-face                  ,keyword)
+   `(web-mode-html-tag-namespaced-face       ,dummy)
+   `(web-mode-inlay-face                     ,dummy)
+   `(web-mode-italic-face                    ,dummy)
+   `(web-mode-javascript-comment-face        ,comment)
+   `(web-mode-javascript-string-face         ,str)
+   `(web-mode-json-comment-face              ,dummy)
+   `(web-mode-json-context-face              ,dummy)
+   `(web-mode-json-key-face                  ,dummy)
+   `(web-mode-json-string-face               ,dummy)
+   `(web-mode-jsx-depth-1-face               ,dummy)
+   `(web-mode-jsx-depth-2-face               ,dummy)
+   `(web-mode-jsx-depth-3-face               ,dummy)
+   `(web-mode-jsx-depth-4-face               ,dummy)
+   `(web-mode-keyword-face                   ,keyword)
+   `(web-mode-param-name-face                ,dummy)
+   `(web-mode-part-comment-face              ,dummy)
+   `(web-mode-part-face                      ,dummy)
+   `(web-mode-part-string-face               ,dummy)
+   `(web-mode-preprocessor-face              ,dummy)
+   `(web-mode-script-face                    ,default)
+   `(web-mode-sql-keyword-face               ,dummy)
+   `(web-mode-string-face                    ,dummy)
+   `(web-mode-style-face                     ,dummy)
    `(web-mode-symbol-face                    ,dummy)
    `(web-mode-type-face                      ,dummy)
+   `(web-mode-underline-face                 ,dummy)
+   `(web-mode-variable-name-face             ,variable-name)
+   `(web-mode-warning-face                   ,dummy)
+   `(web-mode-whitespace-face                ,dummy)
 
    ;; which-function-mode
    `(which-func ,dummy)
@@ -950,6 +1013,9 @@
    `(yalinum-bar-face   ,dummy)
    `(yalinum-face       ,dummy)
    `(yalinum-track-face ,dummy)
+
+   ;; yas
+   `(yas-field-highlight-face ,empty)
 
    ;; other
    `(ac-candidate-face                    ,default2      ) ;; "Face for candidate."
