@@ -56,11 +56,11 @@
                                                            (cdr powerline-default-separator-dir))))
                           (lhs (list
                                 (powerline-raw "%*" nil 'l)
-                                        ;(powerline-buffer-size nil 'l)
+                                ;; (powerline-buffer-size nil 'l)
                                 (powerline-raw "%p" nil 'l) ;; Процент прокрутки
                                 (powerline-raw "%2cC" nil 'l) ;; номер столбца
 																(powerline-raw "%2lL " nil 'l) ;; номер строки
-                                        ;                                (powerline-raw "")
+                                ;; (powerline-raw "")
                                 (funcall separator-left mode-line face1)
                                 (powerline-raw " " face1 'l)
                                 (powerline-narrow face1 'l)
@@ -143,11 +143,6 @@
 (setq scroll-conservatively 10000)
 (setq scroll-margin 3)
 (setq scroll-preserve-screen-position 1)
-
-;; парные скобки
-(electric-pair-mode 1)
-(add-hook 'web-mode-hook (lambda() (electric-pair-mode -1)))
-;; (add-hook 'html-mode-hook (lambda() (electric-pair-mode -1)))
 
 ;;; размер таба + пробелы вместо табов
 (setq indent-tabs-mode nil)

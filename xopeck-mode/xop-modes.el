@@ -21,7 +21,6 @@
 (require 'xop-alarm) ;; будильники
 (require 'xop-battery) ;; батарея
 (require 'xop-cursor) ;; colored cursor
-(require 'xop-brackets) ;; brackets
 ;;(require 'xop-abbrev") ;; abbrev
 (require 'tr-mode)
 
@@ -40,6 +39,10 @@
 ;; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode)
+
+;; autopair
+(require 'autopair)
+(autopair-global-mode)
 
 ;; hs-mode
 (defun setup-hs-mode()
@@ -150,6 +153,11 @@
 (setq web-mode-enable-part-face t)
 (setq web-mode-enable-comment-keywords t)
 (setq web-mode-enable-heredoc-fontification t)
+(setq web-mode-engines-alist
+      '(
+        ("django"    . "\\.html\\'")
+        )
+      )
 
 
 ;; flycheck cpp
