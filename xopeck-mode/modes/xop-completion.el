@@ -53,6 +53,7 @@
 ;; 				ac-source-words-in-same-mode-buffers))
 ;; ;;				ac-source-semantic))
 
+;; jedi completion
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
 
