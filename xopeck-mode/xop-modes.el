@@ -42,6 +42,9 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+;; cursor
+(require 'multiple-cursors)
+
 ;; autopair
 (require 'autopair)
 (autopair-global-mode)
@@ -349,6 +352,11 @@
   (define-key sh-mode-map (kbd "C-M-x") nil)
   )
 (add-hook 'sh-mode-hook 'unset-bash-mode-keys)
+
+(defun unset-multiple-cursor-mode-keys()
+  (define-key mc/keymap (kbd "<return>") nil)
+  )
+(add-hook 'multiple-cursors-mode-hook 'unset-multiple-cursor-mode-keys)
 
 
 ;; minibuffer

@@ -142,8 +142,6 @@ C-M-h            ## yas-exit-snippet                    ## yas-minor-mode-map   
 C-M-w w          ## emmet-wrap-with-markup              ## emmet-mode-keymap             ## Обернуть в тэг
 C-M-w e          ## emmet-expand-line                   ## emmet-mode-keymap             ## Дополнить emmet запись
 C-M-w q          ## emmet-turn-on-preview               ## emmet-mode-keymap             ## Предпросмотр emmet записи
-M-s-k            ## emmet-next-edit-point               ## emmet-mode-keymap             ## Следующая точка редактирования
-M-s-i            ## emmet-prev-edit-point               ## emmet-mode-keymap             ## Предыдущая точка редактирования
 
 
   Помощь
@@ -216,6 +214,13 @@ C-M-n s          ## org-schedule                        ## xorg-mode-map        
 Сочетание клавиш ## Команда                             ## Мод                           ## Действие
 C-M-p v          ## projectile-grep                     ##                               ## Поиск по проекту
 C-M-p b          ## projectile-replace                  ##                               ## Поиск по проекту
+
+
+  Projectile-mode
+Сочетание клавиш ## Команда                             ## Мод                           ## Действие
+C-M-a m          ## mc/mark-next-like-this              ##                               ## x
+M-s-i            ## mc/mark-previous-like-this          ## mc/keymap                     ## x
+M-s-k            ## mc/mark-next-like-this              ## mc/keymap                     ## x
 
 
   Hide-show-mode

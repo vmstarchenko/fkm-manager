@@ -159,6 +159,12 @@
 (add-hook 'css-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
 (add-hook 'scss-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
 (add-hook 'makefile-mode-hook (lambda() (setq indent-tabs-mode t) (setq tab-width 4))) ;;+
+(add-hook 'web-mode-hook
+          (lambda()
+            (setq web-mode-markup-indent-offset 2)
+            (setq web-mode-css-indent-offset 4)
+            (setq web-mode-code-indent-offset 2)
+            )) ;;+
 
 
 ;; ;; Связять расширения с модами

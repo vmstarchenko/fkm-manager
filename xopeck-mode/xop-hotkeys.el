@@ -318,8 +318,6 @@
 (define-key emmet-mode-keymap (kbd "C-M-w w") 'emmet-wrap-with-markup)   ;; Обернуть в тэг
 (define-key emmet-mode-keymap (kbd "C-M-w e") 'emmet-expand-line)   ;; Дополнить emmet запись
 (define-key emmet-mode-keymap (kbd "C-M-w q") 'emmet-turn-on-preview)   ;; Предпросмотр emmet записи
-(define-key emmet-mode-keymap (kbd "M-s-k") 'emmet-next-edit-point)   ;; Следующая точка редактирования
-(define-key emmet-mode-keymap (kbd "M-s-i") 'emmet-prev-edit-point)   ;; Предыдущая точка редактирования
 (global-set-key (kbd "s-h ?") 'help-for-help)   ;; Информация об использовании справочной системы
 (global-set-key (kbd "s-h t") 'help-with-tutorial)   ;; Использовать интерактивный учебник
 (global-set-key (kbd "s-h f") 'describe-function)   ;; Показать справку по функции
@@ -377,6 +375,10 @@
 ;; Сочетание клавиш   Мод   Команда   Действие
 (global-set-key (kbd "C-M-p v") 'projectile-grep)   ;; Поиск по проекту
 (global-set-key (kbd "C-M-p b") 'projectile-replace)   ;; Поиск по проекту
+;; Сочетание клавиш   Мод   Команда   Действие
+(global-set-key (kbd "C-M-a m") 'mc/mark-next-like-this)   ;; x
+(define-key mc/keymap (kbd "M-s-i") 'mc/mark-previous-like-this)   ;; x
+(define-key mc/keymap (kbd "M-s-k") 'mc/mark-next-like-this)   ;; x
 (global-set-key (kbd "M-=") 'hs-show-block)   ;; показать блок
 (global-set-key (kbd "M--") 'hs-hide-block)   ;; скрыть блок
 (global-set-key (kbd "C-=") 'hs-show-all)   ;; показать всё (замена уровню)
@@ -623,8 +625,6 @@ ________________________________________________________________________________
  C-M-w w          | emmet-wrap-with-markup              | emmet-mode-keymap             | Обернуть в тэг
  C-M-w e          | emmet-expand-line                   | emmet-mode-keymap             | Дополнить emmet запись
  C-M-w q          | emmet-turn-on-preview               | emmet-mode-keymap             | Предпросмотр emmet записи
- M-s-k            | emmet-next-edit-point               | emmet-mode-keymap             | Следующая точка редактирования
- M-s-i            | emmet-prev-edit-point               | emmet-mode-keymap             | Предыдущая точка редактирования
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 
@@ -717,6 +717,17 @@ ________________________________________________________________________________
  Сочетание клавиш | Команда                             | Мод                           | Действие
  C-M-p v          | projectile-grep                     |                               | Поиск по проекту
  C-M-p b          | projectile-replace                  |                               | Поиск по проекту
+__________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
+
+
+______________________________________________________________________________________________________________________________________________________________________________________
+
+   Projectile-mode
+______________________________________________________________________________________________________________________________________________________________________________________
+ Сочетание клавиш | Команда                             | Мод                           | Действие
+ C-M-a m          | mc/mark-next-like-this              |                               | x
+ M-s-i            | mc/mark-previous-like-this          | mc/keymap                     | x
+ M-s-k            | mc/mark-next-like-this              | mc/keymap                     | x
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 
