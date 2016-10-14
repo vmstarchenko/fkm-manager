@@ -28,15 +28,15 @@
 
 ;;; local modes
 ;; moz-controller (todo: need firefox plugin)
-(defun load-moz-controller()
-  (interactive)
-  (require 'moz-controller)
-  (moz-controller-mode 1))
-(add-hook 'css-mode-hook 'load-moz-controller)
-(add-hook 'js-mode-hook 'load-moz-controller)
-(add-hook 'html-mode-hook 'load-moz-controller)
-(add-hook 'web-mode-hook 'load-moz-controller)
-(add-hook 'python-mode-hook 'load-moz-controller)
+;; (defun load-moz-controller()
+;;   (interactive)
+;;   (require 'moz-controller)
+;;   (moz-controller-mode 1))
+;; (add-hook 'css-mode-hook 'load-moz-controller)
+;; (add-hook 'js-mode-hook 'load-moz-controller)
+;; (add-hook 'html-mode-hook 'load-moz-controller)
+;; (add-hook 'web-mode-hook 'load-moz-controller)
+;; (add-hook 'python-mode-hook 'load-moz-controller)
 
 ;; undo-tree
 (require 'undo-tree)
@@ -48,6 +48,7 @@
 ;; autopair
 (require 'autopair)
 (autopair-global-mode)
+(add-hook 'web-mode-hook '(lambda() (autopair-mode -1)))
 
 ;; hs-mode
 (defun setup-hs-mode()
