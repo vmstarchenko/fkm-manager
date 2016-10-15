@@ -38,6 +38,12 @@
 ;; (add-hook 'web-mode-hook 'load-moz-controller)
 ;; (add-hook 'python-mode-hook 'load-moz-controller)
 
+;; clang-format
+(require 'clang-format)
+;; sudo apt-get install clang-3.8 lldb-3.8 clang-format-3.8
+;; sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format
+
+
 ;; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode)

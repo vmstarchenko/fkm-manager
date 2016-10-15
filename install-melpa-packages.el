@@ -31,6 +31,7 @@
     jedi
     sr-speedbar
     web-mode
+    clang-format
     ))
 
 (defun packages-installed-p ()

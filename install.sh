@@ -40,6 +40,12 @@ create_folder "$script_path/tmp"
 
 # install apt-get plugins
 sudo apt-get install python3-pip -y -f #~
+
+# clang-format
+sudo apt-get install clang-3.8 lldb-3.8 clang-format-3.8
+sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format
+
+# pip
 sudo pip3 install pylint #~
 ###sudo apt-get install pylint -y -f # rm or do something for using 3 and 2 pylint
 sudo pip2 install virtualenv #~

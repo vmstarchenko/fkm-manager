@@ -426,6 +426,17 @@
       (indent-region rstart rend)))
   (deactivate-mark "irrelevant"))
 
+(defun clang-format-auto()
+  "Correct style by clang-format in the region or all
+   buffer if dont user region."
+	(interactive)
+  (save-excursion
+    (let* ((use-region (and transient-mark-mode mark-active))
+           (rstart (if use-region (region-beginning) (point-min)))
+           (rend   (if use-region (region-end)       (point-max))))
+      (clang-format-region rstart rend)))
+  (deactivate-mark "irrelevant"))
+
 (defun switch-flycheck()
   "turn on or off flycheck"
   (interactive)
