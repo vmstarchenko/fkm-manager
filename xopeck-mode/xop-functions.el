@@ -437,6 +437,16 @@
       (clang-format-region rstart rend)))
   (deactivate-mark "irrelevant"))
 
+(defun pyformat()
+  "Correct style by clang-format in the region or all
+   buffer if dont user region. Warging: History of changes doesnt available."
+  (interactive)
+  (save-buffer)
+  (if (not (eq (buffer-file-name (current-buffer)) nil))
+      (shell-command (concat "pyformat -i "
+                             (buffer-file-name (current-buffer)))))
+ (revert-buffer t t))
+
 (defun switch-flycheck()
   "turn on or off flycheck"
   (interactive)

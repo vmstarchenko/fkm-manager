@@ -56,5 +56,6 @@
 ;; jedi completion
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
+;; (setq jedi:complete-on-dot t) ;; doesnt work ?? 
 
 (provide 'xop-completion)

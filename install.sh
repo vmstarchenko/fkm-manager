@@ -49,6 +49,7 @@ sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format
 sudo pip3 install pylint #~
 ###sudo apt-get install pylint -y -f # rm or do something for using 3 and 2 pylint
 sudo pip2 install virtualenv #~
+sudo pip install pyformat # ???
 ## flycheck for css and js
 sudo apt-get install nodejs-legacy -y -f
 sudo apt-get install npm -y -f
