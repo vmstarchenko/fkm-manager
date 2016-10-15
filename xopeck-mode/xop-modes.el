@@ -168,9 +168,10 @@
 (setq web-mode-engines-alist
       '(
         ("django"    . "\\.html\\'")
-        )
-      )
-
+        ))
+(setq web-mode-enable-current-element-highlight t)
+(setq web-mode-enable-current-column-highlight t)
+;; (web-mode-use-tabs)
 
 ;; flycheck cpp
 (defun flycheck-cpp-setup()

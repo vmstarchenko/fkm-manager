@@ -15,6 +15,13 @@
 (add-hook 'scss-mode-hook 'configure-auto-complete-for-scss)
 (add-to-list 'ac-modes 'scss-mode)
 
+(defun configure-auto-complete-for-web-mode ()
+  (add-to-list 'ac-modes 'web-mode)
+  (add-to-list 'ac-modes 'ac-emmet))
+(add-hook 'web-mode-hook 'configure-auto-complete-for-web-mode)
+
+
+
 ;; latex completion
 ;;(add-to-list 'load-path "~/elisp")
 

@@ -441,7 +441,7 @@
   "Correct style by clang-format in the region or all
    buffer if dont user region."
   (interactive)
-  (save-buffer)
+  (save-buffer) ;; TODO: remove?
   (save-excursion
     (let* ((filename (buffer-file-name (current-buffer)))
            (tmp-file (concat "/tmp/#.pyformat." (file-name-nondirectory filename)))
