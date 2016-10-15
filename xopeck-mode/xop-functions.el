@@ -442,10 +442,20 @@
    buffer if dont user region. Warging: History of changes doesnt available."
   (interactive)
   (save-buffer)
-  (if (not (eq (buffer-file-name (current-buffer)) nil))
-      (shell-command (concat "pyformat -i "
-                             (buffer-file-name (current-buffer)))))
- (revert-buffer t t))
+  (save-excursion
+    (let* ((filename (buffer-file-name (current-buffer)))
+           (tmp-file (concat "/tmp/#.pyformat." (file-name-nondirectory filename)))
+           (use-region (and transient-mark-mode mark-active))
+           (rstart (if use-region (region-beginning) (point-min)))
+           (rend   (if use-region (region-end)       (point-max))))
+      (if (not (eq filename nil))
+          (progn
+            (write-region rstart rend tmp-file)
+            (shell-command (concat "pyformat -i " tmp-file))
+            (kill-region rstart rend)
+            (insert-file-contents
+             tmp-file nil 0 (- rend rstart))
+            )))))
 
 (defun switch-flycheck()
   "turn on or off flycheck"
