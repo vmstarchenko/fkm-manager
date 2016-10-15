@@ -301,3 +301,4 @@ C-M-x u u        ## latex-preview-pane-update           ##                      
 s-z              ## suspend-frame                       ##                               ## Свернуть Emacs
 s-c              ## save-buffers-kill-emacs             ##                               ## Всё сохранить и выйти из
 s-x              ## reload-xopeck-mode                  ##                               ## Всё сохранить и выйти из
+s-p              ## package-list-packages               ##                               ## Список пакетов
