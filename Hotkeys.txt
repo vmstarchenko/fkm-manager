@@ -66,9 +66,9 @@ C-M-t q          ## google-translate-query-translate    ##                      
 C-M-[            ## insert-brace                        ##                               ## Вставляет одиночную фигурную скобку (актуально для c++-mode)
 C-M-'            ## docs-string                         ##                               ## Вставляет заготовку для документации кода
 C-M-p f          ## switch-flycheck                     ## python-mode-map               ## Включить/выключить flycheck
-C-M-1            ## clang-format-auto                   ## c++-mode-map                  ## Пересчитать отступы в регионе или во всем буфере
-C-M-1            ## pyformat                            ## python-mode-map               ## Пересчитать отступы в регионе или во всем буфере. Заменяет исходный файл, история недоступна! 
-C-M-2            ## indent                              ##                               ## Пересчитать стиль в регионе или во всем буфере
+C-M-1            ## clang-format-auto                   ## c++-mode-map                  ## Пересчитать стиль в регионе или во всем буфере
+C-M-1            ## pyformat                            ## python-mode-map               ## Пересчитать стиль в регионе или во всем буфере
+C-M-2            ## indent                              ##                               ## Пересчитать отступы в регионе или во всем буфере
 C-M-a d o        ## downcase-word                       ##                               ## Перевести следующее в нижний регистр
 C-M-a d r        ## downcase-region                     ##                               ## Перевести регион в нижний регистр
 C-M-a d u        ## downcase-previous-word              ##                               ## Перевести предыдущее в нижний регистр

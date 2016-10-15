@@ -439,7 +439,7 @@
 
 (defun pyformat()
   "Correct style by clang-format in the region or all
-   buffer if dont user region. Warging: History of changes doesnt available."
+   buffer if dont user region."
   (interactive)
   (save-buffer)
   (save-excursion
