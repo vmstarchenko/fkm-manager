@@ -260,7 +260,7 @@
 (global-set-key (kbd "C-M-[") 'insert-brace)   ;; Вставляет одиночную фигурную скобку (актуально для c++-mode)
 (global-set-key (kbd "C-M-'") 'docs-string)   ;; Вставляет заготовку для документации кода
 (define-key python-mode-map (kbd "C-M-p f") 'switch-flycheck)   ;; Включить/выключить flycheck
-(global-set-key (kbd "C-M-1") 'clang-format-auto)   ;; Пересчитать отступы в регионе или во всем буфере
+(define-key c++-mode-map (kbd "C-M-1") 'clang-format-auto)   ;; Пересчитать отступы в регионе или во всем буфере
 (global-set-key (kbd "C-M-2") 'indent)   ;; Пересчитать стиль в регионе или во всем буфере
 (global-set-key (kbd "C-M-a d o") 'downcase-word)   ;; Перевести следующее в нижний регистр
 (global-set-key (kbd "C-M-a d r") 'downcase-region)   ;; Перевести регион в нижний регистр
@@ -527,7 +527,7 @@ ________________________________________________________________________________
  C-M-[            | insert-brace                        |                               | Вставляет одиночную фигурную скобку (актуально для c++-mode)
  C-M-'            | docs-string                         |                               | Вставляет заготовку для документации кода
  C-M-p f          | switch-flycheck                     | python-mode-map               | Включить/выключить flycheck
- C-M-1            | clang-format-auto                   |                               | Пересчитать отступы в регионе или во всем буфере
+ C-M-1            | clang-format-auto                   | c++-mode-map                  | Пересчитать отступы в регионе или во всем буфере
  C-M-2            | indent                              |                               | Пересчитать стиль в регионе или во всем буфере
  C-M-a d o        | downcase-word                       |                               | Перевести следующее в нижний регистр
  C-M-a d r        | downcase-region                     |                               | Перевести регион в нижний регистр
