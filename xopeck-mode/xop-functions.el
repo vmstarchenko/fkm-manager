@@ -453,8 +453,7 @@
             (write-region rstart rend tmp-file)
             (shell-command (concat "pyformat -i " tmp-file))
             (kill-region rstart rend)
-            (insert-file-contents
-             tmp-file nil 0 (- rend rstart))
+            (insert-file-contents tmp-file)
             )))))
 
 (defun switch-flycheck()
