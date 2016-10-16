@@ -126,8 +126,8 @@
 
    ;; Completions
    `(completions-annotations      ,dummy)
-   `(completions-common-part      ,dummy)
-   `(completions-first-difference ,dummy)
+   `(completions-common-part      ,hl)
+   `(completions-first-difference ,hl-active)
 
    ;; Custom
    `(custom-button         ,dummy)
@@ -270,7 +270,7 @@
    `(font-lock-string-face               ,str           ) ;; строковые литералы
    `(font-lock-type-face                 ,type          ) ;; другие встроенные функции
    `(font-lock-variable-name-face        ,variable-name ) ;; переменные
-   `(font-lock-warning-face              ,dummy         ) ;; autoload word color(from ;;;###autoload)
+   `(font-lock-warning-face              ,hl-warning    ) ;; autoload word color(from ;;;###autoload)
 
    ;; Gnus
    `(gnus-button                      ,dummy)
@@ -412,10 +412,21 @@
    `(jabber-roster-user-xa         ,dummy)
 
    ;; Javascript
-   `(js2-error               ,empty     )
-   `(js2-external-variable   ,hl-warning)
-   `(js2-function-param-face ,dummy     )
-   `(js2-warning             ,empty     )
+   `(js2-error                    ,empty        )
+   `(js2-external-variable        ,hl-warning   )
+   `(js2-function-call            ,empty        )
+   `(js2-function-param           ,variable-name) ;;2 ;; переменные ??work??
+   `(js2-function-param-face      ,dummy        )
+   `(js2-instance-member          ,dummy        )
+   `(js2-jsdoc-html-tag-delimiter ,dummy        )
+   `(js2-jsdoc-html-tag-name      ,dummy        )
+   `(js2-jsdoc-tag                ,function-name)
+   `(js2-jsdoc-type               ,type         )
+   `(js2-jsdoc-value              ,variable-name)
+   `(js2-object-property          ,empty        )
+   `(js2-private-function-call    ,dummy        )
+   `(js2-private-member           ,dummy        )
+   `(js2-warning                  ,empty        )
 
    ;; MMM-Mode
    `(mmm-cleanup-submode-face     ,dummy)
@@ -592,6 +603,11 @@
    `(message-mml               ,dummy)
    `(message-separator         ,dummy)
 
+   ;; Multiple cursor
+   ;; `(mc/cursor-face      ,hl) ;; use funny default cursor hl
+   `(mc/cursor-bar-face  ,hl-active)
+   `(mc/region-face      ,hl-active)
+   
    ;; Neotree
    `(neo-banner-face     ,dummy)
    `(neo-button-face     ,dummy)
@@ -756,7 +772,7 @@
    ;; ido-mode
    `(ido-first-match       ,hl-active)
    `(ido-incomplete-regexp ,dummy    )
-   `(ido-indicator         ,dummy    )
+   `(ido-indicator         ,constant )
    `(ido-only-match        ,hl       ) ;; only match.
    `(ido-subdir            ,directory) ;; Папки в альтернативе
    `(ido-virtual           ,dummy    )
@@ -1037,10 +1053,6 @@
    `(hs-face                              ,hl            ) ;; hideshow {(n)...} face
    `(hs-fringe-face                       ,fringe-info   ) ;; hideshow plus in fringe
    `(isearch-fail                         ,hl-error      ) ;; подсветить зафейленую часть
-   `(js2-function-param                   ,variable-name ) ;; переменные
-   `(js2-jsdoc-tag                        ,function-name )
-   `(js2-jsdoc-type                       ,type          )
-   `(js2-jsdoc-value                      ,variable-name )
    `(match                                ,hl-active     ) ;; подсветить текущую найденную
    `(powerline-active1                    ,default2      ) ;; modeline активный нецентральный(2)
    `(powerline-active2                    ,hl-active     ) ;; modeline активный центральный(1)
