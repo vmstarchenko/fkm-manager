@@ -26,6 +26,16 @@
 ;;(require 'xop-abbrev") ;; abbrev
 (require 'tr-mode)
 
+;; fill column
+(require 'fill-column-indicator)
+(define-globalized-minor-mode global-fci-mode fci-mode
+  (lambda()
+    (if (and
+         (not (string-match "^\*.*\*$" (buffer-name)))
+         (not (eq major-mode 'dired-mode)))
+        (fci-mode 1))))
+(global-fci-mode 1)
+
 ;;; local modes
 ;; moz-controller (todo: need firefox plugin)
 ;; (defun load-moz-controller()
