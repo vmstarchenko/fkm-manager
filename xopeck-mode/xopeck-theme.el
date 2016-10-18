@@ -26,6 +26,7 @@
      (hl-info          `((,class (:background "#000000"   :foreground "#a681a6"  ))))
      (hl-warning       `((,class (:background "#000000"   :foreground "#ff8000"  ))))
      (hl-error         `((,class (:background "#000000"   :foreground "#ff0000"  ))))
+     (hl-success       `((,class (:background "#000000"   :foreground "#80ff00"  ))))
      (fringe           `((,class (:background ,fringe-bg  :foreground ,fringe-fg ))))
      (fringe-border    `((,class (:background ,fringe-bg  :foreground ,fringe-bg ))))
      (builtin          `((,class (                        :foreground ,builtin-fg :bold t))))
@@ -88,11 +89,11 @@
    `(vertical-border     ,fringe-border) ;; вертикальный бордер на границе буферов
 
    ;; Escape and prompt faces
-   `(error             ,dummy   )
+   `(error             ,hl-error)
    `(escape-glyph      ,constant) ;; symbols like 
    `(minibuffer-prompt ,prompt  )
-   `(success           ,dummy   )
-   `(warning           ,dummy   )
+   `(success           ,hl-success)
+   `(warning           ,hl-warning)
 
    ;; Ace-jump
    `(ace-jump-face-background ,dummy)

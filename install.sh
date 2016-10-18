@@ -56,6 +56,8 @@ sudo apt-get install npm -y -f
 sudo npm install -g jshint
 sudo npm install -g csslint
 sudo npm install -g sass-lint
+# TODO: add copy .lint-config files
+
 ## scss
 sudo apt-get install ruby -y -f
 sudo gem install sass
