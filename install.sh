@@ -55,6 +55,7 @@ sudo apt-get install nodejs-legacy -y -f
 sudo apt-get install npm -y -f
 sudo npm install -g jshint
 sudo npm install -g csslint
+sudo npm install -g sass-lint
 ## scss
 sudo apt-get install ruby -y -f
 sudo gem install sass
