@@ -34,6 +34,11 @@
          (not (string-match "^\*.*\*$" (buffer-name)))
          (not (eq major-mode 'dired-mode)))
         (fci-mode 1))))
+(setq fci-style 'rule)
+;; (set-face-background 'fci-shading "light gray")
+(setq fci-rule-width 8) ;; ?? kek: thin black line between symbols
+;; (setq fci-rule-color "darkblue")
+(setq-default fill-column 72)
 (global-fci-mode 1)
 
 ;;; local modes
