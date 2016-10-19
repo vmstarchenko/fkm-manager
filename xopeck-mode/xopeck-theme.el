@@ -819,7 +819,7 @@
    `(font-latex-subscript-face            ,empty)
    `(font-latex-superscript-face          ,empty)
    `(font-latex-verbatim-face             ,dummy)
-   `(font-latex-warning-face              ,dummy)
+   `(font-latex-warning-face              ,hl-warning)
 
    ;; notmuch
    `(notmuch-search-unread-face ,dummy)

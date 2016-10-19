@@ -3,3 +3,6 @@ sudo apt-get install git -y -f
 
 TODO: add cp from config-files (.jslintrc, .pylintrc ...)
 TODO: create pyformat folder in tmp and clean it after finish
+
+installed elpa css-comb
+sudo npm install csscomb -g

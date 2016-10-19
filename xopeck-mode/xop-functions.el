@@ -437,24 +437,34 @@
       (clang-format-region rstart rend)))
   (deactivate-mark "irrelevant"))
 
-(defun pyformat()
-  "Correct style by clang-format in the region or all
-   buffer if dont user region."
-  (interactive)
-  (save-buffer) ;; TODO: remove?
-  (save-excursion
-    (let* ((filename (buffer-file-name (current-buffer)))
-           (tmp-file (concat "/tmp/#.pyformat." (file-name-nondirectory filename)))
-           (use-region (and transient-mark-mode mark-active))
-           (rstart (if use-region (region-beginning) (point-min)))
-           (rend   (if use-region (region-end)       (point-max))))
-      (if (not (eq filename nil))
-          (progn
-            (write-region rstart rend tmp-file)
-            (shell-command (concat "pyformat -i " tmp-file))
-            (kill-region rstart rend)
-            (insert-file-contents tmp-file)
-            )))))
+;; TODO: handle shell-command errors
+;; TODO: rm tmp-file-name with concat with filename?
+(defmacro define-formatter (formatter-name command tmp-file-path)
+  "Create formatter. Command must be abled to called from shell."
+  `(defun ,formatter-name ()
+     (interactive)
+     (save-excursion
+       (let* ((command ,command)
+              (filename (buffer-file-name (current-buffer)))
+              (tmp-file (concat
+                         ,tmp-file-path
+                         (file-name-nondirectory filename)))
+              (use-region (and transient-mark-mode mark-active))
+              (rstart (if use-region (region-beginning) (point-min)))
+              (rend (if use-region (region-end) (point-max))))
+         (if (not (eq filename nil))
+             (progn
+               (write-region rstart rend tmp-file)
+               (shell-command (concat command tmp-file))
+               (kill-region rstart rend)
+               (insert-file-contents tmp-file)
+               (message 
+                ,(format "%s was used successfully" formatter-name))))))))
+
+(define-formatter pyformat "pyformat -i " "/tmp/#.emacs.formatter.")
+
+
+
 
 (defun switch-flycheck()
   "turn on or off flycheck"
