@@ -441,14 +441,17 @@
 ;; TODO: rm tmp-file-name with concat with filename?
 (defmacro define-formatter (formatter-name command tmp-file-path)
   "Create formatter. Command must be abled to called from shell."
+  ;; TODO: here check path
   `(defun ,formatter-name ()
      (interactive)
      (save-excursion
        (let* ((command ,command)
               (filename (buffer-file-name (current-buffer)))
-              (tmp-file (concat
+              (tmp-file (concat 
+                         ""
                          ,tmp-file-path
-                         (file-name-nondirectory filename)))
+                         ;; (file-name-nondirectory filename)
+                         ))
               (use-region (and transient-mark-mode mark-active))
               (rstart (if use-region (region-beginning) (point-min)))
               (rend (if use-region (region-end) (point-max))))
@@ -461,7 +464,8 @@
                (message 
                 ,(format "%s was used successfully" formatter-name))))))))
 
-(define-formatter pyformat "pyformat -i " "/tmp/#.emacs.formatter.")
+(define-formatter pyformat "pyformat -i " "/tmp/#.emacs.formatter")
+(define-formatter scssformat "csscomb " "/tmp/#.emacs.formatter")
 
 
 
