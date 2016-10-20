@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+#include <iostream>
+
+int main(int ${1:argc}, char *${2:argv}[]) {
+  $0
+  return 0;
+}

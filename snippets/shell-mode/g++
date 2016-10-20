@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: g++
+# key: g++
+# --
+g++ -o ${2:a.out} -std=${3:c++11} ${1:filename }$0

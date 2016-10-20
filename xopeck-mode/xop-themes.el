@@ -289,7 +289,7 @@
 ;; (set-default-font "Tlwg Typo")                ;; 40,  81
 ;; (set-default-font "FreeMono")                 ;; 55,  81
 
-;; (set-default-font "fixed")
+;; (set-default-font "NotoMono")
 ;; (set-default-font "clean")
 ;; (set-default-font "bitstream charter")
 ;; (set-default-font "Padauk Book")
