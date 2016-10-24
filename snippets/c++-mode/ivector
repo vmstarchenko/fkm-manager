@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ivector
+# key: ivector
+# --
+#include <vector>

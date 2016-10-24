@@ -155,7 +155,7 @@
 
    ;; Dired/Dired+
    `(dired-directory               ,directory )
-   `(dired-flagged                 ,dummy     )
+   `(dired-flagged                 ,hl-active )
    `(dired-header                  ,directory ) ;; Путь в диспетчере задач
    `(dired-ignored                 ,dummy     )
    `(dired-mark                    ,hl        )

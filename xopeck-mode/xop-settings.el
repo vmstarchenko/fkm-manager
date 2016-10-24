@@ -298,3 +298,5 @@
 
 ;; лучшая отрисовка буфера ???
 ;; (setq redisplay-dont-pause t)
+
+(provide 'xop-settings)

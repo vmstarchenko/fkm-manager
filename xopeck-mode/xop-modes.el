@@ -393,3 +393,6 @@
 (add-hook 'css-mode-hook 'hex-color)
 (add-hook 'html-mode-hook 'hex-color)
 (add-hook 'emacs-lisp-mode-hook 'hex-color)
+
+
+(provide 'xop-modes)

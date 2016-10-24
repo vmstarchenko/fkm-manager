@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: fors
+# key: fors
+# --
+for (${1:size_t} ${2:i} = ${3:0}${4:, N = 0}; ${5:i < N}; ${6:++i}) {
+    $0
+}

@@ -4,20 +4,21 @@
 ;;                      "modes")) ;; doesnt work
 
 ;; Моды
-(load "xop-modes")
-; custom functions
-(load "xop-functions")
+(require 'xop-modes)
 
-; custom color-themes
-(load "xop-themes")
+;; custom functions
+(require 'xop-functions)
 
-; custom settings
-(load "xop-settings")
+;; custom color-themes
+(require 'xop-themes)
 
-; custom hotkeys
+;; custom settings
+(require 'xop-settings)
+
+;; custom hotkeys
 (load "xop-hotkeys")
 
-;(require 'xopeck-light-theme)
+;; (require 'xopeck-light-theme)
 (require 'xopeck-theme)
 
-
+(provide 'xopeck-mode)

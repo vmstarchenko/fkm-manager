@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: D
+# key: D
+# --
+if (${1:DEBUG}) {
+  std::cout << $0 << std::endl;
+}

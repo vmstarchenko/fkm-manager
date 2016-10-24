@@ -458,6 +458,7 @@
          (if (not (eq filename nil))
              (progn
                (write-region rstart rend tmp-file)
+               (message (concat command tmp-file))
                (shell-command (concat command tmp-file))
                (kill-region rstart rend)
                (insert-file-contents tmp-file)
@@ -465,7 +466,7 @@
                 ,(format "%s was used successfully" formatter-name))))))))
 
 (define-formatter pyformat "pyformat -i " "/tmp/#.emacs.formatter")
-(define-formatter scssformat "csscomb " "/tmp/#.emacs.formatter")
+(define-formatter scssformat "csscomb -c ~/.csscomb.json " "/tmp/#.emacs.formatter")
 
 
 
@@ -556,3 +557,5 @@
 ;;       ;; Clear buffer-modified flag caused by set-visited-file-name
 ;;       (set-buffer-modified-p nil))
 ;;   (message "Renamed to %s." new-name)))
+
+(provide 'xop-functions)
