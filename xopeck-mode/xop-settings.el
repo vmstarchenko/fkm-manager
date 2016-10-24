@@ -221,7 +221,16 @@
 ;; (cfg:reverse-input-method 'russian-computer)
 
 ;; Стартовое сообщение
-(setq initial-scratch-message ";; Hello me. Stop fun, start working.\n;; *press s-h h for hotkey help\n")
+(add-hook 'after-init-hook
+          (lambda ()
+            (insert (concat ";; Hello me. Stop fun, start working.\n"
+                            ";; Press s-h h for hotkey help\n\n"
+                            ";; Emacs init time: " (emacs-init-time) "\n\n"
+                            ";; Symgols (press C-M-q for input):\n"
+                            ";;   tab(\t):\t\\t | ^I\n"
+                            ";;   newline:\t\\n | ^J\n"
+                            ";;   return:\t\\r | ^M\n"
+                            ))))
 
 ;; Subword. if demands normal: change Docs
 (require 'subword)

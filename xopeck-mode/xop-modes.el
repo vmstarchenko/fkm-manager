@@ -259,8 +259,10 @@
   (interactive)
   (define-key lisp-interaction-mode-map (kbd "C-M-i") nil)
   (define-key lisp-interaction-mode-map (kbd "C-M-x") nil)
+  (define-key lisp-interaction-mode-map (kbd "C-M-q") nil)
   (define-key emacs-lisp-mode-map (kbd "C-M-i") nil)
-  (define-key emacs-lisp-mode-map (kbd "C-M-x") nil))
+  (define-key emacs-lisp-mode-map (kbd "C-M-x") nil)
+  (define-key emacs-lisp-mode-map (kbd "C-M-q") nil))
 (add-hook 'lisp-interaction-mode-hook 'unset-elisp-mode-keys)
 
 (defun unset-js-mode-keys()
