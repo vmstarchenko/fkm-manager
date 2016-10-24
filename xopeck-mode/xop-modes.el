@@ -1,22 +1,15 @@
 ;;; create absents keymaps
-(defvar shell-mode-map (make-sparse-keymap)
-	"Keymap for `shell-mode'.")
-(defvar emacs-shell-mode-map (make-sparse-keymap)
-	"Keymap for `eshell-mode'.")
-(defvar js-mode-map (make-sparse-keymap)
-	"Keymap for `js-mode'.")
-(defvar python-mode-map (make-sparse-keymap)
-	"Keymap for `python-mode'.")
-(defvar emmet-mode-keymap (make-sparse-keymap)
-	"Keymap for `emmet-mode'.")
-(defvar moz-controller-mode-map (make-sparse-keymap)
-	"Keymap for `moz-controller-mode'.")
-(defvar org-mode-map (make-sparse-keymap)
-	"Keymap for `org-mode'.")
-(defvar xorg-mode-map (make-sparse-keymap)
-	"Keymap for `xorg-mode'.")
-(defvar c++-mode-map (make-sparse-keymap)
-	"Keymap for `c++-mode'.")
+(defvar shell-mode-map (make-sparse-keymap) "Keymap for `shell-mode'.")
+(defvar emacs-shell-mode-map (make-sparse-keymap) "Keymap for `eshell-mode'.")
+(defvar js-mode-map (make-sparse-keymap) "Keymap for `js-mode'.")
+(defvar python-mode-map (make-sparse-keymap) "Keymap for `python-mode'.")
+(defvar emmet-mode-keymap (make-sparse-keymap) "Keymap for `emmet-mode'.")
+(defvar moz-controller-mode-map (make-sparse-keymap) "Keymap for `moz-controller-mode'.")
+(defvar org-mode-map (make-sparse-keymap) "Keymap for `org-mode'.")
+(defvar xorg-mode-map (make-sparse-keymap) "Keymap for `xorg-mode'.")
+(defvar c++-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
+(defvar yas-minor-mode-map (make-sparse-keymap) "Keymap for `yas-minor-mode'.")
+
 
 ;;; inline modes
 (require 'xop-linum) ;; нумерация строк
@@ -152,11 +145,12 @@
 ;; depandance: xop-complete
 (defun load-yasnippet()
   (interactive)
-	(require 'yasnippet)
-	(yas-global-mode 1)
-	(yas/load-directory "~/.emacs.d/snippets") ;; folder
-	(add-to-list 'ac-dictionary-directories "~/.emacs.d/snippets"))
-(load-yasnippet)
+  (require 'yasnippet)
+  (yas-global-mode 1)
+  (yas/load-directory "~/.emacs.d/snippets") ;; folder
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/snippets"))
+(add-hook 'after-init-hook 'load-yasnippet)
+
 
 ;; semantic
 ;; depandence: xop-complete
@@ -210,8 +204,7 @@
 
 ;; flycheck javascript
 (defun flycheck-js-setup()
-	(flycheck-mode)
-  )
+  (flycheck-mode))
 (add-hook 'js-mode-hook #'flycheck-js-setup)
 (add-hook 'js2-mode-hook #'flycheck-js-setup)
 (add-hook 'js3-mode-hook #'flycheck-js-setup)
