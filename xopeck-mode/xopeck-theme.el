@@ -742,13 +742,13 @@
 
    ;; compilation
    `(compilation-column-number  ,dummy)
-   `(compilation-error          ,dummy)
-   `(compilation-info           ,dummy)
-   `(compilation-line-number    ,dummy)
+   `(compilation-error          ,hl-error)
+   `(compilation-info           ,hl-info)
+   `(compilation-line-number    ,link-face)
    `(compilation-mode-line-exit ,dummy)
    `(compilation-mode-line-fail ,dummy)
    `(compilation-mode-line-run  ,dummy)
-   `(compilation-warning        ,dummy)
+   `(compilation-warning        ,hl-warning)
 
    ;; git-commit-mode
    `(git-commit-branch-face               ,dummy)

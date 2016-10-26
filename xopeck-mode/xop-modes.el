@@ -243,6 +243,9 @@
     'doc-view-previous-page))
 (add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
+
+;; js
+
 ;; hs
 ;; (add-hook 'c-mode-common-hook #'hs-minor-mode)
 ;; (add-hook 'c++-mode-common-hook #'hs-minor-mode)
