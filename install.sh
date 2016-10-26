@@ -1,17 +1,5 @@
 #!/bin/bash
 
-echo "install g++" #~
-sudo apt-get install g++ -y -f #~
-echo "install emacs24..." #~
-sudo apt-get install emacs24 -y -f #~
-
-# make folders structure
-script=`readlink -e "$0"`
-script_path=`dirname "$script"`
-home_path=~/
-_emacs_d_path=~/.emacs.d
-xopeck_mode_path=~/.emacs.d/xopeck-mode
-
 ## functions
 create_folder() {
     # take path and make folder
@@ -27,16 +15,45 @@ create_folder() {
     fi
 }
 
+
+# make folders structure
+script=`readlink -e "$0"`
+script_path=`dirname "$script"`
+tmp_path="$script_path/tmp/"
+home_path=~/
+_emacs_d_path=~/.emacs.d
+xopeck_mode_path=~/.emacs.d/xopeck-mode
+
 ## make .emacs.d folder
 create_folder "$_emacs_d_path"
 
 ## make .emacs.d/xopeck-mode folder
 create_folder "$xopeck_mode_path"
-## todo: cp xopeck-mode
-
 create_folder "$_emacs_d_path/snippets"
 
-create_folder "$script_path/tmp"
+## tmp
+create_folder $tmp_path
+sudo cd $tmp_path
+
+echo "install g++" #~
+sudo apt-get install g++ -y -f #~
+sudo apt-get install python3 -y -f #~
+
+echo "install emacs24..." #~
+# load x
+echo "depandances..."
+sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev -y -f
+# load emacs
+echo "load emacs from ftp.gnu.org..."
+sudo wget https://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz
+sudo tar -xf emacs-24.4.tar.*
+sudo cd "emacs-24.4/"
+# install emacs
+./configure
+sudo make
+sudo make install
+cd ".."
+rm -r "emacs-24.4/"
 
 # install apt-get plugins
 sudo apt-get install python3-pip -y -f #~
@@ -84,7 +101,7 @@ cp "$script_path/.emacs" "$home_path/.emacs"
 pylint --generate-rcfile > "$home_path/.pylintrc" #~
 # todo: cp my .pylintrc file?
 # load cpplint (for flycheck)
-wget -o "$script_path/tmp/cpplint.py" https://raw.githubusercontent.com/google/styleguide/gh-pages/cpplint/cpplint.py #~
+sudo wget -o "$script_path/tmp/cpplint.py" https://raw.githubusercontent.com/google/styleguide/gh-pages/cpplint/cpplint.py #~
 sudo mv cpplint.py /usr/local/bin/cpplint.py #~
 sudo chmod 755 /usr/local/bin/cpplint.py #~
 # todo: cp cpplint.py if can't load
