@@ -37,4 +37,10 @@
 (add-hook 'eshell-mode-hook #'(lambda () (setq ac-sources '(ac-source-pcomplete))))
 (add-to-list 'ac-modes 'eshell-mode)
 
+(setq eshell-prompt-function
+  (lambda nil
+    (concat
+     (eshell/pwd)
+     " $ ")))
+
 (provide 'xop-eshell)

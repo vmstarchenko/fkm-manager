@@ -195,7 +195,8 @@
     (eshell-send-input)
     (save-excursion (beginning-of-buffer)
                     (insert "You are welcome to Emacs Shell!"))
-    ))
+    )
+  )
 ;; (defun previous-shell-command()
 ;; 		(interactive)
 ;; 		(if (equal major-mode 'shell-mode)
@@ -444,26 +445,28 @@
   ;; TODO: here check path
   `(defun ,formatter-name ()
      (interactive)
-     (save-excursion
-       (let* ((command ,command)
-              (filename (buffer-file-name (current-buffer)))
-              (tmp-file (concat 
-                         ""
-                         ,tmp-file-path
-                         ;; (file-name-nondirectory filename)
-                         ))
-              (use-region (and transient-mark-mode mark-active))
-              (rstart (if use-region (region-beginning) (point-min)))
-              (rend (if use-region (region-end) (point-max))))
-         (if (not (eq filename nil))
-             (progn
-               (write-region rstart rend tmp-file)
-               (message (concat command tmp-file))
-               (shell-command (concat command tmp-file))
-               (kill-region rstart rend)
-               (insert-file-contents tmp-file)
-               (message 
-                ,(format "%s was used successfully" formatter-name))))))))
+     (save-buffer)
+     (let* ((command ,command)
+            (filename (buffer-file-name (current-buffer)))
+            (tmp-file (concat 
+                       ""
+                       ,tmp-file-path
+                       ;; (file-name-nondirectory filename)
+                       ))
+            (use-region (and transient-mark-mode mark-active))
+            (p (point))
+            (rstart (if use-region (region-beginning) (point-min)))
+            (rend (if use-region (region-end) (point-max))))
+       (if (not (eq filename nil))
+           (progn
+             (write-region rstart rend tmp-file)
+             (message (concat command tmp-file))
+             (shell-command (concat command tmp-file))
+             (kill-region rstart rend)
+             (insert-file-contents tmp-file)
+             (message 
+              ,(format "%s was used successfully" formatter-name))
+             (goto-char p))))))
 
 (define-formatter pyformat "pyformat -i " "/tmp/#.emacs.formatter")
 (define-formatter scssformat "csscomb -c ~/.csscomb.json " "/tmp/#.emacs.formatter")
@@ -557,5 +560,10 @@
 ;;       ;; Clear buffer-modified flag caused by set-visited-file-name
 ;;       (set-buffer-modified-p nil))
 ;;   (message "Renamed to %s." new-name)))
+
+;; (with-eval-after-load "esh-opt"
+;;   (autoload 'epe-theme-lambda "eshell-prompt-extras")
+;;   (setq eshell-highlight-prompt nil
+;;         eshell-prompt-function 'epe-theme-lambda))
 
 (provide 'xop-functions)

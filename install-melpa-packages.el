@@ -32,6 +32,8 @@
     sr-speedbar
     web-mode
     clang-format
+    helm
+    helm-gtags
     ))
 
 (defun packages-installed-p ()
