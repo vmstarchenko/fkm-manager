@@ -120,7 +120,7 @@
 (require 'xop-completion)
 
 ;; depandence: auto-complete
-(require 'xop-eshell) ;; eshell
+(require 'xop-shell) ;; eshell
 
 ;; google translate
 (require 'google-translate)
@@ -315,6 +315,7 @@
   (define-key eshell-mode-map (kbd "M-p") nil)
   (define-key eshell-mode-map (kbd "C-m") nil)
   (define-key eshell-mode-map (kbd "M-s") nil)
+  (define-key eshell-mode-map (kbd "M-s") nil)
   (define-key eshell-mode-map (kbd "M-r") nil)
   (define-key shell-mode-map (kbd "C-M-l") nil))
 (add-hook 'eshell-mode-hook 'unset-eshell-mode-keys)
@@ -379,13 +380,18 @@
   )
 (add-hook 'multiple-cursors-mode-hook 'unset-multiple-cursor-mode-keys)
 
+(defun unset-help-mode-keys()
+  (define-key help-mode-map (kbd "S-SPC") nil)
+  )
+(add-hook 'help-mode-hook 'unset-help-mode-keys)
+
+(define-key special-mode-map (kbd "S-SPC") nil)
 
 ;; minibuffer
 ;; minibuffer-inactive-mode
 (define-key minibuffer-local-map (kbd "M-s") nil)
 (define-key minibuffer-local-map (kbd "M-r") nil)
 (define-key minibuffer-local-map (kbd "M-p") nil)
-
 
 ;; colors
 (add-hook 'css-mode-hook 'hex-color)

@@ -34,6 +34,9 @@
     clang-format
     helm
     helm-gtags
+    cmake-mode
+    company
+    readline-complete
     ))
 
 (defun packages-installed-p ()

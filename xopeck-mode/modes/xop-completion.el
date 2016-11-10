@@ -65,4 +65,24 @@
 (add-hook 'python-mode-hook 'jedi:ac-setup)
 ;; (setq jedi:complete-on-dot t) ;; doesnt work ?? 
 
+;; bash completion (and shell)
+(require 'shell)
+(add-to-list 'ac-modes 'shell-mode)
+(add-to-list 'ac-modes 'bash-mode)
+
+(require 'readline-complete)
+(setq explicit-shell-file-name "bash")
+(setq explicit-bash-args '("-c" "export EMACS=; stty echo; bash"))
+(setq comint-process-echoes t)
+
+(add-hook 'shell-mode-hook 'ac-rlc-setup-sources)
+(add-hook 'shell-mode-hook
+          '(lambda() (setq ac-sources ac-source-files-in-current-dir)))
+(add-hook 'bash-mode-hook
+          '(lambda() (setq ac-sources ac-source-files-in-current-dir)))
+
+(company-mode)
+(push 'company-readline company-backends)
+(add-hook 'rlc-no-readline-hook (lambda () (company-mode -1)))
+
 (provide 'xop-completion)
