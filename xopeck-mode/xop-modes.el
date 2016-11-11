@@ -2,6 +2,7 @@
 (defvar shell-mode-map (make-sparse-keymap) "Keymap for `shell-mode'.")
 (defvar emacs-shell-mode-map (make-sparse-keymap) "Keymap for `eshell-mode'.")
 (defvar js-mode-map (make-sparse-keymap) "Keymap for `js-mode'.")
+(defvar js2-mode-map (make-sparse-keymap) "Keymap for `js-mode'.")
 (defvar python-mode-map (make-sparse-keymap) "Keymap for `python-mode'.")
 (defvar emmet-mode-keymap (make-sparse-keymap) "Keymap for `emmet-mode'.")
 (defvar moz-controller-mode-map (make-sparse-keymap) "Keymap for `moz-controller-mode'.")

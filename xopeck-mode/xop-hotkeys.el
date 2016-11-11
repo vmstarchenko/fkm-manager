@@ -261,6 +261,7 @@
 (global-set-key (kbd "C-M-'") 'docs-string)   ;; Вставляет заготовку для документации кода
 (define-key python-mode-map (kbd "C-M-p f") 'switch-flycheck)   ;; Включить/выключить flycheck
 (define-key c++-mode-map (kbd "C-M-1") 'clang-format-auto)   ;; Пересчитать стиль в регионе или во всем буфере
+(define-key js2-mode-map (kbd "C-M-1") 'clang-format-auto)   ;; Пересчитать стиль в регионе или во всем буфере
 (define-key python-mode-map (kbd "C-M-1") 'pyformat)   ;; Пересчитать стиль в регионе или во всем буфере
 (define-key scss-mode-map (kbd "C-M-1") 'scssformat)   ;; Пересчитать стиль в регионе или во всем буфере
 (global-set-key (kbd "C-M-2") 'indent)   ;; Пересчитать отступы в регионе или во всем буфере
@@ -531,6 +532,7 @@ ________________________________________________________________________________
  C-M-'            | docs-string                         |                               | Вставляет заготовку для документации кода
  C-M-p f          | switch-flycheck                     | python-mode-map               | Включить/выключить flycheck
  C-M-1            | clang-format-auto                   | c++-mode-map                  | Пересчитать стиль в регионе или во всем буфере
+ C-M-1            | clang-format-auto                   | js2-mode-map                  | Пересчитать стиль в регионе или во всем буфере
  C-M-1            | pyformat                            | python-mode-map               | Пересчитать стиль в регионе или во всем буфере
  C-M-1            | scssformat                          | scss-mode-map                 | Пересчитать стиль в регионе или во всем буфере
  C-M-2            | indent                              |                               | Пересчитать отступы в регионе или во всем буфере

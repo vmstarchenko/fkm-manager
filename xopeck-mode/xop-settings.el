@@ -112,12 +112,14 @@
                       '(:background "green" :foreground "black" :weight bold)))))
    ;; cursor position data
    (:propertize " %2cC %2lL %p " face (:background "grey" :foreground "black"))
-   "[%b"
+   " %b"
+   (:eval (replace-regexp-in-string "^ Git" " " vc-mode)) ;;  git state
    ;; (:eval
    ;; (propertize (if (vc-mode vc-mode)
    ;;                 (concat "(" (vc-mode vc-mode) ")") " xxx ") 'face))
-   ": %m]"
-   ;; (vc-mode vc-mode)
+   " [%m:"
+   minor-mode-alist
+   "]"
    ;; "%I"
 
    (:eval ;; battery
@@ -136,7 +138,7 @@
                         '()))))
    "%M " ;; time
    ))
-
+;; (vc-mode)
 (setq line-move-visual nil)
 
 
@@ -198,7 +200,7 @@
 (add-hook 'fundamental-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'text-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'python-mode-hook (lambda() (setq tab-width 4) (setq indent-tabs-mode nil))) ;;+
-(add-hook 'c++-mode-hook (lambda() (setq tab-width 2) (setq indent-tabs-mode nil))) ;;c-basic-indent???
+(add-hook 'c++-mode-hook (lambda() (setq c-basic-offset 2) (setq indent-tabs-mode nil))) ;;c-basic-indent???
 (add-hook 'org-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
 (add-hook 'emacs-lisp-mode-hook (lambda() (setq tab-width 2)))
 (add-hook 'lisp-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
