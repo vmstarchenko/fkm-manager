@@ -1,8 +1,5 @@
 ;; start auto-complete with emacs
 ;; todo: auto completeon doesnt work with newline 
-(require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
 
 ;; show menu automatically
 (setq ac-show-menu-immediately-on-auto-complete t)

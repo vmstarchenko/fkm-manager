@@ -125,11 +125,15 @@
 
 ;; melpa modes
 ;; autocompletion
-;; todo: in xop-completion
-(require 'xop-completion)
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+;; castomize ac-complete
+(add-hook 'after-init-hook '(lambda() (require 'xop-completion)))
+
 
 ;; depandence: auto-complete
-(require 'xop-shell) ;; eshell
+;; (require 'xop-shell) ;; eshell
 
 ;; google translate
 (require 'google-translate)
