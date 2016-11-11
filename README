@@ -1,5 +1,6 @@
 other packages install
 sudo apt-get install git -y -f
+test
 
 TODO: add cp from config-files (.jslintrc, .pylintrc ...)
 TODO: create pyformat folder in tmp and clean it after finish
