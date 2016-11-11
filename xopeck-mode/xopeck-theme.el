@@ -160,7 +160,7 @@
    `(dired-ignored                 ,dummy     )
    `(dired-mark                    ,hl        )
    `(dired-marked                  ,hl-warning)
-   `(dired-perm-write              ,dummy     )
+   `(dired-perm-write              ,empty     )
    `(dired-symlink                 ,symlink   )
    `(dired-warning                 ,dummy     )
    `(diredp-compressed-file-suffix ,dummy     )

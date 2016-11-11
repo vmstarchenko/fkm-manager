@@ -20,13 +20,13 @@
 (require 'tr-mode)
 
 ;; fill column
-(require 'fill-column-indicator)
-(define-globalized-minor-mode global-fci-mode fci-mode
-  (lambda()
-    (if (and
-         (not (string-match "^\*.*\*$" (buffer-name)))
-         (not (eq major-mode 'dired-mode)))
-        (fci-mode 1))))
+;; (require 'fill-column-indicator)
+;; (define-globalized-minor-mode global-fci-mode fci-mode
+;;   (lambda()
+;;     (if (and
+;;          (not (string-match "^\*.*\*$" (buffer-name)))
+;;          (not (eq major-mode 'dired-mode)))
+;;         (fci-mode 1))))
 ;; (setq fci-style 'rule)
 ;; (set-face-background 'fci-shading "light gray")
 ;; (setq fci-rule-width 8) ;; ?? kek: thin black line between symbols
@@ -58,6 +58,15 @@
 
 ;; cursor
 (require 'multiple-cursors)
+
+;; castomize dired
+(require 'dired )
+
+(define-key dired-mode-map (kbd "RET")
+  'dired-find-alternate-file) ; was dired-advertised-find-file
+
+(define-key dired-mode-map (kbd "^")
+  (lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
 
 ;; autopair
 (require 'autopair)
