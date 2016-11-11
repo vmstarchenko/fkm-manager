@@ -25,14 +25,6 @@
 ;;        '(:eval (battery-status))
 ;;        ))
 
-;; Время  и дата
-(defface display-time-face
-  '()  "Face used to display the time in the mode line.")
-(setq display-time-string-forms
-      '((propertize (format-time-string " %H:%M %d.%m") 'face 'display-time-face)))  ;" %H:%M:%S %d-%m-%Y"
-(display-time-mode 1)
-(setq display-time-interval 10)
-
 ;; fix iedit keybindings
 (setq iedit-toggle-key-default nil)
 
@@ -90,7 +82,59 @@
                              (powerline-fill face1 (powerline-width rhs))
                              (powerline-render rhs)))))))
 
-(powerline-xopeck-theme)
+;;; modeline
+;; date and time
+(defface
+  display-time-face '()  "Face used to display the time in the mode line.")
+(setq display-time-string-forms
+      '((propertize (format-time-string " %H:%M %d.%m") 'face 'display-time-face)))  ;" %H:%M:%S %d-%m-%Y"
+(setq display-time-interval 10)
+(display-time-mode 1)
+
+;; battery
+(require 'battery)
+;; (display-battery-mode 1)
+
+(setq-default
+ mode-line-format
+ '(   ;; buffer state: readonly, changed, not changed
+   (:eval
+    (when (eql buffer-read-only t)
+      (propertize " # " 'face
+                  '(:background "color-88" :foreground "white" :weight bold))))
+   (:eval
+    (propertize (if (eql buffer-read-only nil) " %* " "") 'face
+                (if (buffer-modified-p)
+                    '(:background "red" :foreground "white" :weight bold)
+                  '(:background "green" :foreground "black" :weight bold))))
+   ;; cursor position data
+   (:propertize " %2cC %2lL %p " face (:background "grey" :foreground "black"))
+   "[%b"
+   ;; (:eval
+   ;; (propertize (if (vc-mode vc-mode)
+   ;;                 (concat "(" (vc-mode vc-mode) ")") " xxx ") 'face))
+   ": %m]"
+   ;; (vc-mode vc-mode)
+   ;; "%I"
+
+   (:eval ;; battery
+    (let* ((battery-status (funcall battery-status-function))
+           (power-level (cdr (assoc ?p battery-status)))
+           (is-charging (downcase (cdr (assoc ?B battery-status)))) ;; charging, discharging, n/a
+           (finish-time (cdr (assoc ?t battery-status))) ;; time til finish charging/discharging
+           )
+      (propertize (if (and (< (string-to-int power-level) 100)
+                           (not (string= is-charging "unknown")))
+                      (format " %s %s " power-level finish-time) " FULL ") 'face
+                      (if (string= is-charging "discharging")
+                          (if (< (string-to-int power-level) 20)
+                              '(:background "orange" :foreground "white" :weight bold)
+                            '(:background "red" :foreground "white" :weight bold))
+                        '(:background "green" :foreground "black" :weight bold)))))
+   "%M " ;; time
+   ))
+
+;; (powerline-xopeck-theme)
 
 ;; бэкап
 ;; (setq make-backup-files        nil)
