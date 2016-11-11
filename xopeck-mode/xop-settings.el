@@ -100,13 +100,16 @@
  '(   ;; buffer state: readonly, changed, not changed
    (:eval
     (when (eql buffer-read-only t)
-      (propertize " # " 'face
-                  '(:background "color-88" :foreground "white" :weight bold))))
+      (propertize
+       " # " 'face
+       (if (not (string-match "*" (buffer-name)))
+           '(:background "color-88" :foreground "white" :weight bold)))))
    (:eval
     (propertize (if (eql buffer-read-only nil) " %* " "") 'face
-                (if (buffer-modified-p)
-                    '(:background "red" :foreground "white" :weight bold)
-                  '(:background "green" :foreground "black" :weight bold))))
+                (if (not (string-match "*" (buffer-name)))
+                    (if (buffer-modified-p)
+                        '(:background "red" :foreground "black" :weight bold)
+                      '(:background "green" :foreground "black" :weight bold)))))
    ;; cursor position data
    (:propertize " %2cC %2lL %p " face (:background "grey" :foreground "black"))
    "[%b"
@@ -128,13 +131,14 @@
                       (format " %s %s " power-level finish-time) " FULL ") 'face
                       (if (string= is-charging "discharging")
                           (if (< (string-to-int power-level) 20)
-                              '(:background "orange" :foreground "white" :weight bold)
-                            '(:background "red" :foreground "white" :weight bold))
-                        '(:background "green" :foreground "black" :weight bold)))))
+                              '(:background "red" :foreground "black" :weight bold)
+                            '(:background "orange" :foreground "black" :weight bold))
+                        '()))))
    "%M " ;; time
    ))
 
-;; (powerline-xopeck-theme)
+(setq line-move-visual nil)
+
 
 ;; бэкап
 ;; (setq make-backup-files        nil)
