@@ -137,8 +137,11 @@
 ;; (require 'xop-shell) ;; eshell
 
 ;; google translate
-(require 'google-translate)
-(require 'google-translate-default-ui)
+(add-hook 'after-init-hook
+          (lambda()
+            (require 'google-translate)
+            (require 'google-translate-default-ui)
+            ))
 
 ;; ;; rope
 ;; (defun ropemacs-setup ()
@@ -168,10 +171,10 @@
 
 ;; semantic
 ;; depandence: xop-complete
-(semantic-mode 1)
+(add-hook 'after-init-hook
+          (lambda() (semantic-mode 1)))
 (defun add-semantic-autocomplete()
-  (add-to-list 'ac-sources 'ac-source-semantic)
-  )
+  (add-to-list 'ac-sources 'ac-source-semantic))
 (add-hook 'c-mode-common-hook 'add-semantic-autocomplete)
 
 ;; emmet
