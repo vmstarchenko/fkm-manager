@@ -37,6 +37,7 @@
     cmake-mode
     company
     readline-complete
+    magit
     ))
 
 (defun packages-installed-p ()

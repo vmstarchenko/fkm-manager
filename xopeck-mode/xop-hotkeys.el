@@ -307,7 +307,7 @@
 (global-set-key (kbd "M-d d") 'delete-window)   ;; Закрыть текущее окно (при этом буфер не удаляется)
 (global-set-key (kbd "M-d a") 'delete-other-windows)   ;; Закрыть все окна кроме текущего
 (global-set-key (kbd "M-d f") 'sr-speedbar-toggle)   ;; Навигация по дереву файлов
-(global-set-key (kbd "M-d s 1") 'xscreen)   ;; window confuguration 1
+(global-set-key (kbd "M-d s 1") 'xscreen)   ;; Window confuguration 1
 (global-set-key (kbd "s-f") 'find-file)   ;; Открыть файл на диске
 (global-set-key (kbd "s-r") 'find-file-read-only)   ;; Открыть файл в режиме чтения
 (global-set-key (kbd "s-s") 'save-buffer)   ;; Сохранить буфер на диске
@@ -316,6 +316,7 @@
 (global-set-key (kbd "s-d") 'dired)   ;; Открыть файловый менеджер
 (global-set-key (kbd "s-n") 'bookmark-bmenu-list)   ;; Открыть закладки
 (global-set-key (kbd "s-b") 'bookmark-set)   ;; Добавить закладку
+(global-set-key (kbd "s-m") 'magit-status)   ;; Open git status
 (global-set-key (kbd "C-M-y") 'yas-expand)   ;; Дополнить
 (define-key yas-minor-mode-map (kbd "C-M-h") 'yas-exit-snippet)   ;; Окончить набор сниппета
 (define-key emmet-mode-keymap (kbd "C-M-w w") 'emmet-wrap-with-markup)   ;; Обернуть в тэг
@@ -604,7 +605,7 @@ ________________________________________________________________________________
  M-d d            | delete-window                       |                               | Закрыть текущее окно (при этом буфер не удаляется)
  M-d a            | delete-other-windows                |                               | Закрыть все окна кроме текущего
  M-d f            | sr-speedbar-toggle                  |                               | Навигация по дереву файлов
- M-d s 1          | xscreen                             |                               | window confuguration 1
+ M-d s 1          | xscreen                             |                               | Window confuguration 1
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 
@@ -620,6 +621,7 @@ ________________________________________________________________________________
  s-d              | dired                               |                               | Открыть файловый менеджер
  s-n              | bookmark-bmenu-list                 |                               | Открыть закладки
  s-b              | bookmark-set                        |                               | Добавить закладку
+ s-m              | magit-status                        |                               | Open git status
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
 

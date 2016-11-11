@@ -125,7 +125,7 @@ M-d r            ## split-window-vertically             ##                      
 M-d d            ## delete-window                       ##                               ## Закрыть текущее окно (при этом буфер не удаляется)
 M-d a            ## delete-other-windows                ##                               ## Закрыть все окна кроме текущего
 M-d f            ## sr-speedbar-toggle                  ##                               ## Навигация по дереву файлов
-M-d s 1          ## xscreen                             ##                               ## window confuguration 1
+M-d s 1          ## xscreen                             ##                               ## Window confuguration 1
 
 
   Работа с файлами
@@ -137,6 +137,7 @@ s-e              ## rename-file                         ##                      
 s-d              ## dired                               ##                               ## Открыть файловый менеджер
 s-n              ## bookmark-bmenu-list                 ##                               ## Открыть закладки
 s-b              ## bookmark-set                        ##                               ## Добавить закладку
+s-m              ## magit-status                        ##                               ## Open git status
 
 
   Сниппеты и обертки
