@@ -1,7 +1,13 @@
 ;;;;  Настройка внешнего вида
 
 ;; font
-(set-face-attribute 'default nil :height 110)
+(add-hook 'after-init-hook
+          '(lambda()
+             (set-face-attribute 'default nil :height 110)
+             (set-default-font "DejaVu Sans Mono-11")))
+
+;; (set-face-attribute 'default nil :height 110)
+;; (set-default-font "DejaVu Sans Mono-11")
 
 ;; (color-theme-da-normal)
 ;; (set-english-input-method)
@@ -16,7 +22,7 @@
 ;; Fonts
 ;;(set-default-font "Ubuntu Mono-13")           ;; 45,  81
 ;; (set-default-font "Droid Sans Mono-11")       ;; 45,  81
-(set-default-font "DejaVu Sans Mono-11")      ;; 42,  81
+;; 42,  81
 ;; (set-default-font "Tlwg Typist")              ;; 40,  81
 ;;(set-default-font "WenQuanYi Micro Hei Mono") ;; 42,  81
 ;; (set-default-font "TlwgMono")                 ;; 40.5,81

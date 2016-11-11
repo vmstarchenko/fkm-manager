@@ -10,21 +10,21 @@
                "/modes")))
 
 ;; Моды
-(require 'xop-modes)
+;; 0.8 +
+(require 'xop-modes) ;; 0.5 sec
 
 ;; custom functions
-(require 'xop-functions)
-
+(require 'xop-functions) ;; 0 sec
 ;; custom color-themes
-(require 'xop-themes)
+(require 'xop-themes) ;; 0.1-0.2 sec
 
 ;; custom settings
-(require 'xop-settings)
+(require 'xop-settings) ;; 0.1-0.2 sec
 
 ;; custom hotkeys
-(load "xop-hotkeys")
+(load "xop-hotkeys") ;; 0 sec
 
 ;; (require 'xopeck-light-theme)
-(require 'xopeck-theme)
+(require 'xopeck-theme) ;; 0.1-0.2 sec
 
 (provide 'xopeck-mode)

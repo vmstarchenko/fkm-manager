@@ -111,9 +111,16 @@
                         '(:background "red" :foreground "black" :weight bold)
                       '(:background "green" :foreground "black" :weight bold)))))
    ;; cursor position data
-   (:propertize " %2cC %2lL %p " face (:background "grey" :foreground "black"))
+   (:eval
+    (propertize " %2cC %2lL %p "
+                'face '(:background "grey" :foreground "black")))
+
    " %b"
-   (:eval (replace-regexp-in-string "^ Git" " " vc-mode)) ;;  git state
+   ;; (:eval
+   ;;  (propertize (replace-regexp-in-string
+   ;;         "^ Git" " " (if (eq vc-mode nil) "" vc-mode)) 'face))
+   
+   ;;  git state
    ;; (:eval
    ;; (propertize (if (vc-mode vc-mode)
    ;;                 (concat "(" (vc-mode vc-mode) ")") " xxx ") 'face))
@@ -138,7 +145,7 @@
                         '()))))
    "%M " ;; time
    ))
-;; (vc-mode)
+
 (setq line-move-visual nil)
 
 
