@@ -266,8 +266,8 @@
    `(font-lock-keyword-face              ,keyword       ) ;; ключевые слова
    `(font-lock-negation-char-face        ,negation-char ) ;; Символ отрицания
    `(font-lock-preprocessor-face         ,preprocessor  ) ;; обращение к препроцессору
-   `(font-lock-regexp-grouping-backslash ,dummy         )
-   `(font-lock-regexp-grouping-construct ,dummy         )
+   `(font-lock-regexp-grouping-backslash ,builtin       )
+   `(font-lock-regexp-grouping-construct ,constant      )
    `(font-lock-string-face               ,str           ) ;; строковые литералы
    `(font-lock-type-face                 ,type          ) ;; другие встроенные функции
    `(font-lock-variable-name-face        ,variable-name ) ;; переменные
@@ -741,7 +741,7 @@
    `(company-tooltip-selection        ,dummy)
 
    ;; compilation
-   `(compilation-column-number  ,dummy)
+   `(compilation-column-number  ,link-face)
    `(compilation-error          ,hl-error)
    `(compilation-info           ,hl-info)
    `(compilation-line-number    ,link-face)
