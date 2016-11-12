@@ -116,14 +116,13 @@
                 'face '(:background "grey" :foreground "black")))
 
    " %b"
-   ;; (:eval
-   ;;  (propertize (replace-regexp-in-string
-   ;;         "^ Git" " " (if (eq vc-mode nil) "" vc-mode)) 'face))
-   
+
    ;;  git state
-   ;; (:eval
-   ;; (propertize (if (vc-mode vc-mode)
-   ;;                 (concat "(" (vc-mode vc-mode) ")") " xxx ") 'face))
+   ;; (:eval ;; it works
+   ;;  (propertize (replace-regexp-in-string
+   ;;               "^ Git" " " (if (eq vc-mode nil) "" vc-mode)) 'face
+   ;;               '()))
+
    " [%m:"
    minor-mode-alist
    "]"
