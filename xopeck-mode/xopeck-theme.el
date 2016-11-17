@@ -419,8 +419,8 @@
    `(js2-function-param           ,variable-name) ;;2 ;; переменные ??work??
    `(js2-function-param-face      ,dummy        )
    `(js2-instance-member          ,dummy        )
-   `(js2-jsdoc-html-tag-delimiter ,dummy        )
-   `(js2-jsdoc-html-tag-name      ,dummy        )
+   `(js2-jsdoc-html-tag-delimiter ,function-name)
+   `(js2-jsdoc-html-tag-name      ,keyword      )
    `(js2-jsdoc-tag                ,function-name)
    `(js2-jsdoc-type               ,type         )
    `(js2-jsdoc-value              ,variable-name)
