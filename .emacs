@@ -1,7 +1,6 @@
 ;;;; подключаем плагины
 ;; добавляем в список закрузки плагинов папку .emacs.d
 
-(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/xopeck-mode")
 (add-to-list 'load-path "~/.emacs.d/xopeck-mode/modes/auctex")
 

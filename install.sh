@@ -46,8 +46,8 @@ sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev l
 # load emacs
 echo "load emacs from ftp.gnu.org..."
 sudo wget https://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz
-sudo tar -xf emacs-24.4.tar.*
-sudo cd "emacs-24.4/"
+tar -xf emacs-24.4.tar.*
+cd "emacs-24.4/"
 # install emacs
 ./configure
 sudo make
@@ -87,7 +87,7 @@ sudo npm install -g browserify
 sudo npm install -g watchify
 
 ## latex
-sudo apt-get install texlive -f -y
+# sudo apt-get install texlive -f -y
 
 # install melpa plugins
 # todo: add close emacs after installing melpa packages

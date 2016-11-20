@@ -244,21 +244,21 @@
 ;; (add-hook 'java-mode-hook #'flycheck-java-setup)
 ;;; modes.el ends here
 
-;; LaTeX
-(add-hook 'TeX-mode-hook
-          '(lambda()
-             (message "load")
-             (latex-preview-pane-mode t)))
+;; LaTeX ;; its work
+;(add-hook 'TeX-mode-hook
+;          '(lambda()
+;             (message "load")
+;             (latex-preview-pane-mode t)))
 ;; fix docview-mode keys
-(defun set-docview-mode-keys()
-  (define-key (current-local-map)
-    [remap forward-paragraph]
-    'doc-view-next-page)
-  (define-key
-    (current-local-map)
-    [remap backward-paragraph]
-    'doc-view-previous-page))
-(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
+;(defun set-docview-mode-keys()
+;  (define-key (current-local-map)
+;    [remap forward-paragraph]
+;    'doc-view-next-page)
+;  (define-key
+;    (current-local-map)
+;    [remap backward-paragraph]
+;    'doc-view-previous-page))
+;(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 
 ;; js
@@ -356,16 +356,16 @@
 (add-hook 'dired-mode-hook 'unset-dired-mode-keys)
 
 ;; TODO: write normal latex unset function (for LaTeX and preview-pane)
-(defun preview-latex-setup()
-  ;; (latex-preview-pane-mode 1)
-  (define-key latex-preview-pane-mode-map (kbd "M-p") nil)
-  (define-key latex-preview-pane-mode-map (kbd "s-p") nil)
-  (define-key latex-preview-pane-mode-map (kbd "M-P") nil)
-  (define-key latex-preview-pane-mode-map (kbd "s-P") nil)
-  ;; (define-key latex-preview-pane-mode-map (kbd "C-M-a") nil)
-  (define-key LaTeX-mode-map (kbd "C-M-a") nil)
-  (latex-preview-update))
-(add-hook 'LaTeX-mode-hook 'preview-latex-setup)
+;(defun preview-latex-setup()
+;  ;; (latex-preview-pane-mode 1)
+;  (define-key latex-preview-pane-mode-map (kbd "M-p") nil)
+;  (define-key latex-preview-pane-mode-map (kbd "s-p") nil)
+;  (define-key latex-preview-pane-mode-map (kbd "M-P") nil)
+;  (define-key latex-preview-pane-mode-map (kbd "s-P") nil)
+;  ;; (define-key latex-preview-pane-mode-map (kbd "C-M-a") nil)
+;  (define-key LaTeX-mode-map (kbd "C-M-a") nil)
+;  (latex-preview-update))
+;(add-hook 'LaTeX-mode-hook 'preview-latex-setup)
 
 (defun unset-org-mode-keys()
   (define-key org-mode-map (kbd "C-y") nil)

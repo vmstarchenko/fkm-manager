@@ -38,6 +38,8 @@
     company
     readline-complete
     magit
+    autopair
+    multiple-cursors
     ))
 
 (defun packages-installed-p ()
