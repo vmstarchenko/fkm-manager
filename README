@@ -7,3 +7,7 @@ TODO: create pyformat folder in tmp and clean it after finish
 
 installed elpa css-comb
 sudo npm install csscomb -g
+
+
+add
+sudo npm install -g eslint
