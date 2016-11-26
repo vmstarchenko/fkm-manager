@@ -342,6 +342,8 @@
 (global-set-key (kbd "s-k") 'enlarge-window)   ;; Увеличить окно по вертикали
 (global-set-key (kbd "s-j") 'shrink-window-horizontally)   ;; Уменьшить окно по горизонтали
 (global-set-key (kbd "s-l") 'enlarge-window-horizontally)   ;; Уменьшить окно по горизонтали
+(global-set-key (kbd "s--") 'zoom-)   ;; Zoom -
+(global-set-key (kbd "s-=") 'zoom+)   ;; Zoom +
 (global-set-key (kbd "C-g") 'keyboard-quit)   ;; Закончить (прервать) текущую операцию
 (define-key lisp-interaction-mode-map (kbd "s-'") 'eval-last-sexp)   ;; Обновить функцию, выполнить (в lisp-mode)
 (define-key emacs-lisp-mode-map (kbd "s-'") 'eval-last-sexp)   ;; Обновить функцию, выполнить (в emacs-lisp-mode)
@@ -669,6 +671,8 @@ ________________________________________________________________________________
  s-k              | enlarge-window                      |                               | Увеличить окно по вертикали
  s-j              | shrink-window-horizontally          |                               | Уменьшить окно по горизонтали
  s-l              | enlarge-window-horizontally         |                               | Уменьшить окно по горизонтали
+ s--              | zoom-                               |                               | Zoom -
+ s-=              | zoom+                               |                               | Zoom +
  C-g              | keyboard-quit                       |                               | Закончить (прервать) текущую операцию
  s-'              | eval-last-sexp                      | lisp-interaction-mode-map     | Обновить функцию, выполнить (в lisp-mode)
  s-'              | eval-last-sexp                      | emacs-lisp-mode-map           | Обновить функцию, выполнить (в emacs-lisp-mode)

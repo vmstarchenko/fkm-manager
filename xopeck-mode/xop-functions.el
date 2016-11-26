@@ -516,6 +516,31 @@
   (eshell-clear)
   (other-window 1))
 
+
+(setq zoom-value 110)
+(defun zoom-set (arg)
+  "Prompt user to enter a string, with input history support."
+  (interactive
+   (list
+    (read-string "Zoom value: ")))
+  (setq zoom-value (string-to-int arg))
+  (set-face-attribute 'default nil :height zoom-value))
+
+(defun zoom+()
+  (interactive)
+  (setq zoom-value (+ zoom-value 5))
+  (set-face-attribute 'default nil :height zoom-value))
+
+(defun zoom-()
+  (interactive)
+  (setq zoom-value (- zoom-value 5))
+  (if (< zoom-value 80)
+      (progn
+        (setq zoom-value 80)
+        (message "It's too little value")))
+  (set-face-attribute 'default nil :height zoom-value))
+
+
 ;; (defun rename-current-file (name)
 ;;   "Rename current file (and buffer)."
 ;;   (interactive "sNew name: ")

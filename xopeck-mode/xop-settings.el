@@ -361,6 +361,16 @@
  python-shell-interpreter "/usr/bin/python3"
  python-shell-interpreter-args "-i")
 
+;; ;; Zoom for all buffers
+;; (defadvice text-scale-increase (around all-buffers (arg) activate)
+;;   (dolist (buffer (buffer-list))
+;;     (with-current-buffer buffer
+;;       ad-do-it)))
+;; (defadvice text-scale-decrease (around all-buffers (arg) activate)
+;;   (dolist (buffer (buffer-list))
+;;     (with-current-buffer buffer
+;;       ad-do-it)))
+
 ;; лучшая отрисовка буфера ???
 ;; (setq redisplay-dont-pause t)
 
