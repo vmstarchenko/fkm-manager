@@ -18,8 +18,8 @@
     google-translate
     iedit
 
-    auctex
-    latex-preview-pane
+    ;; auctex
+    ;; latex-preview-pane
     ac-math
 
     yasnippet
