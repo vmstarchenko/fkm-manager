@@ -79,12 +79,12 @@ sudo npm install -g sass-lint
 sudo apt-get install ruby -y -f
 sudo gem install sass
 ## js
-sudo npm install --save-dev babel-cli -g
-sudo npm install --save-dev babel-preset-es2015 -g
-sudo npm install babel-plugin-transform-es2015-modules-umd
-sudo npm install babel-plugin-transform-es2015-modules-amd
-sudo npm install -g browserify
-sudo npm install -g watchify
+# sudo npm install babel-cli -g
+# sudo npm install babel-preset-es2015 -g
+# sudo npm install babel-plugin-transform-es2015-modules-umd -g
+# sudo npm install babel-plugin-transform-es2015-modules-amd -g
+# sudo npm install -g browserify
+# sudo npm install -g watchify
 
 ## latex
 # sudo apt-get install texlive -f -y
