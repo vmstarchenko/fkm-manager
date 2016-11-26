@@ -394,6 +394,7 @@
 
 (defun unset-multiple-cursor-mode-keys()
   (define-key mc/keymap (kbd "<return>") nil)
+  (define-key mc/keymap (kbd "M-v") nil)
   )
 (add-hook 'multiple-cursors-mode-hook 'unset-multiple-cursor-mode-keys)
 
