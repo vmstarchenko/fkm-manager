@@ -209,9 +209,9 @@
 (global-set-key (kbd "M-y") 'beginning-of-line)   ;; Начало строки
 (global-set-key (kbd "M-p") 'end-of-line)   ;; Конец строки
 (global-set-key (kbd "M-h") 'backward-paragraph)   ;; Начало параграфр
-(define-key ido-common-completion-map (kbd "M-h") 'ido-prev-match)   ;; При открытии и сохранении файла проматать варианты назад (можно ido-file-dir-completion-map?)
+(define-key ido-common-completion-map (kbd "M-s-j") 'ido-prev-match)   ;; При открытии и сохранении файла проматать варианты назад (можно ido-file-dir-completion-map?)
 (global-set-key (kbd "M-;") 'forward-paragraph)   ;; Конец параграфа
-(define-key ido-common-completion-map (kbd "M-;") 'ido-next-match)   ;; При открытии и сохранении файла проматать варианты вперёд
+(define-key ido-common-completion-map (kbd "M-s-l") 'ido-next-match)   ;; При открытии и сохранении файла проматать варианты вперёд
 (global-set-key (kbd "M-m") 'beginning-of-buffer)   ;; В начало буфера
 (global-set-key (kbd "M-,") 'goto-line)   ;; Переход на заданную строку
 (global-set-key (kbd "M-.") 'end-of-buffer)   ;; В конец буфера
@@ -471,9 +471,9 @@ ________________________________________________________________________________
  M-y              | beginning-of-line                   |                               | Начало строки
  M-p              | end-of-line                         |                               | Конец строки
  M-h              | backward-paragraph                  |                               | Начало параграфр
- M-h              | ido-prev-match                      | ido-common-completion-map     | При открытии и сохранении файла проматать варианты назад (можно ido-file-dir-completion-map?)
+ M-s-j            | ido-prev-match                      | ido-common-completion-map     | При открытии и сохранении файла проматать варианты назад (можно ido-file-dir-completion-map?)
  M-;              | forward-paragraph                   |                               | Конец параграфа
- M-;              | ido-next-match                      | ido-common-completion-map     | При открытии и сохранении файла проматать варианты вперёд
+ M-s-l            | ido-next-match                      | ido-common-completion-map     | При открытии и сохранении файла проматать варианты вперёд
  M-m              | beginning-of-buffer                 |                               | В начало буфера
  M-,              | goto-line                           |                               | Переход на заданную строку
  M-.              | end-of-buffer                       |                               | В конец буфера

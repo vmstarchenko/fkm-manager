@@ -11,9 +11,9 @@ M-o              ## subword-forward                     ##                      
 M-y              ## beginning-of-line                   ##                               ## Начало строки
 M-p              ## end-of-line                         ##                               ## Конец строки
 M-h              ## backward-paragraph                  ##                               ## Начало параграфр
-M-h              ## ido-prev-match                      ## ido-common-completion-map     ## При открытии и сохранении файла проматать варианты назад (можно ido-file-dir-completion-map?)
+M-s-j            ## ido-prev-match                      ## ido-common-completion-map     ## При открытии и сохранении файла проматать варианты назад (можно ido-file-dir-completion-map?)
 M-;              ## forward-paragraph                   ##                               ## Конец параграфа
-M-;              ## ido-next-match                      ## ido-common-completion-map     ## При открытии и сохранении файла проматать варианты вперёд
+M-s-l            ## ido-next-match                      ## ido-common-completion-map     ## При открытии и сохранении файла проматать варианты вперёд
 M-m              ## beginning-of-buffer                 ##                               ## В начало буфера
 M-,              ## goto-line                           ##                               ## Переход на заданную строку
 M-.              ## end-of-buffer                       ##                               ## В конец буфера
