@@ -184,7 +184,11 @@
 ;; semantic
 ;; depandence: xop-complete
 (add-hook 'after-init-hook
-          (lambda() (semantic-mode 1)))
+          (lambda()
+            (semantic-mode 1)
+            (setq semanticdb-default-save-directory (format "%s/%s" fkm-tmp-dir ".semanticdb"))
+            (shell-command (concat "mkdir -p " semanticdb-default-save-directory))))
+
 (defun add-semantic-autocomplete()
   (add-to-list 'ac-sources 'ac-source-semantic))
 (add-hook 'c-mode-common-hook 'add-semantic-autocomplete)
