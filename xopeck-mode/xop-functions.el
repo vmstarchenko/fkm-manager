@@ -10,7 +10,7 @@
 
 ;;; docs-string
 ;; functions
-                                        ; python
+                                        ;; python
 (defun python-docs-string()
   (interactive)
   (end-of-line)
@@ -25,20 +25,20 @@
       (setq size (- size 1)))
     (insert (concat "\"\"\"\n" spc))
     (save-excursion (insert (concat "\n" spc "\"\"\"")))))
-                                        ; c++
+                                        ;; c++
 (defun cpp-docs-string()
   (interactive)
   (end-of-line)
   (insert "\n// ")
   (indent-for-tab-command))
-                                        ; lisp
+                                        ;; lisp
 (defun lisp-docs-string()
   (interactive)
   (end-of-line)
   (newline-and-indent)
   (insert "\"\"")
   (backward-char 1))
-                                        ; hooks
+                                        ;; hooks
 (add-hook 'python-mode-hook '(lambda ()
                                (defun docs-string()
                                  (interactive)

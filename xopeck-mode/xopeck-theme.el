@@ -157,7 +157,7 @@
    `(dired-directory               ,directory )
    `(dired-flagged                 ,hl-active )
    `(dired-header                  ,directory ) ;; Путь в диспетчере задач
-   `(dired-ignored                 ,dummy     )
+   `(dired-ignored                 ,hl-info   )
    `(dired-mark                    ,hl        )
    `(dired-marked                  ,hl-warning)
    `(dired-perm-write              ,empty     )

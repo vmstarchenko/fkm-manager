@@ -2,12 +2,11 @@
 ;; (add-to-list 'load-path
 ;;              (concat (file-name-directory (buffer-file-name (current-buffer)))
 ;;                      "modes")) ;; doesnt work
-(add-to-list 'load-path
-             (expand-file-name
-              (concat
-               (file-name-directory (locate-library "xopeck-mode"))
-               ;; or (file-truename "xopeck-mode")
-               "/modes")))
+(add-to-list 'load-path (expand-file-name (concat (file-name-directory
+                                                   (locate-library
+                                                    "xopeck-mode"))
+                                                  ;; or (file-truename "xopeck-mode")
+                                                  "/modes")))
 
 ;; Моды
 ;; 0.8 +

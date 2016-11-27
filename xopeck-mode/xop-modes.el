@@ -60,6 +60,7 @@
 (defadvice elisp-format-buffer ;; delete trailing whitespaces
     (after elisp-format-buffer-after activate)
   (delete-trailing-whitespace))
+(setq elisp-format-column 70)
 
 ;; undo-tree
 (require 'undo-tree)

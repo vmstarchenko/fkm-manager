@@ -15,6 +15,12 @@
 ;; Название открытого буфера в шапке окна
 (setq frame-title-format "Emacs:   %b")
 
+;; tmp emacs folder
+(setq fkm-tmp-dir "/tmp/.emacs-fkm") ;; fkm-var
+;; (add-hook 'after-init-hook
+;;           (lambda() (shell-command (concat "mkdir -p " fkm-tmp-dir))))
+(defconst emacs-tmp-dir (format "%s/%s-%s/" fkm-tmp-dir "emacs" (user-uid)))
+
 ;; modeline
 (line-number-mode)
 (column-number-mode) ;; отображать номер столбца
@@ -149,18 +155,21 @@
 
 
 ;; бэкап
-;; (setq make-backup-files        nil)
-(setq auto-save-default        nil)
-                                        ; (setq auto-save-list-file-name nil) ;; я так привык... хотите включить - замените nil на t
-
+;; (setq make-backup-files nil)
+(setq auto-save-default nil)
+;; (setq auto-save-list-file-name nil)
 (setq
- backup-by-copying t                                        ; don't clobber symlinks
- backup-directory-alist
- '(("." . "~/.saves"))                                      ; don't litter my fs tree
+ backup-by-copying t            ;; don't clobber symlinks
  delete-old-versions t
  kept-new-versions 6
  kept-old-versions 2
- version-control t)                                         ; use versioned backups
+ version-control t)             ;; use versioned backups
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+
+(setq backup-directory-alist `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+      emacs-tmp-dir)
 
 ;; show-trailing-whitespace
 (custom-set-variables
