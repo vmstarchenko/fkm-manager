@@ -318,12 +318,12 @@
 ;; change case
 (defun upcase-previous-word ()
   (interactive)
-  (save-excursion 
+  (save-excursion
     (backward-word)
     (upcase-word 1)))
 (defun downcase-previous-word ()
   (interactive)
-  (save-excursion 
+  (save-excursion
     (backward-word)
     (downcase-word 1)))
 (put 'upcase-region 'disabled nil)
@@ -340,7 +340,7 @@
   (setq eik-char-out "")
   (setq eik-i start)
   (while (< eik-i end)
-    (setq eik-char-in 
+    (setq eik-char-in
           (buffer-substring-no-properties eik-i (+ eik-i 1)))
     (setq eik-char-out (gethash eik-char-in eik-chartable nil))
     (if (not eik-char-out)
@@ -361,7 +361,7 @@
   (setq eik-char-out "")
   (setq eik-i start)
   (while (< eik-i end)
-    (setq eik-char-in 
+    (setq eik-char-in
           (buffer-substring-no-properties eik-i (+ eik-i 1)))
     (setq eik-char-out (gethash eik-char-in eik-chartable nil))
     (if (not eik-char-out)
@@ -448,7 +448,7 @@
      (save-buffer)
      (let* ((command ,command)
             (filename (buffer-file-name (current-buffer)))
-            (tmp-file (concat 
+            (tmp-file (concat
                        ""
                        ,tmp-file-path
                        ;; (file-name-nondirectory filename)
@@ -464,7 +464,7 @@
              (shell-command (concat command tmp-file))
              (kill-region rstart rend)
              (insert-file-contents tmp-file)
-             (message 
+             (message
               ,(format "%s was used successfully" formatter-name))
              (goto-char p))))))
 
@@ -483,7 +483,7 @@
                                  (add-to-list 'active-modes mode))
                            (error nil)))
           minor-mode-list)
-    (if (member 'flycheck-mode active-modes) 
+    (if (member 'flycheck-mode active-modes)
         (flycheck-mode -1)
       (flycheck-mode))))
 
@@ -492,7 +492,7 @@
 ;;   (interactive "^")
 ;;   (insert " ")
 ;;   (emmet-preview (point) (- (point) 1))
-;;   (backward-char)) 
+;;   (backward-char))
 
 
 (defun emmet-turn-on-preview()
@@ -517,7 +517,10 @@
   (other-window 1))
 
 
+(setq zoom-step 1)
 (setq zoom-value 110)
+(setq zoom-min-value 80)
+
 (defun zoom-set (arg)
   "Prompt user to enter a string, with input history support."
   (interactive
@@ -528,15 +531,15 @@
 
 (defun zoom+()
   (interactive)
-  (setq zoom-value (+ zoom-value 5))
+  (setq zoom-value (+ zoom-value zoom-step))
   (set-face-attribute 'default nil :height zoom-value))
 
 (defun zoom-()
   (interactive)
-  (setq zoom-value (- zoom-value 5))
-  (if (< zoom-value 80)
+  (setq zoom-value (- zoom-value zoom-step))
+  (if (< zoom-value zoom-min-value)
       (progn
-        (setq zoom-value 80)
+        (setq zoom-value zoom-min-value)
         (message "It's too little value")))
   (set-face-attribute 'default nil :height zoom-value))
 
