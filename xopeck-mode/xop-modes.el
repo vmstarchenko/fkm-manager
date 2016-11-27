@@ -52,6 +52,11 @@
 ;; sudo apt-get install clang-3.8 lldb-3.8 clang-format-3.8
 ;; sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format
 
+;; lisp format
+(require 'srefactor)
+(require 'srefactor-lisp)
+
+
 
 ;; undo-tree
 (require 'undo-tree)
@@ -59,6 +64,9 @@
 
 ;; cursor
 (require 'multiple-cursors)
+
+;; colors
+(require 'color)
 
 ;; castomize dired
 (require 'dired )
@@ -404,6 +412,8 @@
 (add-hook 'help-mode-hook 'unset-help-mode-keys)
 
 (define-key special-mode-map (kbd "S-SPC") nil)
+(define-key package-menu-mode-map (kbd "S-SPC") nil)
+
 
 ;; minibuffer
 ;; minibuffer-inactive-mode

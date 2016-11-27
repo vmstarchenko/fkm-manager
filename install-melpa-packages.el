@@ -40,6 +40,7 @@
     magit
     autopair
     multiple-cursors
+    srefactor
     ))
 
 (defun packages-installed-p ()
