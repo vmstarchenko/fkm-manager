@@ -264,7 +264,7 @@
 (define-key js2-mode-map (kbd "C-M-1") 'clang-format-auto)   ;; Пересчитать стиль в регионе или во всем буфере
 (define-key python-mode-map (kbd "C-M-1") 'pyformat)   ;; Пересчитать стиль в регионе или во всем буфере
 (define-key scss-mode-map (kbd "C-M-1") 'scssformat)   ;; Пересчитать стиль в регионе или во всем буфере
-(define-key emacs-lisp-mode-map (kbd "C-M-1") 'srefactor-lisp-format-buffer)   ;; Пересчитать стиль в регионе или во всем буфере
+(define-key emacs-lisp-mode-map (kbd "C-M-1") 'elisp-format-buffer)   ;; Пересчитать стиль в регионе или во всем буфере
 (global-set-key (kbd "C-M-2") 'indent)   ;; Пересчитать отступы в регионе или во всем буфере
 (global-set-key (kbd "C-M-a d o") 'downcase-word)   ;; Перевести следующее в нижний регистр
 (global-set-key (kbd "C-M-a d r") 'downcase-region)   ;; Перевести регион в нижний регистр
@@ -538,7 +538,7 @@ ________________________________________________________________________________
  C-M-1            | clang-format-auto                   | js2-mode-map                  | Пересчитать стиль в регионе или во всем буфере
  C-M-1            | pyformat                            | python-mode-map               | Пересчитать стиль в регионе или во всем буфере
  C-M-1            | scssformat                          | scss-mode-map                 | Пересчитать стиль в регионе или во всем буфере
- C-M-1            | srefactor-lisp-format-buffer        | emacs-lisp-mode-map           | Пересчитать стиль в регионе или во всем буфере
+ C-M-1            | elisp-format-buffer                 | emacs-lisp-mode-map           | Пересчитать стиль в регионе или во всем буфере
  C-M-2            | indent                              |                               | Пересчитать отступы в регионе или во всем буфере
  C-M-a d o        | downcase-word                       |                               | Перевести следующее в нижний регистр
  C-M-a d r        | downcase-region                     |                               | Перевести регион в нижний регистр

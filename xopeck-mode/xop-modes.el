@@ -53,10 +53,13 @@
 ;; sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format
 
 ;; lisp format
-(require 'srefactor)
-(require 'srefactor-lisp)
+;; (require 'srefactor) ;; TODO: rm
+;; (require 'srefactor-lisp)
 
-
+(require 'elisp-format)
+(defadvice elisp-format-buffer ;; delete trailing whitespaces
+    (after elisp-format-buffer-after activate)
+  (delete-trailing-whitespace))
 
 ;; undo-tree
 (require 'undo-tree)
