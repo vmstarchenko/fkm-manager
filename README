@@ -11,3 +11,8 @@ sudo npm install csscomb -g
 
 add
 sudo npm install -g eslint
+
+TODO:
+install emacs in special dir "tmp"
+after install rm emacs*.tar
+update cpplint.py in repo
