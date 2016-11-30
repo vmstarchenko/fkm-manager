@@ -9,6 +9,7 @@
 (defvar org-mode-map (make-sparse-keymap) "Keymap for `org-mode'.")
 (defvar xorg-mode-map (make-sparse-keymap) "Keymap for `xorg-mode'.")
 (defvar c++-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
+(defvar c-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
 (defvar yas-minor-mode-map (make-sparse-keymap) "Keymap for `yas-minor-mode'.")
 
 
@@ -225,8 +226,8 @@
 (setq web-mode-enable-current-column-highlight t)
 ;; (web-mode-use-tabs)
 
-;; flycheck cpp
-(defun flycheck-cpp-setup()
+;; flycheck c/cpp
+(defun flycheck-setup()
   (flycheck-mode)
   ;; google cpplint for style cheching
   (eval-after-load 'flycheck
@@ -239,11 +240,19 @@
    '(flycheck-googlelint-verbose "3")
    '(flycheck-googlelint-filter "-legal/copyright,-runtime/explicit,-whitespace/indent,-whitespace/end_of_line")
    '(flycheck-googlelint-root "project/src")
-   '(flycheck-googlelint-linelength "120"))
-  (setq flycheck-gcc-language-standard "c++11")
-  (setq flycheck-check-syntax-automatically '(idle-change))
-  )
+   '(flycheck-googlelint-linelength "80"))
+  (setq flycheck-check-syntax-automatically '(idle-change)))
+
+(defun flycheck-cpp-setup()
+  (flycheck-setup)
+  (setq flycheck-gcc-language-standard "c++11"))
+
+(defun flycheck-c-setup()
+  (flycheck-setup)
+  (setq flycheck-gcc-language-standard "gnu11"))
+
 (add-hook 'c++-mode-hook #'flycheck-cpp-setup)
+(add-hook 'c-mode-hook #'flycheck-c-setup)
 
 ;; flycheck javascript
 (defun flycheck-js-setup()
@@ -327,6 +336,15 @@
   (define-key c++-mode-map (kbd "C-;") nil)
   (define-key c++-mode-map (kbd "C-M-q") nil))
 (add-hook 'c++-mode-hook 'unset-c++-mode-keys)
+
+(defun unset-c-mode-keys()
+  (interactive)
+  (define-key c-mode-map (kbd "C-d") nil)
+  (define-key c-mode-map (kbd "C-M-a") nil)
+  (define-key c-mode-map (kbd "C-M-e") nil)
+  (define-key c-mode-map (kbd "C-;") nil)
+  (define-key c-mode-map (kbd "C-M-q") nil))
+(add-hook 'c-mode-hook 'unset-c-mode-keys)
 
 (defun unset-python-mode-keys()
   (interactive)
