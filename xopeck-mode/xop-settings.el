@@ -232,7 +232,7 @@
             )) ;;+
 
 
-;; ;; Связять расширения с модами
+;; Связять расширения and firstcomment с модами
 (setq auto-mode-alist
       (append '(
                 ("Makefile$" . makefile-mode)
@@ -246,6 +246,10 @@
                 ("\\.txt$" . Fundamental-mode)
                 ("\\.xml$" . sgml-mode)
                 ) auto-mode-alist))
+(setq magic-mode-alist
+      (append '(("#!/bin/\\(bash\\|sh\\)" . bash-mode)
+                )))
+
 (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
 
 ;; Связять расширения с модами
