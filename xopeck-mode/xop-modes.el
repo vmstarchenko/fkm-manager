@@ -46,6 +46,16 @@
 ;; (add-hook 'html-mode-hook 'load-moz-controller)
 ;; (add-hook 'web-mode-hook 'load-moz-controller)
 ;; (add-hook 'python-mode-hook 'load-moz-controller)
+;; load the file
+
+;; gnuplot
+(require 'gnuplot-mode)
+;; specify the gnuplot executable (if other than /usr/bin/gnuplot)
+;; (setq gnuplot-program "/sw/bin/gnuplot")
+
+;; automatically open files ending with .gp or .gnuplot in gnuplot mode
+;; (setq auto-mode-alist 
+;;       (append '(("\\.\\(p\\|gp\\|gnuplot\\)$" . gnuplot-mode)) auto-mode-alist))
 
 ;; clang-format
 (require 'clang-format)
@@ -261,20 +271,20 @@
 ;;; modes.el ends here
 
 ;; LaTeX ;; its work
-;(add-hook 'TeX-mode-hook
-;          '(lambda()
-;             (message "load")
-;             (latex-preview-pane-mode t)))
+                                        ;(add-hook 'TeX-mode-hook
+                                        ;          '(lambda()
+                                        ;             (message "load")
+                                        ;             (latex-preview-pane-mode t)))
 ;; fix docview-mode keys
-;(defun set-docview-mode-keys()
-;  (define-key (current-local-map)
-;    [remap forward-paragraph]
-;    'doc-view-next-page)
-;  (define-key
-;    (current-local-map)
-;    [remap backward-paragraph]
-;    'doc-view-previous-page))
-;(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
+                                        ;(defun set-docview-mode-keys()
+                                        ;  (define-key (current-local-map)
+                                        ;    [remap forward-paragraph]
+                                        ;    'doc-view-next-page)
+                                        ;  (define-key
+                                        ;    (current-local-map)
+                                        ;    [remap backward-paragraph]
+                                        ;    'doc-view-previous-page))
+                                        ;(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 
 ;; js
@@ -372,16 +382,16 @@
 (add-hook 'dired-mode-hook 'unset-dired-mode-keys)
 
 ;; TODO: write normal latex unset function (for LaTeX and preview-pane)
-;(defun preview-latex-setup()
-;  ;; (latex-preview-pane-mode 1)
-;  (define-key latex-preview-pane-mode-map (kbd "M-p") nil)
-;  (define-key latex-preview-pane-mode-map (kbd "s-p") nil)
-;  (define-key latex-preview-pane-mode-map (kbd "M-P") nil)
-;  (define-key latex-preview-pane-mode-map (kbd "s-P") nil)
-;  ;; (define-key latex-preview-pane-mode-map (kbd "C-M-a") nil)
-;  (define-key LaTeX-mode-map (kbd "C-M-a") nil)
-;  (latex-preview-update))
-;(add-hook 'LaTeX-mode-hook 'preview-latex-setup)
+                                        ;(defun preview-latex-setup()
+                                        ;  ;; (latex-preview-pane-mode 1)
+                                        ;  (define-key latex-preview-pane-mode-map (kbd "M-p") nil)
+                                        ;  (define-key latex-preview-pane-mode-map (kbd "s-p") nil)
+                                        ;  (define-key latex-preview-pane-mode-map (kbd "M-P") nil)
+                                        ;  (define-key latex-preview-pane-mode-map (kbd "s-P") nil)
+                                        ;  ;; (define-key latex-preview-pane-mode-map (kbd "C-M-a") nil)
+                                        ;  (define-key LaTeX-mode-map (kbd "C-M-a") nil)
+                                        ;  (latex-preview-update))
+                                        ;(add-hook 'LaTeX-mode-hook 'preview-latex-setup)
 
 (defun unset-org-mode-keys()
   (define-key org-mode-map (kbd "C-y") nil)

@@ -233,29 +233,27 @@
 
 
 ;; ;; Связять расширения с модами
-;; (setq auto-mode-alist
-;;       (append '(( "\\.el$". emacs-lisp-mode)
-;;                 ( ".emacs$". emacs-lisp-mode)
-;;                 ( "\\.py$". python-mode)
-;;                 ( "\\.pyw$". python-mode)
-;;                 ( "\\.html$". sgml-mode)
-;;                 ( "\\.xml$". sgml-mode)
-;;                 ( "\\.js$". javascript-mode)
-;; ;                ( "\\.cpp$". c++-mode)
-;;                 ( "\\.h$". c++-mode)
-;;                 ( "\\.hpp$". c++-mode)
-;;                 ( "\\.hxx$". c++-mode)
-;;                 ( "Makefile$". makefile-mode)
-;;                 ( "\\.txt$". Fundamental-mode)
-;;                 )))
-;; (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
+(setq auto-mode-alist
+      (append '(
+                ("Makefile$" . makefile-mode)
+                ("\\.\\(cpp\\|h\\|hpp\\|hxx\\)$" . c++-mode)
+                ("\\.\\(el\\|emacs\\)$" . emacs-lisp-mode)
+                ("\\.\\(p\\|gp\\|gnuplot\\)$" . gnuplot-mode)
+                ("\\.\\(py\\|pyw\\)$" . python-mode)
+                ("\\.\\(html\\|djhtml\\)$" . web-mode)
+                ("\\.js$" . js2-mode)
+                ("\\.json$" . js-mode)
+                ("\\.txt$" . Fundamental-mode)
+                ("\\.xml$" . sgml-mode)
+                ) auto-mode-alist))
+(global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
 
 ;; Связять расширения с модами
-(add-to-list 'auto-mode-alist '( "\\.h$". c++-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml$" . web-mode))
+;; (add-to-list 'auto-mode-alist '( "\\.h$". c++-mode))
+;; (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.djhtml$" . web-mode))
 
 ;; (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
 
