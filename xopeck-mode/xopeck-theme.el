@@ -839,6 +839,7 @@
    `(org-block-background        ,dummy)
    `(org-block-begin-line        ,dummy)
    `(org-block-end-line          ,dummy)
+   `(org-canceled                ,hl-info)
    `(org-checkbox                ,dummy)
    `(org-code                    ,dummy)
    `(org-column                  ,dummy)
@@ -877,6 +878,7 @@
    `(org-todo                    ,hl-error)
    `(org-upcoming-deadline       ,dummy)
    `(org-verbatim                ,dummy)
+   `(org-wait                    ,hl-active)
    `(org-warning                 ,dummy)
 
    ;; outline

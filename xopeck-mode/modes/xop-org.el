@@ -13,10 +13,15 @@
   )
 
 ;; settings
-(setq org-todo-keywords '((sequence "TODO" "|" "CANCELED" "DONE"))) ; "POSTPONED"
+;; (setq org-todo-keywords '((sequence "TODO" "|" "CANCELED" "DONE"))) ; "POSTPONED"
 (defface org-canceled '() "face for canceled in org-mode")
+(defface org-wait '() "face for wait in org-mode")
 (setq org-todo-keyword-faces
-      '(("CANCELED" org-canceled)))
+      '(("WAIT". org-wait)
+        ("CANCELED". org-canceled))
+      )
+(setq org-todo-keywords
+'((sequence "TODO" "WAIT" "|" "CANCELED" "DONE")))
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-log-done t)
