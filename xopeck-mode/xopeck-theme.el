@@ -21,6 +21,7 @@
      (cursor           `((,class (:background ,cursor-bg  :foreground ,cursor-fg ))))
      (default-active   `((,class (                        :foreground ,builtin-fg))))
      (default-inactive `((,class (                        :foreground "#000000"  ))))
+     (selected         `((,class (                        :foreground "#ff7f50" :bold t))))
      (hl               `((,class (:background "#000000"   :foreground ,default-fg))))
      (hl-active        `((,class (:background "#000000"   :foreground "#ff4400" :bold t))))
      (hl-info          `((,class (:background "#000000"   :foreground "#a681a6"  ))))
@@ -72,7 +73,7 @@
    `(help-argument-name    ,builtin   )
    `(highlight             ,hl        ) ;; Фон при подсветке мышки
    `(highlight-symbol-face ,dummy     )
-   `(hl-line               ,dummy     )
+   `(hl-line               ,selected  )
    `(isearch               ,hl-active ) ;; подсветить текущую найденную
    `(lazy-highlight        ,hl        ) ;; подсветить найденные части
    `(linum                 ,linum     ) ;; нумерация строк :inherit shadow
@@ -840,7 +841,7 @@
    `(org-block-begin-line        ,dummy)
    `(org-block-end-line          ,dummy)
    `(org-canceled                ,hl-info)
-   `(org-checkbox                ,dummy)
+   `(org-checkbox                ,selected)
    `(org-code                    ,dummy)
    `(org-column                  ,dummy)
    `(org-column-title            ,dummy)

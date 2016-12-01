@@ -72,7 +72,11 @@
   (interactive)
   (if (eq truncate-lines t)
       (setq-default truncate-lines nil)
-    (setq-default truncate-lines t))
+    (if (eq visual-line-mode t)
+        (progn
+          (setq-default truncate-lines t)
+          (visual-line-mode -1))
+      (visual-line-mode)))
   (recenter))
 
 ;; Открыть терминал
