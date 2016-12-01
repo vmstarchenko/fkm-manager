@@ -234,13 +234,13 @@
 
 ;; Связять расширения and firstcomment с модами
 (setq auto-mode-alist
-      (append '(
-                ("Makefile$" . makefile-mode)
+      (append '(("Makefile$" . makefile-mode)
                 ("\\.\\(cpp\\|h\\|hpp\\|hxx\\)$" . c++-mode)
                 ("\\.\\(el\\|emacs\\)$" . emacs-lisp-mode)
                 ("\\.\\(p\\|gp\\|gnuplot\\)$" . gnuplot-mode)
                 ("\\.\\(py\\|pyw\\)$" . python-mode)
                 ("\\.\\(html\\|djhtml\\)$" . web-mode)
+                ("\\(\\.org\\|TODO\\)$" . org-mode)
                 ("\\.js$" . js2-mode)
                 ("\\.json$" . js-mode)
                 ("\\.txt$" . Fundamental-mode)
@@ -310,10 +310,10 @@
   (let ((buffer (generate-new-buffer-name "*shell*"))) ad-do-it))
 (ad-activate 'shell)
 
-(defadvice eshell (around always-new-eshell)
-  "Always start a new eshell."
-  (let ((buffer (generate-new-buffer-name "*eshell*"))) ad-do-it))
-(ad-activate 'eshell)
+;; (defadvice eshell (around always-new-eshell) ;; doesnt work
+;;   "Always start a new eshell."
+;;   (let ((buffer (generate-new-buffer-name "*eshell*"))) ad-do-it))
+;; (ad-activate 'eshell)
 
 ;; autosave bookmarks
 (setq bookmark-save-flag t)

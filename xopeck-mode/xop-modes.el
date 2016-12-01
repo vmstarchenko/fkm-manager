@@ -143,9 +143,17 @@
 
 ;; Орг мод
 (require 'org-install)
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (require 'xop-org))) ;; for my mode map
+(add-hook 'org-mode-hook '(lambda() (require 'xop-org))) ;; for my mode map
+;; settings
+(defface org-canceled '() "face for canceled in org-mode")
+(defface org-wait '() "face for wait in org-mode")
+(setq org-todo-keywords '((sequence "TODO" "WAIT" "|" "CANCELED" "DONE")))
+(setq org-todo-keyword-faces '(("WAIT". org-wait)
+                               ("CANCELED". org-canceled)))
+(setq org-log-done t)
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
 
 ;; melpa modes
 ;; autocompletion
