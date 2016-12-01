@@ -10,7 +10,7 @@
 
 ;;; docs-string
 ;; functions
-                                        ;; python
+;; python
 (defun python-docs-string()
   (interactive)
   (end-of-line)
@@ -25,20 +25,20 @@
       (setq size (- size 1)))
     (insert (concat "\"\"\"\n" spc))
     (save-excursion (insert (concat "\n" spc "\"\"\"")))))
-                                        ;; c++
+;; c++
 (defun cpp-docs-string()
   (interactive)
   (end-of-line)
   (insert "\n// ")
   (indent-for-tab-command))
-                                        ;; lisp
+;; lisp
 (defun lisp-docs-string()
   (interactive)
   (end-of-line)
   (newline-and-indent)
   (insert "\"\"")
   (backward-char 1))
-                                        ;; hooks
+;; hooks
 (add-hook 'python-mode-hook '(lambda ()
                                (defun docs-string()
                                  (interactive)
@@ -547,6 +547,27 @@
         (message "It's too little value")))
   (set-face-attribute 'default nil :height zoom-value))
 
+
+(defadvice fill-paragraph (around advice-fill-paragraph activate)
+  "interactive ask about required line width and save this value"
+  (interactive)
+  (let* ((input (read-string
+                 (format "Max line width (current %d): " fill-column)))
+         (value (string-to-int input)))
+    (if (not (eq value 0))
+        (setq fill-column value)))
+  ad-do-it)
+
+;; TODO fix from to values
+;; (defadvice fill-region (around advice-fill-region activate)
+;;   "interactive ask about required line width and save this value"
+;;   (interactive)
+;;   (let* ((input (read-string
+;;                  (format "Max line width (current %d): " fill-column)))
+;;          (value (string-to-int input)))
+;;     (if (not (eq value 0))
+;;         (setq fill-column value)))
+;;   ad-do-it)
 
 ;; (defun rename-current-file (name)
 ;;   "Rename current file (and buffer)."
