@@ -33,7 +33,7 @@ create_folder "$_emacs_d_path/snippets"
 
 ## tmp
 create_folder $tmp_path
-sudo cd $tmp_path
+cd $tmp_path
 
 echo "install g++" #~
 sudo apt-get install g++ -y -f #~
@@ -54,6 +54,7 @@ sudo make
 sudo make install
 cd ".."
 rm -r "emacs-24.4/"
+rm emacs-24.4.tar.*
 
 # install apt-get plugins
 sudo apt-get install python3-pip -y -f #~
