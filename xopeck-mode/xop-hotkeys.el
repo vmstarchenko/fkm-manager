@@ -433,8 +433,13 @@
 (define-key shell-mode-map (kbd "M-s-l") 'next-shell-command)   ;; Предыдующая команда
 (define-key shell-mode-map (kbd "M-s-k") 'comint-next-prompt)   ;; Переместить точку к следующей команде
 (define-key shell-mode-map (kbd "M-s-i") 'comint-previous-prompt)   ;; Переместить точку к предыдущей команде
-(global-set-key (kbd "C-M-x k") 'comint-interrupt-subjob)   ;; Приостановить процесс в terminal
-(global-set-key (kbd "C-M-x d") 'eshell-send-eof-to-process)   ;; Послать eof сигнал
+(define-key shell-mode-map (kbd "C-M-x \\") 'comint-quit-subjob)   ;; Послать ^\ сигнал
+(define-key shell-mode-map (kbd "C-M-x c") 'comint-interrupt-subjob)   ;; Послать ^c сигнал
+(define-key shell-mode-map (kbd "C-M-x d") 'comint-delchar-or-maybe-eof)   ;; Послать ^d сигнал
+(define-key emacs-shell-mode-map (kbd "C-M-x d") 'eshell-send-eof-to-process)   ;; Послать ^d сигнал
+(define-key shell-mode-map (kbd "C-M-x u") 'comint-kill-input)   ;; Послать ^u сигнал
+(define-key shell-mode-map (kbd "C-M-x w") 'backward-kill-word)   ;; Послать ^w сигнал
+(define-key shell-mode-map (kbd "C-M-x z") 'comint-stop-subjob)   ;; Послать ^z сигнал
 (global-set-key (kbd "C-M-x e e") 'open-eshell)   ;; Открывает terminal
 (global-set-key (kbd "C-M-x e r") 'open-eshell-in-hwindow)   ;; Открывает terminal в горизонтальном окне
 (global-set-key (kbd "C-M-x e t") 'open-eshell-in-vwindow)   ;; Открывает terminal в вертикальном окне
@@ -813,8 +818,13 @@ ________________________________________________________________________________
  M-s-l            | next-shell-command                  | shell-mode-map                | Предыдующая команда
  M-s-k            | comint-next-prompt                  | shell-mode-map                | Переместить точку к следующей команде
  M-s-i            | comint-previous-prompt              | shell-mode-map                | Переместить точку к предыдущей команде
- C-M-x k          | comint-interrupt-subjob             |                               | Приостановить процесс в terminal
- C-M-x d          | eshell-send-eof-to-process          |                               | Послать eof сигнал
+ C-M-x \\         | comint-quit-subjob                  | shell-mode-map                | Послать ^\ сигнал
+ C-M-x c          | comint-interrupt-subjob             | shell-mode-map                | Послать ^c сигнал
+ C-M-x d          | comint-delchar-or-maybe-eof         | shell-mode-map                | Послать ^d сигнал
+ C-M-x d          | eshell-send-eof-to-process          | emacs-shell-mode-map          | Послать ^d сигнал
+ C-M-x u          | comint-kill-input                   | shell-mode-map                | Послать ^u сигнал
+ C-M-x w          | backward-kill-word                  | shell-mode-map                | Послать ^w сигнал
+ C-M-x z          | comint-stop-subjob                  | shell-mode-map                | Послать ^z сигнал
  C-M-x e e        | open-eshell                         |                               | Открывает terminal
  C-M-x e r        | open-eshell-in-hwindow              |                               | Открывает terminal в горизонтальном окне
  C-M-x e t        | open-eshell-in-vwindow              |                               | Открывает terminal в вертикальном окне
