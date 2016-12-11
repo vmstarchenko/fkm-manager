@@ -19,7 +19,8 @@
 (setq fkm-tmp-dir "/tmp/.emacs-fkm") ;; fkm-var
 ;; (add-hook 'after-init-hook
 ;;           (lambda() (shell-command (concat "mkdir -p " fkm-tmp-dir))))
-(defconst emacs-tmp-dir (format "%s/%s-%s/" fkm-tmp-dir "emacs" (user-uid)))
+(defconst emacs-tmp-dir
+  (format "%s/%s-%s/" fkm-tmp-dir "emacs" (user-uid)))
 
 ;; modeline
 (line-number-mode)
@@ -27,7 +28,7 @@
 
 ;; (setq
 ;;  global-mode-string
-;;  (list 
+;;  (list
 ;;        '(:eval (battery-status))
 ;;        ))
 
@@ -38,62 +39,125 @@
 (defun powerline-xopeck-theme ()
   "Setup a mode-line with major and minor modes centered."
   (interactive)
-  (setq-default mode-line-format
-                '("%e"
-                  (:eval
-                   (let* ((active (powerline-selected-window-active))
-                          (mode-line (if active 'mode-line 'mode-line-inactive))
-                          (face1 (if active 'powerline-active1 'powerline-inactive1))
-                          (face2 (if active 'powerline-active2 'powerline-inactive2))
-                          (face3 (if active 'powerline-active3 'powerline-inactive3)) ;;;
-                          (separator-left (intern (format "powerline-%s-%s"
-                                                          (powerline-current-separator)
-                                                          (car powerline-default-separator-dir))))
-                          (separator-right (intern (format "powerline-%s-%s"
+  (setq-default mode-line-format '("%e"
+                                   (:eval (let* ((active
+                                                  (powerline-selected-window-active))
+                                                 (mode-line
+                                                  (if active
+                                                      'mode-line
+                                                    'mode-line-inactive))
+                                                 (face1
+                                                  (if active
+                                                      'powerline-active1
+                                                    'powerline-inactive1))
+                                                 (face2
+                                                  (if active
+                                                      'powerline-active2
+                                                    'powerline-inactive2))
+                                                 (face3
+                                                  (if active
+                                                      'powerline-active3
+                                                    'powerline-inactive3)) ;;;
+                                                 (separator-left
+                                                  (intern (format
+                                                           "powerline-%s-%s"
                                                            (powerline-current-separator)
-                                                           (cdr powerline-default-separator-dir))))
-                          (lhs (list
-                                (powerline-raw "%*" nil 'l)
-                                ;; (powerline-buffer-size nil 'l)
-                                (powerline-raw "%p" nil 'l) ;; Процент прокрутки
-                                (powerline-raw "%2cC" nil 'l) ;; номер столбца
-																(powerline-raw "%2lL " nil 'l) ;; номер строки
-                                ;; (powerline-raw "")
-                                (funcall separator-left mode-line face1)
-                                (powerline-raw " " face1 'l)
-                                (powerline-narrow face1 'l)
-                                (powerline-buffer-id face1 'nil) ;; Название буффера
-                                (powerline-vc face1)
-                                ))
-                          (rhs (list
-                                (funcall separator-right face1 mode-line)
-                                (powerline-raw global-mode-string nil 'l)
-                                (powerline-raw " ")
+                                                           (car
+                                                            powerline-default-separator-dir))))
+                                                 (separator-right
+                                                  (intern (format
+                                                           "powerline-%s-%s"
+                                                           (powerline-current-separator)
+                                                           (cdr
+                                                            powerline-default-separator-dir))))
+                                                 (lhs (list
+                                                       (powerline-raw
+                                                        "%*" nil 'l)
+                                                       ;; (powerline-buffer-size nil 'l)
+                                                       (powerline-raw
+                                                        "%p" nil 'l) ;; Процент прокрутки
+                                                       (powerline-raw
+                                                        "%2cC" nil 'l)
+                                                       ;; номер столбца
+                                                       (powerline-raw
+                                                        "%2lL " nil
+                                                        'l) ;; номер строки
+                                                       ;; (powerline-raw "")
+                                                       (funcall
+                                                        separator-left
+                                                        mode-line
+                                                        face1)
+                                                       (powerline-raw
+                                                        " " face1 'l)
+                                                       (powerline-narrow
+                                                        face1 'l)
+                                                       (powerline-buffer-id
+                                                        face1 'nil) ;; Название буффера
+                                                       (powerline-vc
+                                                        face1)))
+                                                 (rhs (list (funcall
+                                                             separator-right
+                                                             face1
+                                                             mode-line)
+                                                            (powerline-raw
+                                                             global-mode-string
+                                                             nil 'l)
+                                                            (powerline-raw
+                                                             " ")
                                         ;(powerline-hud face2 face1)
-                                ))
-                          (center (list
-                                   (powerline-raw " " face1)
-                                   (funcall separator-left face1 face2)
-                                   (when (and (boundp 'erc-track-minor-mode) erc-track-minor-mode)
-                                     (powerline-raw erc-modified-channels-object face2 'l))
-                                   (powerline-major-mode face2 'l)
-                                   (powerline-process face2)
-                                   (powerline-raw " :" face2)
-                                   (powerline-minor-modes face2 'l)
-                                   (powerline-raw " " face2)
-                                   (funcall separator-right face2 face1))))
-                     (concat (powerline-render lhs)
-                             (powerline-fill-center face1 (/ (powerline-width center) 2.0))
-                             (powerline-render center)
-                             (powerline-fill face1 (powerline-width rhs))
-                             (powerline-render rhs)))))))
+                                                            ))
+                                                 (center (list
+                                                          (powerline-raw
+                                                           " " face1)
+                                                          (funcall
+                                                           separator-left
+                                                           face1
+                                                           face2)
+                                                          (when (and
+                                                                 (boundp
+                                                                  'erc-track-minor-mode)
+                                                                 erc-track-minor-mode)
+                                                            (powerline-raw
+                                                             erc-modified-channels-object
+                                                             face2 'l))
+                                                          (powerline-major-mode
+                                                           face2 'l)
+                                                          (powerline-process
+                                                           face2)
+                                                          (powerline-raw
+                                                           " :" face2)
+                                                          (powerline-minor-modes
+                                                           face2 'l)
+                                                          (powerline-raw
+                                                           " " face2)
+                                                          (funcall
+                                                           separator-right
+                                                           face2
+                                                           face1))))
+                                            (concat (powerline-render
+                                                     lhs)
+                                                    (powerline-fill-center
+                                                     face1 (/
+                                                            (powerline-width
+                                                             center)
+                                                            2.0))
+                                                    (powerline-render
+                                                     center)
+                                                    (powerline-fill
+                                                     face1
+                                                     (powerline-width
+                                                      rhs))
+                                                    (powerline-render
+                                                     rhs)))))))
 
 ;;; modeline
 ;; date and time
-(defface
-  display-time-face '()  "Face used to display the time in the mode line.")
-(setq display-time-string-forms
-      '((propertize (format-time-string " %H:%M %d.%m") 'face 'display-time-face)))  ;" %H:%M:%S %d-%m-%Y"
+(defface display-time-face '()
+  "Face used to display the time in the mode line.")
+(setq display-time-string-forms '((propertize (format-time-string
+                                               " %H:%M %d.%m") 'face
+                                               'display-time-face)))
+                                        ;" %H:%M:%S %d-%m-%Y"
 (setq display-time-interval 10)
 (display-time-mode 1)
 
@@ -101,55 +165,94 @@
 (require 'battery)
 ;; (display-battery-mode 1)
 
-(setq-default
- mode-line-format
- '(   ;; buffer state: readonly, changed, not changed
-   (:eval
-    (when (eql buffer-read-only t)
-      (propertize
-       " # " 'face
-       (if (not (string-match "*" (buffer-name)))
-           '(:background "color-88" :foreground "white" :weight bold)))))
-   (:eval
-    (propertize (if (eql buffer-read-only nil) " %* " "") 'face
-                (if (not (string-match "*" (buffer-name)))
-                    (if (buffer-modified-p)
-                        '(:background "red" :foreground "black" :weight bold)
-                      '(:background "green" :foreground "black" :weight bold)))))
-   ;; cursor position data
-   (:eval
-    (propertize " %2cC %2lL %p "
-                'face '(:background "grey" :foreground "black")))
+(setq-default mode-line-format '( ;; buffer state: readonly, changed, not changed
+                                 (:eval (when (eql buffer-read-only t)
+                                          (propertize " # " 'face
+                                                      (if (not
+                                                           (string-match
+                                                            "*"
+                                                            (buffer-name)))
+                                                          '(:background
+                                                            "color-88"
+                                                            :foreground
+                                                            "white"
+                                                            :weight
+                                                            bold)))))
+                                 (:eval (propertize
+                                         (if (eql buffer-read-only
+                                                  nil)
+                                             " %* "
+                                           "")
+                                         'face
+                                         (if (not (string-match "*"
+                                                                (buffer-name)))
+                                             (if (buffer-modified-p)
+                                                 '(:background "red"
+                                                               :foreground
+                                                               "black"
+                                                               :weight
+                                                               bold)
+                                               '(:background "green"
+                                                             :foreground
+                                                             "black"
+                                                             :weight
+                                                             bold)))))
+                                 ;; cursor position data
+                                 (:eval (propertize " %2cC %2lL %p "
+                                                    'face
+                                                    '(:background
+                                                      "grey"
+                                                      :foreground
+                                                      "black")))
+                                 " %b"
 
-   " %b"
-
-   ;;  git state
-   ;; (:eval ;; it works
-   ;;  (propertize (replace-regexp-in-string
-   ;;               "^ Git" " " (if (eq vc-mode nil) "" vc-mode)) 'face
-   ;;               '()))
-
-   " [%m:"
-   minor-mode-alist
-   "]"
-   ;; "%I"
-
-   (:eval ;; battery
-    (let* ((battery-status (funcall battery-status-function))
-           (power-level (cdr (assoc ?p battery-status)))
-           (is-charging (downcase (cdr (assoc ?B battery-status)))) ;; charging, discharging, n/a
-           (finish-time (cdr (assoc ?t battery-status))) ;; time til finish charging/discharging
-           )
-      (propertize (if (and (< (string-to-int power-level) 100)
-                           (not (string= is-charging "unknown")))
-                      (format " %s %s " power-level finish-time) " FULL ") 'face
-                      (if (string= is-charging "discharging")
-                          (if (< (string-to-int power-level) 20)
-                              '(:background "red" :foreground "black" :weight bold)
-                            '(:background "orange" :foreground "black" :weight bold))
-                        '()))))
-   "%M " ;; time
-   ))
+                                 ;;  git state
+                                 ;; (:eval ;; it works
+                                 ;;  (propertize (replace-regexp-in-string
+                                 ;;               "^ Git" " " (if (eq vc-mode nil) "" vc-mode)) 'face
+                                 ;;               '()))
+                                 " [%m:" minor-mode-alist "]"
+                                 ;; "%I"
+                                 (:eval ;; battery
+                                  (let* ((battery-status (funcall
+                                                          battery-status-function))
+                                         (power-level (cdr (assoc ?p
+                                                                  battery-status)))
+                                         (is-charging (downcase (cdr
+                                                                 (assoc
+                                                                  ?B
+                                                                  battery-status))))
+                                         ;; charging, discharging, n/a
+                                         (finish-time (cdr (assoc ?t
+                                                                  battery-status)))
+                                         ;; time til finish charging/discharging
+                                         )
+                                    (propertize
+                                     (if (and (< (string-to-int
+                                                  power-level) 100)
+                                              (not (string=
+                                                    is-charging
+                                                    "unknown")))
+                                         (format " %s %s " power-level
+                                                 finish-time)
+                                       " FULL ")
+                                     'face
+                                     (if (string= is-charging
+                                                  "discharging")
+                                         (if (< (string-to-int
+                                                 power-level) 20)
+                                             '(:background "red"
+                                                           :foreground
+                                                           "black"
+                                                           :weight
+                                                           bold)
+                                           '(:background "orange"
+                                                         :foreground
+                                                         "black"
+                                                         :weight bold))
+                                       '()))))
+                                 "%M " ;; time
+                                 ))
 
 (setq line-move-visual nil)
 
@@ -158,22 +261,17 @@
 ;; (setq make-backup-files nil)
 (setq auto-save-default nil)
 ;; (setq auto-save-list-file-name nil)
-(setq
- backup-by-copying t            ;; don't clobber symlinks
- delete-old-versions t
- kept-new-versions 6
- kept-old-versions 2
- version-control t)             ;; use versioned backups
+(setq backup-by-copying t ;; don't clobber symlinks
+      delete-old-versions t kept-new-versions 6 kept-old-versions 2
+      version-control t) ;; use versioned backups
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
 
 (setq backup-directory-alist `((".*" . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
-(setq auto-save-list-file-prefix
-      emacs-tmp-dir)
+(setq auto-save-list-file-prefix emacs-tmp-dir)
 
 ;; show-trailing-whitespace
-(custom-set-variables
- '(show-trailing-whitespace t))
+(custom-set-variables '(show-trailing-whitespace t))
 
 ;; ibuffer
 (defalias 'list-buffers 'ibuffer)
@@ -191,11 +289,11 @@
 (setq-default truncate-lines t)
 
 ;; определяем размер окна при запуске
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+(custom-set-variables '(initial-frame-alist (quote ((fullscreen .
+                                                                maximized)))))
 
 ;; выделить выражение в скобках
-(show-paren-mode t) ; включить выделение выражений между {},[],()
+(show-paren-mode t)      ; включить выделение выражений между {},[],()
 ;; (add-hook 'jinja2-mode-hook (lambda() (show-paren-mode -1)))
 ;; (add-hook 'html-mode-hook (lambda() (show-paren-mode -1)))
 (setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
@@ -203,8 +301,8 @@
 ;; прокрутка
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ; one line at a time
 (setq mouse-wheel-progressive-speed nil) ; don't accelerate scrolling
-(setq mouse-wheel-follow-mosue 't) ; scroll window under mouse
-(setq scroll-step 1) ; keyboard scroll one line at a time
+(setq mouse-wheel-follow-mosue 't)       ; scroll window under mouse
+(setq scroll-step 1)              ; keyboard scroll one line at a time
 (setq scroll-conservatively 10000)
 (setq scroll-margin 3)
 (setq scroll-preserve-screen-position 1)
@@ -212,45 +310,75 @@
 ;;; размер таба + пробелы вместо табов
 (setq indent-tabs-mode nil)
 (setq-default indent-tabs-mode nil)
-(add-hook 'fundamental-mode-hook (lambda() (setq tab-width 2)))
-(add-hook 'text-mode-hook (lambda() (setq tab-width 2)))
-(add-hook 'python-mode-hook (lambda() (setq tab-width 4) (setq indent-tabs-mode nil))) ;;+
-(add-hook 'c++-mode-hook (lambda() (setq c-basic-offset 2) (setq indent-tabs-mode nil))) ;;c-basic-indent???
-(add-hook 'org-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
-(add-hook 'emacs-lisp-mode-hook (lambda() (setq tab-width 2)))
-(add-hook 'lisp-mode (lambda() (setq tab-width 2) (setq indent-tabs-mode nil)))
-(add-hook 'js-mode-hook (lambda() (setq js-indent-level 2))) ;;+
-(add-hook 'js2-mode-hook (lambda() (setq js2-basic-offset 2))) ;;+
-(add-hook 'css-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
-(add-hook 'scss-mode-hook (lambda() (setq css-indent-offset 2))) ;;+
-(add-hook 'makefile-mode-hook (lambda() (setq indent-tabs-mode t) (setq tab-width 4))) ;;+
+(add-hook 'fundamental-mode-hook
+          (lambda()
+            (setq tab-width 2)))
+(add-hook 'text-mode-hook
+          (lambda()
+            (setq tab-width 2)))
+(add-hook 'python-mode-hook
+          (lambda()
+            (setq tab-width 4)
+            (setq indent-tabs-mode nil))) ;;+
+(add-hook 'c++-mode-hook
+          (lambda()
+            (setq c-basic-offset 2)
+            (setq indent-tabs-mode nil))) ;;c-basic-indent???
+(add-hook 'org-mode
+          (lambda()
+            (setq tab-width 2)
+            (setq indent-tabs-mode nil)))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda()
+            (setq tab-width 2)))
+(add-hook 'lisp-mode
+          (lambda()
+            (setq tab-width 2)
+            (setq indent-tabs-mode nil)))
+(add-hook 'js-mode-hook
+          (lambda()
+            (setq js-indent-level 2))) ;;+
+(add-hook 'js2-mode-hook
+          (lambda()
+            (setq js2-basic-offset 2))) ;;+
+(add-hook 'css-mode-hook
+          (lambda()
+            (setq css-indent-offset 2))) ;;+
+(add-hook 'scss-mode-hook
+          (lambda()
+            (setq css-indent-offset 2))) ;;+
+(add-hook 'makefile-mode-hook
+          (lambda()
+            (setq indent-tabs-mode t)
+            (setq tab-width 4))) ;;+
 (add-hook 'web-mode-hook
           (lambda()
             (setq web-mode-markup-indent-offset 2)
             (setq web-mode-css-indent-offset 4)
-            (setq web-mode-code-indent-offset 2)
-            )) ;;+
+            (setq web-mode-code-indent-offset 2))) ;;+
 
 
 ;; Связять расширения and firstcomment с модами
-(setq auto-mode-alist
-      (append '(("Makefile$" . makefile-mode)
-                ("\\.\\(cpp\\|h\\|hpp\\|hxx\\)$" . c++-mode)
-                ("\\.\\(el\\|emacs\\)$" . emacs-lisp-mode)
-                ("\\.\\(p\\|gp\\|gnuplot\\)$" . gnuplot-mode)
-                ("\\.\\(py\\|pyw\\)$" . python-mode)
-                ("\\.\\(html\\|djhtml\\)$" . web-mode)
-                ("\\(\\.org\\|TODO\\)$" . org-mode)
-                ("\\.js$" . js2-mode)
-                ("\\.json$" . js-mode)
-                ("\\.txt$" . Fundamental-mode)
-                ("\\.xml$" . sgml-mode)
-                ) auto-mode-alist))
-(setq magic-mode-alist
-      (append '(("#!/bin/\\(bash\\|sh\\)" . bash-mode)
-                )))
+(setq auto-mode-alist (append '(("Makefile$" . makefile-mode)
+                                ("\\.\\(cpp\\|h\\|hpp\\|hxx\\)$" .
+                                 c++-mode)
+                                ("\\.\\(el\\|emacs\\)$" .
+                                 emacs-lisp-mode)
+                                ("\\.\\(p\\|gp\\|gnuplot\\)$" .
+                                 gnuplot-mode)
+                                ("\\.\\(py\\|pyw\\)$" . python-mode)
+                                ("\\.\\(html\\|djhtml\\)$" . web-mode)
+                                ("\\(\\.org\\|TODO\\)$" . org-mode)
+                                ("\\.js$" . js2-mode)
+                                ("\\.jsx$" . js2-jsx-mode)
+                                ("\\.json$" . js-mode)
+                                ("\\.txt$" . Fundamental-mode)
+                                ("\\.xml$" . sgml-mode))
+                              auto-mode-alist))
+(setq magic-mode-alist (append '(("#!/bin/\\(bash\\|sh\\)" .
+                                  bash-mode))))
 
-(global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
+(global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса
 
 ;; Связять расширения с модами
 ;; (add-to-list 'auto-mode-alist '( "\\.h$". c++-mode))
@@ -259,7 +387,7 @@
 ;; (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.djhtml$" . web-mode))
 
-;; (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса 
+;; (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса
 
 ;; ;; Клавиши для русской раскладки
 ;; (defun cfg:reverse-input-method (input-method)
@@ -292,12 +420,12 @@
           (lambda ()
             (insert (concat ";; Hello me. Stop fun, start working.\n"
                             ";; Press s-h h for hotkey help\n\n"
-                            ";; Emacs init time: " (emacs-init-time) "\n\n"
+                            ";; Emacs init time: " (emacs-init-time)
+                            "\n\n"
                             ";; Symgols (press C-M-q for input):\n"
                             ";;   tab(\t):\t\\t | ^I\n"
                             ";;   newline:\t\\n | ^J\n"
-                            ";;   return:\t\\r | ^M\n"
-                            ))))
+                            ";;   return:\t\\r | ^M\n"))))
 
 ;; Subword. if demands normal: change Docs
 (require 'subword)
@@ -307,7 +435,8 @@
 ;; Always new shell
 (defadvice shell (around always-new-shell)
   "Always start a new shell."
-  (let ((buffer (generate-new-buffer-name "*shell*"))) ad-do-it))
+  (let ((buffer (generate-new-buffer-name "*shell*")))
+    ad-do-it))
 (ad-activate 'shell)
 
 ;; (defadvice eshell (around always-new-eshell) ;; doesnt work
@@ -320,14 +449,13 @@
 
 ;; sr-speedbar
                                         ;(require 'sr-speedbar)
-(setq speedbar-frame-parameters
-      '((minibuffer)
-        (width . 40)
-        (border-width . 0)
-        (menu-bar-lines . 0)
-        (tool-bar-lines . 0)
-        (unsplittable . t)
-        (left-fringe . 0))) ;; Параметры, по походу они не работают
+(setq speedbar-frame-parameters '((minibuffer)
+                                  (width . 40)
+                                  (border-width . 0)
+                                  (menu-bar-lines . 0)
+                                  (tool-bar-lines . 0)
+                                  (unsplittable . t)
+                                  (left-fringe . 0))) ;; Параметры, по походу они не работают
 
 (setq speedbar-hide-button-brackets-flag t) ;; Убрать стрелочки по краям
 (setq speedbar-show-unknown-files t)
@@ -340,37 +468,37 @@
 (setq sr-speedbar-width 20)
 
 (when window-system
-  (defadvice sr-speedbar-open (after sr-speedbar-open-resize-frame activate)
+  (defadvice sr-speedbar-open
+      (after sr-speedbar-open-resize-frame activate)
     (set-frame-width (selected-frame)
                      (+ (frame-width) sr-speedbar-width)))
-  (ad-enable-advice 'sr-speedbar-open 'after 'sr-speedbar-open-resize-frame)
-
-  (defadvice sr-speedbar-close (after sr-speedbar-close-resize-frame activate)
+  (ad-enable-advice 'sr-speedbar-open 'after
+                    'sr-speedbar-open-resize-frame)
+  (defadvice sr-speedbar-close
+      (after sr-speedbar-close-resize-frame activate)
     (sr-speedbar-recalculate-width)
     (set-frame-width (selected-frame)
                      (- (frame-width) sr-speedbar-width)))
-  (ad-enable-advice 'sr-speedbar-close 'after 'sr-speedbar-close-resize-frame)) ;; Что-то для resize frame?
+  (ad-enable-advice 'sr-speedbar-close 'after
+                    'sr-speedbar-close-resize-frame)) ;; Что-то для resize frame?
 
 ;; (with-current-buffer sr-speedbar-buffer-name ;; фиксированный размер окна
-;;   (setq window-size-fixed 'width)) 
+;;   (setq window-size-fixed 'width))
 
-(c-add-style "openbsd"
-             '("bsd"
-               (c-backspace-function . delete-backward-char)
-               (c-syntactic-indentation-in-macros . nil)
-               (c-tab-always-indent . nil)
-               (c-hanging-braces-alist
-                (block-close . c-snug-do-while))
-               (c-offsets-alist
-                (arglist-cont-nonempty . *)
-                (statement-cont . *))
-               (indent-tabs-mode . t)))
+(c-add-style "openbsd" '("bsd" (c-backspace-function .
+                                                     delete-backward-char)
+                         (c-syntactic-indentation-in-macros . nil)
+                         (c-tab-always-indent . nil)
+                         (c-hanging-braces-alist (block-close .
+                                                              c-snug-do-while))
+                         (c-offsets-alist (arglist-cont-nonempty . *)
+                                          (statement-cont . *))
+                         (indent-tabs-mode . t)))
 ;; скобки в плюсах.
 
 ;; python shell
-(setq
- python-shell-interpreter "/usr/bin/python3"
- python-shell-interpreter-args "-i")
+(setq python-shell-interpreter "/usr/bin/python3"
+      python-shell-interpreter-args "-i")
 
 ;; ;; Zoom for all buffers
 ;; (defadvice text-scale-increase (around all-buffers (arg) activate)

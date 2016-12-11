@@ -3,6 +3,7 @@
 (defvar emacs-shell-mode-map (make-sparse-keymap) "Keymap for `eshell-mode'.")
 (defvar js-mode-map (make-sparse-keymap) "Keymap for `js-mode'.")
 (defvar js2-mode-map (make-sparse-keymap) "Keymap for `js-mode'.")
+(defvar js2-jsx-mode-map (make-sparse-keymap) "Keymap for `js-mode'.")
 (defvar python-mode-map (make-sparse-keymap) "Keymap for `python-mode'.")
 (defvar emmet-mode-keymap (make-sparse-keymap) "Keymap for `emmet-mode'.")
 (defvar moz-controller-mode-map (make-sparse-keymap) "Keymap for `moz-controller-mode'.")
@@ -55,7 +56,7 @@
 ;; (setq gnuplot-program "/sw/bin/gnuplot")
 
 ;; automatically open files ending with .gp or .gnuplot in gnuplot mode
-;; (setq auto-mode-alist 
+;; (setq auto-mode-alist
 ;;       (append '(("\\.\\(p\\|gp\\|gnuplot\\)$" . gnuplot-mode)) auto-mode-alist))
 
 ;; clang-format
@@ -264,9 +265,24 @@
 
 ;; flycheck javascript
 (defun flycheck-js-setup()
-  (flycheck-mode))
+  (flycheck-mode)
+  (setq flycheck-eslintrc "~/.eslintrc")
+  (setq flycheck-temp-prefix ".")
+  (setq flycheck-eslint-rules-directories '("~/"))
+  ;; (flycheck-add-mode 'javascript-eslint 'js2-mode)
+  ;; (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
+  ;; (flycheck-add-mode 'javascript-eslint 'js-mode)
+  (flycheck-add-mode 'javascript-eslint 'js2-mode)
+  (flycheck-add-mode 'javascript-eslint 'js-mode)
+
+  (setq-default flycheck-disabled-checkers
+                (append flycheck-disabled-checkers
+                        '(javascript-jshint)))
+  )
+
 (add-hook 'js-mode-hook #'flycheck-js-setup)
 (add-hook 'js2-mode-hook #'flycheck-js-setup)
+(add-hook 'js2-jsx-mode-hook #'flycheck-js-setup)
 (add-hook 'js3-mode-hook #'flycheck-js-setup)
 
 ;; flycheck for css

@@ -2,11 +2,12 @@
 ;; (add-to-list 'load-path
 ;;              (concat (file-name-directory (buffer-file-name (current-buffer)))
 ;;                      "modes")) ;; doesnt work
-(add-to-list 'load-path (expand-file-name (concat (file-name-directory
-                                                   (locate-library
-                                                    "xopeck-mode"))
-                                                  ;; or (file-truename "xopeck-mode")
-                                                  "/modes")))
+(setq fkm-path (file-name-directory (locate-library "xopeck-mode")))
+(add-to-list 'load-path
+             (expand-file-name (concat fkm-path "modes")))
+(add-to-list 'custom-theme-load-path
+             (expand-file-name (concat fkm-path "themes/")))
+(setq custom-theme-directory (expand-file-name (concat fkm-path "themes")))
 
 ;; Моды
 ;; 0.8 +
@@ -24,6 +25,7 @@
 (load "xop-hotkeys") ;; 0 sec
 
 ;; (require 'xopeck-light-theme)
-(require 'xopeck-theme) ;; 0.1-0.2 sec
+;; (require 'xopeck-theme) ;; 0.1-0.2 sec
+(load-theme 'badwolf t)
 
 (provide 'xopeck-mode)
