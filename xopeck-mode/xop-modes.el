@@ -266,18 +266,18 @@
 ;; flycheck javascript
 (defun flycheck-js-setup()
   (flycheck-mode)
-  (setq flycheck-eslintrc "~/.eslintrc")
-  (setq flycheck-temp-prefix ".")
-  (setq flycheck-eslint-rules-directories '("~/"))
+  ;; (setq flycheck-eslintrc "/home/vladimir/.eslintrc")
+  ;; (setq flycheck-temp-prefix ".")
+  ;; (setq flycheck-eslint-rules-directories '("~/"))
   ;; (flycheck-add-mode 'javascript-eslint 'js2-mode)
   ;; (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
   ;; (flycheck-add-mode 'javascript-eslint 'js-mode)
   (flycheck-add-mode 'javascript-eslint 'js2-mode)
   (flycheck-add-mode 'javascript-eslint 'js-mode)
 
-  (setq-default flycheck-disabled-checkers
-                (append flycheck-disabled-checkers
-                        '(javascript-jshint)))
+  ;; (setq-default flycheck-disabled-checkers
+  ;;               (append flycheck-disabled-checkers
+  ;;                       '(javascript-jshint)))
   )
 
 (add-hook 'js-mode-hook #'flycheck-js-setup)
@@ -297,6 +297,12 @@
   (flycheck-mode))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
 
+;; flycheck python
+(defun flycheck-sh-setup ()
+  (flycheck-mode))
+(add-hook 'sh-mode-hook #'flycheck-sh-setup)
+
+
 ;; flycheck java
 ;; (defun flycheck-java-setup ()
 ;;   (flycheck-mode))
@@ -304,23 +310,45 @@
 ;;; modes.el ends here
 
 ;; LaTeX ;; its work
-                                        ;(add-hook 'TeX-mode-hook
-                                        ;          '(lambda()
-                                        ;             (message "load")
-                                        ;             (latex-preview-pane-mode t)))
-;; fix docview-mode keys
-                                        ;(defun set-docview-mode-keys()
-                                        ;  (define-key (current-local-map)
-                                        ;    [remap forward-paragraph]
-                                        ;    'doc-view-next-page)
-                                        ;  (define-key
-                                        ;    (current-local-map)
-                                        ;    [remap backward-paragraph]
-                                        ;    'doc-view-previous-page))
-                                        ;(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
+;;(add-hook 'TeX-mode-hook
+;;          '(lambda()
+;;             (message "load")
+;;             (latex-preview-pane-mode t)))
+;;; fix docview-mode keys
+;;(defun set-docview-mode-keys()
+;;  (define-key (current-local-map)
+;;    [remap forward-paragraph]
+;;    'doc-view-next-page)
+;;  (define-key
+;;    (current-local-map)
+;;    [remap backward-paragraph]
+;;    'doc-view-previous-page))
+;;(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 
 ;; js
+;; (flycheck-mode)
+;; (require 'nvm)
+;; (nvm-use (caar (last (nvm--installed-versions))))
+
+;; (add-hook 'projectile-after-switch-project-hook 'mjs/setup-local-eslint)
+
+;; (defun mjs/setup-local-eslint ()
+;;   "If ESLint found in node_modules directory - use that for flycheck.
+;; Intended for use in PROJECTILE-AFTER-SWITCH-PROJECT-HOOK."
+;;   (interactive)
+;;   (let ((local-eslint (expand-file-name "./node_modules/.bin/eslint")))
+;;     (setq flycheck-javascript-eslint-executable
+;;           (and (file-exists-p local-eslint) local-eslint))))
+
+;; (with-eval-after-load 'flycheck
+;;     (push 'web-mode (flycheck-checker-get 'javascript-eslint 'modes)))
+
+;; (custom-set-variables
+;;  '(js2-allow-rhino-new-expr-initializer t)
+;;  '(js2-highlight-level 3)
+;;  '(js2-indent-switch-body t)
+;;  '(js2-language-version 200))
 
 ;; hs
 ;; (add-hook 'c-mode-common-hook #'hs-minor-mode)

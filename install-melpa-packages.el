@@ -41,6 +41,7 @@
     autopair
     multiple-cursors
     srefactor
+    rjsx-mode
     ))
 
 (defun packages-installed-p ()

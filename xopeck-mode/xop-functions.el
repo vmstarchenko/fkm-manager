@@ -1,4 +1,6 @@
+;;; Commentary:
 ;;; Code:
+
 ;; python3
 (defun insert-python3-directory ()
   (interactive)
@@ -530,7 +532,7 @@
   (interactive
    (list
     (read-string "Zoom value: ")))
-  (setq zoom-value (string-to-int arg))
+  (setq zoom-value (string-to-number arg))
   (set-face-attribute 'default nil :height zoom-value))
 
 (defun zoom+()
@@ -553,7 +555,7 @@
   (interactive)
   (let* ((input (read-string
                  (format "Max line width (current %d): " fill-column)))
-         (value (string-to-int input)))
+         (value (string-to-number input)))
     (if (not (eq value 0))
         (setq fill-column value)))
   ad-do-it)
@@ -564,7 +566,7 @@
 ;;   (interactive)
 ;;   (let* ((input (read-string
 ;;                  (format "Max line width (current %d): " fill-column)))
-;;          (value (string-to-int input)))
+;;          (value (string-to-number input)))
 ;;     (if (not (eq value 0))
 ;;         (setq fill-column value)))
 ;;   ad-do-it)

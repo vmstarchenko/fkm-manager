@@ -370,7 +370,7 @@
                                 ("\\.\\(html\\|djhtml\\)$" . web-mode)
                                 ("\\(\\.org\\|TODO\\)$" . org-mode)
                                 ("\\.js$" . js2-mode)
-                                ("\\.jsx$" . js2-jsx-mode)
+                                ("\\.jsx$" . rjsx-mode)
                                 ("\\.json$" . js-mode)
                                 ("\\.txt$" . Fundamental-mode)
                                 ("\\.xml$" . sgml-mode))
