@@ -22,6 +22,7 @@
 ;;(require 'xop-abbrev") ;; abbrev
 (require 'tr-mode)
 
+
 ;; fill column
 ;; (require 'fill-column-indicator)
 ;; (define-globalized-minor-mode global-fci-mode fci-mode
@@ -264,26 +265,26 @@
 (add-hook 'c-mode-hook #'flycheck-c-setup)
 
 ;; flycheck javascript
-(defun flycheck-js-setup()
-  (flycheck-mode)
-  ;; (setq flycheck-eslintrc "/home/vladimir/.eslintrc")
-  ;; (setq flycheck-temp-prefix ".")
-  ;; (setq flycheck-eslint-rules-directories '("~/"))
-  ;; (flycheck-add-mode 'javascript-eslint 'js2-mode)
-  ;; (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
-  ;; (flycheck-add-mode 'javascript-eslint 'js-mode)
-  (flycheck-add-mode 'javascript-eslint 'js2-mode)
-  (flycheck-add-mode 'javascript-eslint 'js-mode)
+;; (defun flycheck-js-setup()
+;;   (flycheck-mode)
+;;   ;; (setq flycheck-eslintrc "/home/vladimir/.eslintrc")
+;;   ;; (setq flycheck-temp-prefix ".")
+;;   ;; (setq flycheck-eslint-rules-directories '("~/"))
+;;   ;; (flycheck-add-mode 'javascript-eslint 'js2-mode)
+;;   ;; (flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
+;;   ;; (flycheck-add-mode 'javascript-eslint 'js-mode)
+;;   (flycheck-add-mode 'javascript-eslint 'js2-mode)
+;;   (flycheck-add-mode 'javascript-eslint 'js-mode)
 
-  ;; (setq-default flycheck-disabled-checkers
-  ;;               (append flycheck-disabled-checkers
-  ;;                       '(javascript-jshint)))
-  )
+;;   ;; (setq-default flycheck-disabled-checkers
+;;   ;;               (append flycheck-disabled-checkers
+;;   ;;                       '(javascript-jshint)))
+;;   )
 
-(add-hook 'js-mode-hook #'flycheck-js-setup)
-(add-hook 'js2-mode-hook #'flycheck-js-setup)
-(add-hook 'js2-jsx-mode-hook #'flycheck-js-setup)
-(add-hook 'js3-mode-hook #'flycheck-js-setup)
+;; (add-hook 'js-mode-hook #'flycheck-js-setup)
+;; (add-hook 'js2-mode-hook #'flycheck-js-setup)
+;; (add-hook 'js2-jsx-mode-hook #'flycheck-js-setup)
+;; (add-hook 'js3-mode-hook #'flycheck-js-setup)
 
 ;; flycheck for css
 (defun flycheck-css-setup()

@@ -42,6 +42,7 @@
     multiple-cursors
     srefactor
     rjsx-mode
+    markdown-mode
     ))
 
 (defun packages-installed-p ()
