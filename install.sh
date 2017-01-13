@@ -45,16 +45,16 @@ echo "depandances..."
 sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev -y -f
 # load emacs
 echo "load emacs from ftp.gnu.org..."
-sudo wget https://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz
-tar -xf emacs-24.4.tar.*
-cd "emacs-24.4/"
+sudo wget https://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.gz
+tar -xf emacs-25.1.tar.*
+cd "emacs-25.1/"
 # install emacs
 ./configure
 sudo make
 sudo make install
 cd ".."
-rm -r "emacs-24.4/"
-rm emacs-24.4.tar.*
+rm -r "emacs-25.1/"
+rm emacs-25.1.tar.*
 
 # install apt-get plugins
 sudo apt-get install python3-pip -y -f #~

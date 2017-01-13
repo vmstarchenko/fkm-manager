@@ -21,6 +21,7 @@
 (require 'xop-cursor) ;; colored cursor
 ;;(require 'xop-abbrev") ;; abbrev
 (require 'tr-mode)
+(require 'fkm:asm-mode)
 
 
 ;; fill column
