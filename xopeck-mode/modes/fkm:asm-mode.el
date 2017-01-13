@@ -15,8 +15,8 @@
   ;; (setq tab-always-indent (default-value 'tab-always-indent))
   (setq-local indent-line-function 'asm-indent-line))
 
-;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.S\\'" . fkm:asm-mode))
+;;;;###autoload
+;; (add-to-list 'auto-mode-alist '("\\.S\\'" . fkm:asm-mode))
 
 (defun fkm:asm-indent-buffer()
   (interactive)
