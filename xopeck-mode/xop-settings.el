@@ -513,4 +513,7 @@
 ;; лучшая отрисовка буфера ???
 ;; (setq redisplay-dont-pause t)
 
+;; gdb
+(setq gdb-many-windows t)
+
 (provide 'xop-settings)
