@@ -506,9 +506,15 @@
 (add-hook 'multiple-cursors-mode-hook 'unset-multiple-cursor-mode-keys)
 
 (defun unset-help-mode-keys()
-  (define-key help-mode-map (kbd "S-SPC") nil)
-  )
+  (define-key help-mode-map (kbd "S-SPC") nil))
 (add-hook 'help-mode-hook 'unset-help-mode-keys)
+
+(defun unset-markdown-mode-keys()
+  (define-key markdown-mode-map (kbd "M-p") nil)
+  (define-key markdown-mode-map (kbd "M-n") nil)
+  (define-key markdown-mode-map (kbd "C-c") nil)
+  (define-key markdown-mode-map (kbd "C-m") nil))
+(add-hook 'markdown-mode 'unset-markdown-mode-keys)
 
 (define-key special-mode-map (kbd "S-SPC") nil)
 (define-key package-menu-mode-map (kbd "S-SPC") nil)
