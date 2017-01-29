@@ -259,6 +259,7 @@
 (global-set-key (kbd "C-M-t q") 'google-translate-query-translate)   ;; Перевести введённый текст
 (global-set-key (kbd "C-M-[") 'insert-brace)   ;; Вставляет одиночную фигурную скобку (актуально для c++-mode)
 (global-set-key (kbd "C-M-'") 'docs-string)   ;; Вставляет заготовку для документации кода
+(define-key fkm:sphinx-mode-map (kbd "C-M-'") 'fkm:sphinx-update-doc)   ;; Вставляет заготовку для документации кода sphinx
 (define-key python-mode-map (kbd "C-M-p f") 'switch-flycheck)   ;; Включить/выключить flycheck
 (define-key c++-mode-map (kbd "C-M-1") 'clang-format-auto)   ;; Пересчитать стиль в регионе или во всем буфере
 (define-key c-mode-map (kbd "C-M-1") 'clang-format-auto)   ;; Пересчитать стиль в регионе или во всем буфере
@@ -539,6 +540,7 @@ ________________________________________________________________________________
  C-M-t q          | google-translate-query-translate    |                               | Перевести введённый текст
  C-M-[            | insert-brace                        |                               | Вставляет одиночную фигурную скобку (актуально для c++-mode)
  C-M-'            | docs-string                         |                               | Вставляет заготовку для документации кода
+ C-M-'            | fkm:sphinx-update-doc               | fkm:sphinx-mode-map           | Вставляет заготовку для документации кода sphinx
  C-M-p f          | switch-flycheck                     | python-mode-map               | Включить/выключить flycheck
  C-M-1            | clang-format-auto                   | c++-mode-map                  | Пересчитать стиль в регионе или во всем буфере
  C-M-1            | clang-format-auto                   | c-mode-map                    | Пересчитать стиль в регионе или во всем буфере

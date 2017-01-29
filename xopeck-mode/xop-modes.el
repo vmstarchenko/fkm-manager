@@ -12,7 +12,12 @@
 (defvar c++-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
 (defvar c-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
 (defvar yas-minor-mode-map (make-sparse-keymap) "Keymap for `yas-minor-mode'.")
-
+(defvar ido-common-completion-map (make-sparse-keymap) "Keymap for `ido-mode'.")
+(defvar scss-mode-map (make-sparse-keymap) "Keymap for `css-mode'.")
+(defvar ac-completing-map (make-sparse-keymap) "Keymap for `ac-mode'.")
+(defvar undo-tree-visualizer-mode-map (make-sparse-keymap) "Keymap for `undotree-mode'.")
+(defvar mc/keymap (make-sparse-keymap) "Keymap for what???'.")
+(defvar fkm:sphinx-mode-map (make-sparse-keymap) "Keymap for sphinx'.")
 
 ;;; inline modes
 (require 'xop-linum) ;; нумерация строк
@@ -23,6 +28,10 @@
 (require 'tr-mode)
 (require 'fkm:asm-mode)
 
+;; sphinx
+(add-hook 'python-mode-hook '(lambda ()
+                               (require 'fkm:sphinx-mode)
+                               (fkm:sphinx-mode t)))
 
 ;; fill column
 ;; (require 'fill-column-indicator)
@@ -132,12 +141,12 @@
 
 ;; indentation
 (electric-indent-mode 1)
-(add-hook 'python-mode-hook
-          '(lambda ()
-             (defun newline ()
-               (interactive)
-               (insert "\n")
-               (indent-for-tab-command))))
+;; (add-hook 'python-mode-hook
+;;           '(lambda ()
+;;              (defun newline (&optional ARG INTERACTIVE)
+;;                (interactive)
+;;                (insert "\n")
+;;                (indent-for-tab-command))))
 
 ;; подсказки при открытии файы
 (require 'ido)
