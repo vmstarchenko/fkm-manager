@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: moduledoc
+# key: moduledoc
+# --
+"""$0Short description
+
+Description
+
+.. module:: useful_1
+   :platform: Unix, Windows
+   :synopsis: A useful module indeed.
+
+.. moduleauthor:: Andrew Carter <andrew@invalid.com>
+
+"""

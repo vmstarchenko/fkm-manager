@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: classdoc
+# key: classdoc
+# --
+"""$0Short description
+
+Full description
+
+:Example:
+
+followed by a blank line
+>>> a = ClassName(*args, **kargs)
+>>> print(a)
+obj(args, kargs)
+
+.. seealso:: blabla
+.. warnings also:: blabla
+.. note:: blabla
+.. todo::
+    list of todos
+        * one is a very very very very very very long todo
+          with two strings
+        * two is a short todo
+
+"""

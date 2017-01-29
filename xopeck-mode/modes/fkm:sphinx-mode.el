@@ -55,6 +55,7 @@
 
 ;; regular expression to identify a valid function definition in
 ;; python and match it's name and arguments
+(defconst fkm:sphinx-fun-short-regex "^ *def ")
 (defconst fkm:sphinx-fun-regex "^ *def \\([a-zA-Z0-9_]+\\)(\\(\\(?:.\\|\n\\)*\\)):$")
 
 ;; regexes for beginning and end of python function definitions
@@ -411,22 +412,22 @@ INDENT is the level of indentation"
 This is an interactive function and the docstring generated is as
 per the requirement of Sphinx documentation generator."
   (interactive)
-  (if (string= (thing-at-point 'word) "def")
-      (back-to-indentation)
-    (search-backward-regexp fkm:sphinx-fun-beg-regex))
-  (let ((fd (fkm:sphinx-str->fndef (fkm:sphinx-fndef-str))))
-    (if fd
-        (let ((indent (+ (fkm:sphinx-current-indent) fkm:sphinx-python-indent))
-              (old-ds (fkm:sphinx-existing))
-              (new-ds (fkm:sphinx-fndef->doc fd)))
-          (progn
-            (when old-ds (fkm:sphinx-kill-old-doc indent))
-            (fkm:sphinx-insert-doc
-             (if old-ds
-                 (fkm:sphinx-merge-docs old-ds new-ds)
-               new-ds))
-            (fkm:sphinx-indent-doc indent)
-            (search-forward "\"\"\""))))))
+  (when (or (string= (thing-at-point 'word) "def")
+            (search-backward-regexp fkm:sphinx-fun-short-regex 0 t))
+    (back-to-indentation)
+    (let ((fd (fkm:sphinx-str->fndef (fkm:sphinx-fndef-str))))
+      (if fd
+          (let ((indent (+ (fkm:sphinx-current-indent) fkm:sphinx-python-indent))
+                (old-ds (fkm:sphinx-existing))
+                (new-ds (fkm:sphinx-fndef->doc fd)))
+            (progn
+              (when old-ds (fkm:sphinx-kill-old-doc indent))
+              (fkm:sphinx-insert-doc
+               (if old-ds
+                   (fkm:sphinx-merge-docs old-ds new-ds)
+                 new-ds))
+              (fkm:sphinx-indent-doc indent)
+              (search-forward "\"\"\"")))))))
 
 
 (defvar fkm:sphinx-mode-map
