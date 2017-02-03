@@ -69,16 +69,16 @@ sudo pip3 install pylint #~
 sudo pip2 install virtualenv #~
 sudo pip install pyformat # ???
 ## flycheck for css and js
-sudo apt-get install nodejs-legacy -y -f
-sudo apt-get install npm -y -f
-sudo npm install -g jshint
-sudo npm install -g csslint
-sudo npm install -g sass-lint
-# TODO: add copy .lint-config files
+# sudo apt-get install nodejs-legacy -y -f
+# sudo apt-get install npm -y -f
+# sudo npm install -g jshint
+# sudo npm install -g csslint
+# sudo npm install -g sass-lint
+# # TODO: add copy .lint-config files
 
-## scss
-sudo apt-get install ruby -y -f
-sudo gem install sass
+# ## scss
+# sudo apt-get install ruby -y -f
+# sudo gem install sass
 ## js
 # sudo npm install babel-cli -g
 # sudo npm install babel-preset-es2015 -g
@@ -116,3 +116,4 @@ $script_path/Hotkeys.py "$script_path/Hotkeys.txt" "$script_path/xopeck-mode/xop
 # copy xopeck-mode
 cp "$script_path/xopeck-mode" "$_emacs_d_path" -r
 
+chown vladimir ~/.emacs.d -R

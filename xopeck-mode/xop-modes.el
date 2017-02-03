@@ -12,7 +12,6 @@
 (defvar c++-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
 (defvar c-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
 (defvar yas-minor-mode-map (make-sparse-keymap) "Keymap for `yas-minor-mode'.")
-(defvar ido-common-completion-map (make-sparse-keymap) "Keymap for `ido-mode'.")
 (defvar scss-mode-map (make-sparse-keymap) "Keymap for `css-mode'.")
 (defvar ac-completing-map (make-sparse-keymap) "Keymap for `ac-mode'.")
 (defvar undo-tree-visualizer-mode-map (make-sparse-keymap) "Keymap for `undotree-mode'.")
@@ -148,10 +147,12 @@
 ;;                (insert "\n")
 ;;                (indent-for-tab-command))))
 
-;; подсказки при открытии файы
+;; IDO
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
+;; helm
+;; (require 'helm-config)
 
 ;; Орг мод
 (require 'org-install)
@@ -515,6 +516,10 @@
   (define-key markdown-mode-map (kbd "C-c") nil)
   (define-key markdown-mode-map (kbd "C-m") nil))
 (add-hook 'markdown-mode 'unset-markdown-mode-keys)
+
+(defun unset-helm-keys()
+  (define-key helm-mode-map (kbd "s-h") nil))
+(add-hook 'helm-mode 'unset-helm-keys)
 
 (define-key special-mode-map (kbd "S-SPC") nil)
 (define-key package-menu-mode-map (kbd "S-SPC") nil)
