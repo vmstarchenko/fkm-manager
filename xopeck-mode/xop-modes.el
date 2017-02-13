@@ -13,9 +13,9 @@
 (defvar c-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
 (defvar yas-minor-mode-map (make-sparse-keymap) "Keymap for `yas-minor-mode'.")
 (defvar scss-mode-map (make-sparse-keymap) "Keymap for `css-mode'.")
-(defvar ac-completing-map (make-sparse-keymap) "Keymap for `ac-mode'.")
-(defvar undo-tree-visualizer-mode-map (make-sparse-keymap) "Keymap for `undotree-mode'.")
-(defvar mc/keymap (make-sparse-keymap) "Keymap for what???'.")
+;; (defvar ac-completing-map (make-sparse-keymap) "Keymap for `ac-mode'.")
+;; (defvar undo-tree-visualizer-mode-map (make-sparse-keymap) "Keymap for `undotree-mode'.")
+;; (defvar mc/keymap (make-sparse-keymap) "Keymap for what???'.")
 (defvar fkm:sphinx-mode-map (make-sparse-keymap) "Keymap for sphinx'.")
 
 ;;; inline modes
