@@ -10,6 +10,7 @@
 ;; Package list
 (defvar required-packages
   '(;; slime
+    s
     auto-complete
     projectile
 		;; my

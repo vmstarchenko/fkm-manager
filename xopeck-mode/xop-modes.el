@@ -26,6 +26,7 @@
 ;;(require 'xop-abbrev") ;; abbrev
 (require 'tr-mode)
 (require 'fkm:asm-mode)
+(require 'fkm:sphinx-mode)
 
 ;; sphinx
 (add-hook 'python-mode-hook '(lambda ()
