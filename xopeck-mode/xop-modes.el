@@ -516,7 +516,7 @@
   (define-key markdown-mode-map (kbd "M-n") nil)
   (define-key markdown-mode-map (kbd "C-c") nil)
   (define-key markdown-mode-map (kbd "C-m") nil))
-(add-hook 'markdown-mode 'unset-markdown-mode-keys)
+(add-hook 'markdown-mode-hook 'unset-markdown-mode-keys)
 
 (defun unset-helm-keys()
   (define-key helm-mode-map (kbd "s-h") nil))
