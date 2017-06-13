@@ -306,7 +306,13 @@
 
 ;; flycheck python
 (defun flycheck-python-setup ()
-  (flycheck-mode))
+  (flycheck-mode)
+  (require 'flycheck-mypy)
+  (add-hook 'python-mode-hook 'flycheck-mode)
+  (flycheck-add-next-checker 'python-pylint
+                                  '(warning . python-mypy))
+  (add-to-list 'flycheck-disabled-checkers 'python-flake8)
+  (add-to-list 'flycheck-disabled-checkers 'python-pycompile))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
 
 ;; flycheck python
@@ -321,13 +327,13 @@
 ;; (add-hook 'java-mode-hook #'flycheck-java-setup)
 ;;; modes.el ends here
 
-;; LaTeX ;; its work
-;;(add-hook 'TeX-mode-hook
+;; ;; LaTeX ;; its work
+;; (add-hook 'TeX-mode-hook
 ;;          '(lambda()
 ;;             (message "load")
 ;;             (latex-preview-pane-mode t)))
-;;; fix docview-mode keys
-;;(defun set-docview-mode-keys()
+;; ;; fix docview-mode keys
+;; (defun set-docview-mode-keys()
 ;;  (define-key (current-local-map)
 ;;    [remap forward-paragraph]
 ;;    'doc-view-next-page)
@@ -335,7 +341,7 @@
 ;;    (current-local-map)
 ;;    [remap backward-paragraph]
 ;;    'doc-view-previous-page))
-;;(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
+;; (add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 
 ;; js

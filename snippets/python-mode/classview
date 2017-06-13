@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+# key: classview
+# name: classview
+# --
+class ${1:MyView}(View):
+    form_class = ${2:MyForm}
+    initial = \{${3:}\}
+    template_name = '${4:template.html}'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        context = \{
+            'form': form,${5:}
+        \}${6:}
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect(${7:})
+
+        context = \{
+            'form': form,${8:}
+        \}${0:}
+        return render(request, self.template_name, context)

@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+# key: view
+# name: view
+# --
+def ${1:myview}(request):
+    template_name = '${2:template.html}'
+    context = \{${3:}\}${0:}
+    return render(request, template_name, context)

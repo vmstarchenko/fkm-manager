@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# key: url
+# name: url
+# --
+url(r'^${1:url/$}', views.${2:myview}, name='${3:$2}'),

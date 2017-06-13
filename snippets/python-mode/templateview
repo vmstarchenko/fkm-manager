@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# key: templateview
+# name: templateview
+# --
+class ${1:View}(TemplateView):
+    template_name = '${2:template.html}'

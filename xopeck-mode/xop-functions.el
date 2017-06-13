@@ -120,7 +120,7 @@ Otherwise, one argument `-i' is passed to the shell.
              (read-buffer "Shell buffer: "
                           ;; If the current buffer is an inactive
                           ;; shell buffer, use it as the default.
-)
+                          )
            (if (file-remote-p default-directory)
                ;; It must be possible to declare a local default-directory.
                ;; FIXME: This can't be right: it changes the default-directory
@@ -710,5 +710,11 @@ Otherwise, one argument `-i' is passed to the shell.
 ;;   (autoload 'epe-theme-lambda "eshell-prompt-extras")
 ;;   (setq eshell-highlight-prompt nil
 ;;         eshell-prompt-function 'epe-theme-lambda))
+
+(defun fkm:ac-start()
+  (interactive)
+  (unless (auto-complete-mode)
+    (auto-complete-mode t))
+  (ac-start))
 
 (provide 'xop-functions)
