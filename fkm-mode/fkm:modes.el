@@ -543,4 +543,4 @@
 (add-hook 'emacs-lisp-mode-hook 'hex-color)
 
 
-(provide 'xop-modes)
+(provide 'fkm:modes)

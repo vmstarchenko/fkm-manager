@@ -58,4 +58,4 @@
 ;; (set-default-font "DejaVu Serif")
 ;; (set-default-font "Kinnari")
 
-(provide 'xop-themes)
+(provide 'fkm:themes)

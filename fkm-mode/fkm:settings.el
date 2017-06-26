@@ -516,4 +516,4 @@
 ;; gdb
 (setq gdb-many-windows t)
 
-(provide 'xop-settings)
+(provide 'fkm:settings)

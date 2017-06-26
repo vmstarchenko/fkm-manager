@@ -494,9 +494,9 @@ Otherwise, one argument `-i' is passed to the shell.
 
 ;; reload xopeck-mode
 (defun reload-xopeck-mode()
-	"reload xopeck-mode"
+	"reload fkm-mode"
 	(interactive)
-	(load "xopeck-mode"))
+	(load "fkm-mode"))
 
 ;; css-colors
 (defun hex-color ()
@@ -717,4 +717,4 @@ Otherwise, one argument `-i' is passed to the shell.
     (auto-complete-mode t))
   (ac-start))
 
-(provide 'xop-functions)
+(provide 'fkm:utils)
