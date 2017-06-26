@@ -223,7 +223,7 @@ class Hotkeys:
         input_file.write('\n')
         input_file.write('(setq hotkeys-docs "')
         input_file.write(self.create_hotkeys_docs())
-        input_file.write('")\n')
+        input_file.write('")\n\n(provide \'fkm:hotkeys)\n')
         input_file.close()
         # print(russion_output)
 

@@ -1,15 +1,12 @@
-;; (add-to-list 'load-path "~/.emacs.d/fkm-mode/modes")
-;; (add-to-list 'load-path
-;;              (concat (file-name-directory (buffer-file-name (current-buffer)))
-;;                      "modes")) ;; doesnt work
-(setq fkm-path (file-name-directory (locate-library "fkm-mode")))
-(add-to-list 'load-path
-             (expand-file-name (concat fkm-path "modes")))
-(add-to-list 'custom-theme-load-path
-             (expand-file-name (concat fkm-path "themes/")))
-(setq custom-theme-directory (expand-file-name (concat fkm-path "themes")))
+;; set paths
+(setq fkm:fkm-path (file-name-directory (locate-library "fkm-mode")))
+(setq fkm:themes-directory (expand-file-name (concat fkm:fkm-path "themes/")))
+(setq fkm:modes-directory (expand-file-name (concat fkm:fkm-path "modes/")))
 
-;; Моды
+(add-to-list 'load-path fkm:modes-directory)
+(add-to-list 'custom-theme-load-path fkm:themes-directory)
+
+;; Load modes
 ;; 0.8 +
 (require 'fkm:modes) ;; 0.2 sec
 
@@ -22,7 +19,7 @@
 (require 'fkm:settings) ;; 0.1-0.2 sec
 
 ;; custom hotkeys
-(load "fkm:hotkeys") ;; 0 sec
+(require 'fkm:hotkeys) ;; 0 sec
 
 ;; (require 'fkm-light-theme)
 ;; (require 'fkm-theme) ;; 0.1-0.2 sec
