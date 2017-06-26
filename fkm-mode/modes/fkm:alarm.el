@@ -45,7 +45,7 @@ example \"11:30am\"."
     (message (number-to-string (* (string-to-number time) 60)))
     (message (concat "Timer was set successfully. It will ring " time " minutes later."))))
 
-(provide 'xop-alarm)
-;;; xop-alarm.el ends here
+(provide 'fkm:alarm)
+;;; fkm:alarm.el ends here
 
 ;;; LocalWords:  el

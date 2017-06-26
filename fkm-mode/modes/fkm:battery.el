@@ -38,4 +38,4 @@
 ;;                                              'help-echo "Battery status information"))
 ;;   (force-mode-line-update))
 
-(provide 'xop-battery)
+(provide 'fkm:battery)

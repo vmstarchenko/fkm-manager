@@ -59,4 +59,4 @@
     ("else if" "elif")
 		))
 
-(provide 'xop-abbrev)
+(provide 'fkm:abbrev)

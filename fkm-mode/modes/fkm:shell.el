@@ -45,4 +45,4 @@
 (add-to-list 'ac-modes 'eshell-mode)
 (add-to-list 'ac-modes 'shell-mode)
 
-(provide 'xop-shell)
+(provide 'fkm:shell)

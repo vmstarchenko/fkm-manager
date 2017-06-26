@@ -1,12 +1,12 @@
-;; (defgroup xopeck nil
-;;   "Extension of `xopeck'."
-;;   :prefix "xopeck-")
+;; (defgroup fkm nil
+;;   "Extension of `fkm'."
+;;   :prefix "fkm-")
 
 ;;;;
 
-(define-minor-mode xop-cursor
+(define-minor-mode fkm:cursor
   "docs"
-;;  :group 'xopeck
+;;  :group 'fkm
   :global t
   :init-value nil
   )
@@ -14,13 +14,13 @@
 ;; (defface english-cursor-color
 ;;   `((t :background "#00ffff"))
 ;;   "Cursor face for english input method"
-;;   ;;  :group 'xopeck
+;;   ;;  :group 'fkm
 ;;   )
 
 ;; (defface russion-cursor-color
 ;;   `((t :background "#98fb98"))
 ;;   "Cursor face for english input method"
-;;   ;;  :group 'xopeck
+;;   ;;  :group 'fkm
 ;;   )
 (setq english-cursor-color "#00ffff")
 (setq russion-cursor-color "#98fb98")
@@ -48,4 +48,4 @@
 (progn
 	(set-english-input-method))
 
-(provide 'xop-cursor)
+(provide 'fkm:cursor)

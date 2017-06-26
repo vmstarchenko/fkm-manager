@@ -23,4 +23,4 @@
               )
     (linum-mode 1)))
 
-(provide 'xop-linum)
+(provide 'fkm:linum)

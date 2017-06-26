@@ -19,11 +19,11 @@
 (defvar fkm:sphinx-mode-map (make-sparse-keymap) "Keymap for sphinx'.")
 
 ;;; inline modes
-(require 'xop-linum) ;; нумерация строк
-(require 'xop-alarm) ;; будильники
-(require 'xop-battery) ;; батарея
-(require 'xop-cursor) ;; colored cursor
-;;(require 'xop-abbrev") ;; abbrev
+(require 'fkm:linum) ;; нумерация строк
+(require 'fkm:alarm) ;; будильники
+(require 'fkm:battery) ;; батарея
+(require 'fkm:cursor) ;; colored cursor
+;;(require 'fkm:abbrev") ;; abbrev
 (require 'tr-mode)
 (require 'fkm:asm-mode)
 
@@ -156,7 +156,7 @@
 
 ;; Орг мод
 (require 'org-install)
-(add-hook 'org-mode-hook '(lambda() (require 'xop-org))) ;; for my mode map
+(add-hook 'org-mode-hook '(lambda() (require 'fkm:org))) ;; for my mode map
 ;; settings
 (defface org-canceled '() "face for canceled in org-mode")
 (defface org-wait '() "face for wait in org-mode")
@@ -174,11 +174,11 @@
 (require 'auto-complete-config)
 (ac-config-default)
 ;; castomize ac-complete
-(add-hook 'after-init-hook '(lambda() (require 'xop-completion)))
+(add-hook 'after-init-hook '(lambda() (require 'fkm:completion)))
 
 
 ;; depandence: auto-complete
-;; (require 'xop-shell) ;; eshell
+;; (require 'fkm:shell) ;; eshell
 
 ;; google translate
 (add-hook 'after-init-hook
@@ -203,7 +203,7 @@
 ;; (add-hook 'python-mode-hook 'ropemacs-setup)
 
 ;; start yasnippet with emacs
-;; depandance: xop-complete
+;; depandance: fkm:complete
 (defun load-yasnippet()
   (interactive)
   (require 'yasnippet)
@@ -214,7 +214,7 @@
 
 
 ;; semantic
-;; depandence: xop-complete
+;; depandence: fkm:complete
 (add-hook 'after-init-hook
           (lambda()
             (semantic-mode 1)
