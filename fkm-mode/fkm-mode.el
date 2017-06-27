@@ -18,6 +18,7 @@
 ;; custom settings
 (require 'fkm:settings) ;; 0.1-0.2 sec
 
+(require 'fkm:unset-hotkeys)
 ;; custom hotkeys
 (require 'fkm:hotkeys) ;; 0 sec
 
