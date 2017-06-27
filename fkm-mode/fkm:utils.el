@@ -1,15 +1,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; python3
-(defun insert-python3-directory ()
-  (interactive)
-  (insert "#! /usr/bin/env python3\n"))
-;; python2
-(defun insert-python2-directory ()
-  (interactive)
-  (insert "#! /usr/bin/env python\n"))
-
 ;;; docs-string
 ;; functions
 ;; python
@@ -492,8 +483,8 @@ Otherwise, one argument `-i' is passed to the shell.
 
 ;; (defvar calc-command-flags)
 
-;; reload xopeck-mode
-(defun reload-xopeck-mode()
+;; reload fkm-mode
+(defun reload-fkm-mode()
 	"reload fkm-mode"
 	(interactive)
 	(load "fkm-mode"))
