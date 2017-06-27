@@ -223,6 +223,9 @@
 (global-set-key (kbd "C-v") 'isearch-forward-regexp)   ;; Поиск вперед по регулярному выражению
 (define-key isearch-mode-map (kbd "M-s-i") 'isearch-repeat-backward)   ;; Повторить поиск назад
 (define-key isearch-mode-map (kbd "M-s-k") 'isearch-repeat-forward)   ;; Повторить поиск вперед
+(define-key helm-map (kbd "M-s-i") 'helm-previous-line)   ;; up
+(define-key helm-map (kbd "M-s-k") 'helm-next-line)   ;; down
+(define-key helm-map (kbd "C-g") 'helm-keyboard-quit)   ;; down
 (define-key python-mode-map (kbd "M-a j") 'jedi:goto-definition)   ;; goto defenition
 (define-key python-mode-map (kbd "M-a l") 'jedi:goto-definition-pop-marker)   ;; return from defenition
 ;; Сочетание клавиш   Мод   Команда   Действие
@@ -312,14 +315,13 @@
 (global-set-key (kbd "M-d a") 'delete-other-windows)   ;; Закрыть все окна кроме текущего
 (global-set-key (kbd "M-d f") 'sr-speedbar-toggle)   ;; Навигация по дереву файлов
 (global-set-key (kbd "M-d s 1") 'xscreen)   ;; Window confuguration 1
-(global-set-key (kbd "s-f") 'find-file)   ;; Открыть файл на диске
+(global-set-key (kbd "s-f") 'helm-find-files)   ;; Открыть файл на диске
 (global-set-key (kbd "s-r") 'find-file-read-only)   ;; Открыть файл в режиме чтения
 (global-set-key (kbd "s-s") 'save-buffer)   ;; Сохранить буфер на диске
 (global-set-key (kbd "s-w") 'write-file)   ;; Сохранить буфер в файле с новым именем
 (global-set-key (kbd "s-e") 'rename-file)   ;; Переименовать файл
 (global-set-key (kbd "s-d") 'dired)   ;; Открыть файловый менеджер
-(global-set-key (kbd "s-n") 'bookmark-bmenu-list)   ;; Открыть закладки
-(global-set-key (kbd "s-b") 'bookmark-set)   ;; Добавить закладку
+(global-set-key (kbd "s-n") 'helm-bookmarks)   ;; Открыть закладки
 (global-set-key (kbd "s-m") 'magit-status)   ;; Open git status
 (global-set-key (kbd "C-M-y") 'yas-expand)   ;; Дополнить
 (define-key yas-minor-mode-map (kbd "C-M-h") 'yas-exit-snippet)   ;; Окончить набор сниппета
@@ -463,6 +465,7 @@
 (global-set-key (kbd "C-M-x n") 'python-shell-send-region)   ;; Запустить регион в интерактивной оболочке Python
 (global-set-key (kbd "C-M-x u t") 'latex-preview-pane-mode)   ;; Запустить режим отображения latex в горизонтальном окне
 (global-set-key (kbd "C-M-x u u") 'latex-preview-pane-update)   ;; Обновить отображенный документ
+(global-set-key (kbd "M-x") 'helm-M-x)   ;; выполнить комманду
 (global-set-key (kbd "s-z") 'suspend-frame)   ;; Свернуть Emacs
 (global-set-key (kbd "s-c") 'save-buffers-kill-emacs)   ;; Всё сохранить и выйти из
 (global-set-key (kbd "s-x") 'reload-fkm-mode)   ;; Всё сохранить и выйти из
@@ -496,6 +499,9 @@ ________________________________________________________________________________
  C-v              | isearch-forward-regexp              |                               | Поиск вперед по регулярному выражению
  M-s-i            | isearch-repeat-backward             | isearch-mode-map              | Повторить поиск назад
  M-s-k            | isearch-repeat-forward              | isearch-mode-map              | Повторить поиск вперед
+ M-s-i            | helm-previous-line                  | helm-map                      | up
+ M-s-k            | helm-next-line                      | helm-map                      | down
+ C-g              | helm-keyboard-quit                  | helm-map                      | down
  M-a j            | jedi:goto-definition                | python-mode-map               | goto defenition
  M-a l            | jedi:goto-definition-pop-marker     | python-mode-map               | return from defenition
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
@@ -632,14 +638,13 @@ ________________________________________________________________________________
 
    Работа с файлами
 ______________________________________________________________________________________________________________________________________________________________________________________
- s-f              | find-file                           |                               | Открыть файл на диске
+ s-f              | helm-find-files                     |                               | Открыть файл на диске
  s-r              | find-file-read-only                 |                               | Открыть файл в режиме чтения
  s-s              | save-buffer                         |                               | Сохранить буфер на диске
  s-w              | write-file                          |                               | Сохранить буфер в файле с новым именем
  s-e              | rename-file                         |                               | Переименовать файл
  s-d              | dired                               |                               | Открыть файловый менеджер
- s-n              | bookmark-bmenu-list                 |                               | Открыть закладки
- s-b              | bookmark-set                        |                               | Добавить закладку
+ s-n              | helm-bookmarks                      |                               | Открыть закладки
  s-m              | magit-status                        |                               | Open git status
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________
 
@@ -860,6 +865,7 @@ ________________________________________________________________________________
 
    Emacs
 ______________________________________________________________________________________________________________________________________________________________________________________
+ M-x              | helm-M-x                            |                               | выполнить комманду
  s-z              | suspend-frame                       |                               | Свернуть Emacs
  s-c              | save-buffers-kill-emacs             |                               | Всё сохранить и выйти из
  s-x              | reload-fkm-mode                     |                               | Всё сохранить и выйти из

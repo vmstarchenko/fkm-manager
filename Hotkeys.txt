@@ -25,6 +25,9 @@ C-c              ## isearch-backward-regexp             ##                      
 C-v              ## isearch-forward-regexp              ##                               ## Поиск вперед по регулярному выражению
 M-s-i            ## isearch-repeat-backward             ## isearch-mode-map              ## Повторить поиск назад
 M-s-k            ## isearch-repeat-forward              ## isearch-mode-map              ## Повторить поиск вперед
+M-s-i            ## helm-previous-line                  ## helm-map                      ## up
+M-s-k            ## helm-next-line                      ## helm-map                      ## down
+C-g              ## helm-keyboard-quit                  ## helm-map                      ## down
 M-a j            ## jedi:goto-definition                ## python-mode-map               ## goto defenition
 M-a l            ## jedi:goto-definition-pop-marker     ## python-mode-map               ## return from defenition
 
@@ -133,14 +136,13 @@ M-d s 1          ## xscreen                             ##                      
 
 
   Работа с файлами
-s-f              ## find-file                           ##                               ## Открыть файл на диске
+s-f              ## helm-find-files                     ##                               ## Открыть файл на диске
 s-r              ## find-file-read-only                 ##                               ## Открыть файл в режиме чтения
 s-s              ## save-buffer                         ##                               ## Сохранить буфер на диске
 s-w              ## write-file                          ##                               ## Сохранить буфер в файле с новым именем
 s-e              ## rename-file                         ##                               ## Переименовать файл
 s-d              ## dired                               ##                               ## Открыть файловый менеджер
-s-n              ## bookmark-bmenu-list                 ##                               ## Открыть закладки
-s-b              ## bookmark-set                        ##                               ## Добавить закладку
+s-n              ## helm-bookmarks                      ##                               ## Открыть закладки
 s-m              ## magit-status                        ##                               ## Open git status
 
 
@@ -317,6 +319,7 @@ C-M-x u u        ## latex-preview-pane-update           ##                      
 
 
   Emacs
+M-x              ## helm-M-x                            ##                               ## выполнить комманду
 s-z              ## suspend-frame                       ##                               ## Свернуть Emacs
 s-c              ## save-buffers-kill-emacs             ##                               ## Всё сохранить и выйти из
 s-x              ## reload-fkm-mode                     ##                               ## Всё сохранить и выйти из
