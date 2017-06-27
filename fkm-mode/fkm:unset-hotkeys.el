@@ -1,17 +1,38 @@
-;; unset keys
+;;; Unset keys
+;; Example:
+;; (defun unset-elisp-mode-keys()
+;;   (interactive)
+;;   (define-key lisp-interaction-mode-map (kbd "C-M-i") nil)
+;;   (define-key lisp-interaction-mode-map (kbd "C-M-x") nil)
+;;   (define-key lisp-interaction-mode-map (kbd "C-M-q") nil))
+;; (add-hook 'lisp-interaction-mode-hook 'unset-elisp-mode-keys)
+;;
+;; or just use fkm:unset-kbds macro
+;; (fkm:unset-kbds lisp-interaction-mode-map
+;;                 lisp-interaction-mode-hook
+;;                 '("C-M-i" "C-M-x" "C-M-q"))
+;;
 
-
+(fkm:unset-kbds c++-mode-map c++-mode-hook '("C-d" "C-M-a" "C-M-e" "C-;" "C-M-q"))
+(fkm:unset-kbds c-mode-map c-mode-hook '("C-d" "C-M-a" "C-M-e" "C-;" "C-M-q"))
+(fkm:unset-kbds dired-mode-map dired-mode-hook '("M-s"))
+(fkm:unset-kbds eshell-mode-map eshell-mode-hook '("M-p" "M-r" "C-m" "M-s"))
+(fkm:unset-kbds helm-mode-map helm-mode-hook '("s-h"))
 (fkm:unset-kbds help-mode-map help-mode-hook '("S-SPC"))
+(fkm:unset-kbds ido-file-dir-completion-map ido-setup-hook '("M-p" "M-l"))
+(fkm:unset-kbds inferior-python-mode-map inferior-python-hook '("M-p" "M-r"))
+(fkm:unset-kbds js-mode-map js-mode-hook '("C-M-x" "M-."))
+(fkm:unset-kbds js2-mode-map js2-mode-hook '("M-j" "C-c" "<backtab>"))
+(fkm:unset-kbds makefile-mode-map makefile-mode-hook '("M-p"))
+(fkm:unset-kbds markdown-mode-map markdown-mode-hook '("M-p" "M-n" "C-c" "C-m"))
 (fkm:unset-kbds mc/keymap multiple-cursors-mode-hook '("<return>" "M-v"))
 (fkm:unset-kbds org-mode-map org-mode-hook '("M-RET" "C-y" "M-h" "C-M-t" "M-e"))
 (fkm:unset-kbds python-mode-map python-mode-hook '("C-M-x"))
 (fkm:unset-kbds sh-mode-map sh-mode-hook '("C-M-x"))
+(fkm:unset-kbds shell-mode-map shell-mode-hook '("M-p" "M-r" "C-d" "C-M-l"))
+(fkm:unset-kbds slime-repl-mode-map slime-repl-mode-hook '("M-p" "M-s"))
 (fkm:unset-kbds undo-tree-map undo-tree-mode-hook '("C-/"))
 (fkm:unset-kbds web-mode-map web-mode-hook '("M-;" "C-c"))
-(fkm:unset-kbds markdown-mode-map markdown-mode-hook '("M-p" "M-n" "C-c" "C-m"))
-(fkm:unset-kbds helm-mode-map helm-mode-hook '("s-h"))
-(fkm:unset-kbds dired-mode-map dired-mode-hook '("M-s"))
-
 
 (defun unset-elisp-mode-keys()
   (interactive)
@@ -23,79 +44,6 @@
   (define-key emacs-lisp-mode-map (kbd "C-M-q") nil))
 (add-hook 'lisp-interaction-mode-hook 'unset-elisp-mode-keys)
 
-(defun unset-js-mode-keys()
-  (interactive)
-  (define-key js-mode-map (kbd "C-M-x") nil)
-  (define-key js-mode-map (kbd "M-.") nil))
-(add-hook 'js-mode-hook 'unset-js-mode-keys)
-
-(defun unset-js2-mode-keys()
-  (interactive)
-  (define-key js2-mode-map (kbd "M-j") nil)
-  (define-key js2-mode-map (kbd "C-c") nil)
-  (define-key js2-mode-map "\t" nil)
-  (define-key js2-mode-map (kbd "<backtab>") nil))
-(add-hook 'js2-mode-hook 'unset-js2-mode-keys)
-
-(defun unset-c++-mode-keys()
-  (interactive)
-  (define-key c++-mode-map (kbd "C-d") nil)
-  (define-key c++-mode-map (kbd "C-M-a") nil)
-  (define-key c++-mode-map (kbd "C-M-e") nil)
-  (define-key c++-mode-map (kbd "C-;") nil)
-  (define-key c++-mode-map (kbd "C-M-q") nil))
-(add-hook 'c++-mode-hook 'unset-c++-mode-keys)
-
-(defun unset-c-mode-keys()
-  (interactive)
-  (define-key c-mode-map (kbd "C-d") nil)
-  (define-key c-mode-map (kbd "C-M-a") nil)
-  (define-key c-mode-map (kbd "C-M-e") nil)
-  (define-key c-mode-map (kbd "C-;") nil)
-  (define-key c-mode-map (kbd "C-M-q") nil))
-(add-hook 'c-mode-hook 'unset-c-mode-keys)
-
-(defun unset-makefile-mode-keys()
-  (interactive)
-  (define-key makefile-mode-map (kbd "M-p") nil))
-(add-hook 'makefile-mode-hook 'unset-makefile-mode-keys)
-
-(defun unset-slime-repl-mode-keys()
-  (interactive)
-  (define-key slime-repl-mode-map (kbd "M-p") nil)
-  (define-key slime-repl-mode-map (kbd "M-s") nil))
-(add-hook 'slime-repl-mode-hook 'unset-slime-repl-mode-keys)
-
-(defun unset-shell-mode-keys()
-  (interactive)
-  (define-key shell-mode-map (kbd "C-M-l") nil)
-  (define-key shell-mode-map (kbd "M-p") nil)
-  (define-key shell-mode-map (kbd "C-d") nil)
-  (define-key shell-mode-map (kbd "M-r") nil))
-(add-hook 'shell-mode-hook 'unset-shell-mode-keys)
-
-(defun unset-eshell-mode-keys()
-  (interactive)
-  (use-local-map emacs-shell-mode-map)
-  (define-key eshell-mode-map (kbd "M-p") nil)
-  (define-key eshell-mode-map (kbd "C-m") nil)
-  (define-key eshell-mode-map (kbd "M-s") nil)
-  (define-key eshell-mode-map (kbd "M-s") nil)
-  (define-key eshell-mode-map (kbd "M-r") nil)
-  (define-key shell-mode-map (kbd "C-M-l") nil))
-(add-hook 'eshell-mode-hook 'unset-eshell-mode-keys)
-
-(defun unset-python-shell-mode-keys()
-  (interactive)
-  (define-key inferior-python-mode-map (kbd "M-p") nil) ;; dot't work
-  (define-key inferior-python-mode-map (kbd "M-r") nil))
-(add-hook 'inferior-python-mode-hook 'unset-python-mode-keys)
-
-(defun unset-ido-mode-keys()
-  (interactive)
-  (define-key ido-file-dir-completion-map (kbd "M-p") nil)
-  (define-key ido-file-dir-completion-map (kbd "M-l") nil))
-(add-hook 'ido-setup-hook 'unset-ido-mode-keys)
 
 ;; TODO: write normal latex unset function (for LaTeX and preview-pane)
 ;;(defun preview-latex-setup()
@@ -109,12 +57,11 @@
 ;;  (latex-preview-update))
 ;;(add-hook 'LaTeX-mode-hook 'preview-latex-setup)
 
-
+;; built-in emacs maps
 (define-key special-mode-map (kbd "S-SPC") nil)
 (define-key package-menu-mode-map (kbd "S-SPC") nil)
 
-;; minibuffer
-;; minibuffer-inactive-mode
+;; minibuffer (minibuffer-inactive-mode)
 (define-key minibuffer-local-map (kbd "M-s") nil)
 (define-key minibuffer-local-map (kbd "M-r") nil)
 (define-key minibuffer-local-map (kbd "M-p") nil)
