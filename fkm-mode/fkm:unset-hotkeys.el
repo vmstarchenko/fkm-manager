@@ -1,4 +1,18 @@
 ;; unset keys
+
+
+(fkm:unset-kbds help-mode-map help-mode-hook '("S-SPC"))
+(fkm:unset-kbds mc/keymap multiple-cursors-mode-hook '("<return>" "M-v"))
+(fkm:unset-kbds org-mode-map org-mode-hook '("M-RET" "C-y" "M-h" "C-M-t" "M-e"))
+(fkm:unset-kbds python-mode-map python-mode-hook '("C-M-x"))
+(fkm:unset-kbds sh-mode-map sh-mode-hook '("C-M-x"))
+(fkm:unset-kbds undo-tree-map undo-tree-mode-hook '("C-/"))
+(fkm:unset-kbds web-mode-map web-mode-hook '("M-;" "C-c"))
+(fkm:unset-kbds markdown-mode-map markdown-mode-hook '("M-p" "M-n" "C-c" "C-m"))
+(fkm:unset-kbds helm-mode-map helm-mode-hook '("s-h"))
+(fkm:unset-kbds dired-mode-map dired-mode-hook '("M-s"))
+
+
 (defun unset-elisp-mode-keys()
   (interactive)
   (define-key lisp-interaction-mode-map (kbd "C-M-i") nil)
@@ -40,11 +54,6 @@
   (define-key c-mode-map (kbd "C-;") nil)
   (define-key c-mode-map (kbd "C-M-q") nil))
 (add-hook 'c-mode-hook 'unset-c-mode-keys)
-
-(defun unset-python-mode-keys()
-  (interactive)
-  (define-key python-mode-map (kbd "C-M-x") nil))
-(add-hook 'python-mode-hook 'unset-python-mode-keys)
 
 (defun unset-makefile-mode-keys()
   (interactive)
@@ -88,11 +97,6 @@
   (define-key ido-file-dir-completion-map (kbd "M-l") nil))
 (add-hook 'ido-setup-hook 'unset-ido-mode-keys)
 
-(defun unset-dired-mode-keys()
-  (interactive)
-  (define-key dired-mode-map (kbd "M-s") nil))
-(add-hook 'dired-mode-hook 'unset-dired-mode-keys)
-
 ;; TODO: write normal latex unset function (for LaTeX and preview-pane)
 ;;(defun preview-latex-setup()
 ;;  ;; (latex-preview-pane-mode 1)
@@ -105,52 +109,9 @@
 ;;  (latex-preview-update))
 ;;(add-hook 'LaTeX-mode-hook 'preview-latex-setup)
 
-(defun unset-org-mode-keys()
-  (define-key org-mode-map (kbd "C-y") nil)
-  (define-key org-mode-map (kbd "M-RET") nil)
-  (define-key org-mode-map (kbd "M-h") nil)
-  (define-key org-mode-map (kbd "C-M-t") nil)
-  (define-key org-mode-map (kbd "M-e") nil))
-(add-hook 'org-mode-hook 'unset-org-mode-keys)
-
-(defun unset-web-mode-keys()
-  (interactive)
-  (define-key web-mode-map (kbd "M-;") nil)
-  (define-key web-mode-map (kbd "C-c") nil))
-(add-hook 'web-mode-hook 'unset-web-mode-keys)
-
-(defun unset-undo-tree-mode-keys()
-  (define-key undo-tree-map (kbd "C-/") nil))
-(add-hook 'undo-tree-mode-hook 'unset-undo-tree-mode-keys)
-
-(defun unset-bash-mode-keys()
-  (define-key sh-mode-map (kbd "C-M-x") nil))
-(add-hook 'sh-mode-hook 'unset-bash-mode-keys)
-
-(defun unset-multiple-cursor-mode-keys()
-  (define-key mc/keymap (kbd "<return>") nil)
-  (define-key mc/keymap (kbd "M-v") nil))
-(add-hook 'multiple-cursors-mode-hook
-          'unset-multiple-cursor-mode-keys)
-
-(defun unset-help-mode-keys()
-  (define-key help-mode-map (kbd "S-SPC") nil))
-(add-hook 'help-mode-hook 'unset-help-mode-keys)
-
-(defun unset-markdown-mode-keys()
-  (define-key markdown-mode-map (kbd "M-p") nil)
-  (define-key markdown-mode-map (kbd "M-n") nil)
-  (define-key markdown-mode-map (kbd "C-c") nil)
-  (define-key markdown-mode-map (kbd "C-m") nil))
-(add-hook 'markdown-mode 'unset-markdown-mode-keys)
-
-(defun unset-helm-keys()
-  (define-key helm-mode-map (kbd "s-h") nil))
-(add-hook 'helm-mode 'unset-helm-keys)
 
 (define-key special-mode-map (kbd "S-SPC") nil)
 (define-key package-menu-mode-map (kbd "S-SPC") nil)
-
 
 ;; minibuffer
 ;; minibuffer-inactive-mode
