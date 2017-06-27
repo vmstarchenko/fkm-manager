@@ -1,106 +1,23 @@
 #! /usr/bin/env python3
 
 from pprint import pprint
+import json
 
-RussionSigns = dict({en:ru for en, ru in zip(r'`1234567890-=qwertyuiop[]asdfghjkl;\'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?\|', 
-                                             r'ё1234567890-=йцукенгшщзхъфывапролджэячсмитьбю.Ё!"№;%:?*()_+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,\/')})
+def _print_doc(cfg):
+    # out = []
+    # section = []
+    # for line in cfg:
+    #     if line['command'] == '' and line['key'] == '':
+    #         out.append(section)
+    #         section = [line['comment'], []]
 
-class Sign:
-    '''
-    Класс знака - буквы в kbd.
-    '''
-    special_seqs = ['<return>', 'SPC']
-    def __init__(self, sign):
-        self.sign = str(sign)
-        if self.sign in ['\\', '"']:
-            self.sign = '\\' + self.sign
-    def __repr__(self):
-        return self.sign
+    #     else:
+    #         section[-1].append([line['key'], line['command'], line['mode'], line['comment']])
 
-    def get_en(self):
-        return self.sign
-
-    def get_ru(self):
-        if self.sign not in Sign.special_seqs:
-            return RussionSigns[self.sign]
-        return self.sign
-
-    def isSign(sign):
-        if len(sign) == 1 or sign in Sign.special_seqs:
-            return True
-        return False
-
-class ControlSign:
-    '''
-    Класс управляющего символа
-    '''
-    def __init__(self, sign):
-        self.sign = str(sign)
-
-    def __repr__(self):
-        return self.sign
-
-    def get(self):
-        return self.sign
-
-    def isControlSign(sign):
-        if sign in ['C', 'M', 's', 'H']:
-            return True
-        return False
-
-class Simple:
-    '''
-    Класс простого сочетания, типа:
-    C-s, M-t
-    '''
-    def __init__(self, kbd):
-        kbd = [k.replace('\n', '-') for k in kbd.replace('--', '-\n').split('-')]
-        self.control_signs = [ControlSign(s) for s in kbd[:-1]]
-        self.sign = Sign(kbd[-1])
-
-    def __repr__(self):
-        return '-'.join([ControlSign.get(s) for s in self.control_signs]) \
-            + '-' + self.sign.get_en()
-
-    def get_en(self):
-        return '-'.join([ControlSign.get(s) for s in self.control_signs]) \
-            + '-' + self.sign.get_en()
-
-    def get_ru(self):
-        return '-'.join([ControlSign.get(s) for s in self.control_signs]) \
-            + '-' + self.sign.get_ru()
-
-    def get_control_sign(self, k):
-        return self.control_signs[k]
-
-    def isSimple(kbd):
-        if '-' in kbd and not Sign.isSign(kbd):
-            return True
-        return False
-
-class Complex:
-    '''
-    Класс составного сочетания, типа:
-    C-s t, M-t t r
-    '''
-    def __init__(self, kbd):
-        kbd = [a for a in kbd.split(" ") if a]
-        self.kbd = []
-        for k in kbd:
-            if Simple.isSimple(k):
-                self.kbd.append(Simple(k))
-            else:
-                self.kbd.append(Sign(k))
-    def __repr__(self):
-        return ' '.join([k.get_en() for k in self.kbd])
-
-    def get_en(self):
-        return ' '.join([k.get_en() for k in self.kbd])
-
-    def get_ru(self):
-        return ' '.join([k.get_ru() for k in self.kbd])
-
-################################################################################
+    # out.append(section)
+    # with open('hotkeys.json', 'w') as f:
+    #     f.write(json.dumps(out, separators=(',',':'), sort_keys=True, indent=4, ensure_ascii=False))
+    pass
 
 class Hotkeys:
     '''
@@ -160,6 +77,7 @@ class Hotkeys:
         command_len = self.get_max_len('command')
         mode_len = self.get_max_len('mode')
         input_file = open(self.input_file, 'w')
+        _print_doc(self.hotkeys)
         for key in self.hotkeys:
             if key['command']:
                 input_file.write('{key}{key_spc} ## '.format(key=key['key'], key_spc=' '*(key_len-len(key['key']))))
