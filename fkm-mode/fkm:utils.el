@@ -708,4 +708,5 @@ Otherwise, one argument `-i' is passed to the shell.
     (auto-complete-mode t))
   (ac-start))
 
+
 (provide 'fkm:utils)

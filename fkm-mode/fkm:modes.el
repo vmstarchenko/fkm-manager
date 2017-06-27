@@ -13,10 +13,8 @@
 (defvar c-mode-map (make-sparse-keymap) "Keymap for `c++-mode'.")
 (defvar yas-minor-mode-map (make-sparse-keymap) "Keymap for `yas-minor-mode'.")
 (defvar scss-mode-map (make-sparse-keymap) "Keymap for `css-mode'.")
-;; (defvar ac-completing-map (make-sparse-keymap) "Keymap for `ac-mode'.")
-;; (defvar undo-tree-visualizer-mode-map (make-sparse-keymap) "Keymap for `undotree-mode'.")
-;; (defvar mc/keymap (make-sparse-keymap) "Keymap for what???'.")
 (defvar fkm:sphinx-mode-map (make-sparse-keymap) "Keymap for sphinx'.")
+(defvar company-active-map (make-sparse-keymap) "Keymap for sphinx'.")
 
 ;;; inline modes
 (require 'fkm:linum) ;; нумерация строк
@@ -175,7 +173,7 @@
 (ac-config-default)
 ;; castomize ac-complete
 (add-hook 'after-init-hook '(lambda() (require 'fkm:completion)))
-
+;; (add-hook 'after-init-hook '(lambda() (require 'fkm:completion2)))
 
 ;; depandence: auto-complete
 ;; (require 'fkm:shell) ;; eshell

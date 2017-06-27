@@ -361,7 +361,11 @@
 (define-key undo-tree-visualizer-mode-map (kbd "C-g") 'undo-tree-visualizer-quit)   ;; выход из визуализатора
 (define-key ac-completing-map (kbd "M-s-k") 'ac-next)   ;; следующая строка в ac
 (define-key ac-completing-map (kbd "M-s-i") 'ac-previous)   ;; предыдущая строка в ac
+(define-key company-active-map (kbd "M-s-k") 'company-select-next)   ;; следующая строка в ac
+(define-key company-active-map (kbd "M-s-i") 'company-select-previous)   ;; предыдущая строка в ac
+(define-key company-active-map (kbd "C-g") 'company-abort)   ;; предыдущая строка в ac
 (global-set-key (kbd "<tab>") 'ac-start)   ;; start show auto completion
+(define-key shell-mode-map (kbd "<tab>") 'company-complete)   ;; start show auto completion
 (define-key minibuffer-local-map (kbd "<tab>") 'minibuffer-complete)   ;; auto completion in minibuffer
 (define-key python-mode-map (kbd "<tab>") 'jedi:complete)   ;; auto completion for python mode
 ;; Сочетание клавиш   Мод   Команда   Действие
@@ -698,7 +702,11 @@ ________________________________________________________________________________
  C-g              | undo-tree-visualizer-quit           | undo-tree-visualizer-mode-map | выход из визуализатора
  M-s-k            | ac-next                             | ac-completing-map             | следующая строка в ac
  M-s-i            | ac-previous                         | ac-completing-map             | предыдущая строка в ac
+ M-s-k            | company-select-next                 | company-active-map            | следующая строка в ac
+ M-s-i            | company-select-previous             | company-active-map            | предыдущая строка в ac
+ C-g              | company-abort                       | company-active-map            | предыдущая строка в ac
  <tab>            | ac-start                            |                               | start show auto completion
+ <tab>            | company-complete                    | shell-mode-map                | start show auto completion
  <tab>            | minibuffer-complete                 | minibuffer-local-map          | auto completion in minibuffer
  <tab>            | jedi:complete                       | python-mode-map               | auto completion for python mode
 __________________|_____________________________________|_______________________________|_____________________________________________________________________________________________

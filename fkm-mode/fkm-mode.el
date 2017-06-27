@@ -8,10 +8,10 @@
 
 ;; Load modes
 ;; 0.8 +
+(require 'fkm:utils) ;; 0 sec
 (require 'fkm:modes) ;; 0.2 sec
 
 ;; custom functions
-(require 'fkm:utils) ;; 0 sec
 ;; custom color-themes
 (require 'fkm:themes) ;; 0.1 sec
 
@@ -22,7 +22,6 @@
 ;; custom hotkeys
 (require 'fkm:hotkeys) ;; 0 sec
 
-;; (require 'fkm-light-theme)
 ;; (require 'fkm-theme) ;; 0.1-0.2 sec
 (load-theme 'badwolf t)
 

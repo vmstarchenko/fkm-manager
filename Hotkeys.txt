@@ -191,7 +191,11 @@ s-/              ## undo-tree-visualize                 ##                      
 C-g              ## undo-tree-visualizer-quit           ## undo-tree-visualizer-mode-map ## выход из визуализатора
 M-s-k            ## ac-next                             ## ac-completing-map             ## следующая строка в ac
 M-s-i            ## ac-previous                         ## ac-completing-map             ## предыдущая строка в ac
+M-s-k            ## company-select-next                 ## company-active-map            ## следующая строка в ac
+M-s-i            ## company-select-previous             ## company-active-map            ## предыдущая строка в ac
+C-g              ## company-abort                       ## company-active-map            ## предыдущая строка в ac
 <tab>            ## ac-start                            ##                               ## start show auto completion
+<tab>            ## company-complete                    ## shell-mode-map                ## start show auto completion
 <tab>            ## minibuffer-complete                 ## minibuffer-local-map          ## auto completion in minibuffer
 <tab>            ## jedi:complete                       ## python-mode-map               ## auto completion for python mode
 
