@@ -3,22 +3,48 @@
 from pprint import pprint
 import json
 
+
 def _print_doc(cfg):
-    # out = []
-    # section = []
-    # for line in cfg:
-    #     if line['command'] == '' and line['key'] == '':
-    #         out.append(section)
-    #         section = [line['comment'], []]
+    if _print_doc.calced:
+        return
+    print('start _print_doc')
+    out = []
+    section = []
+    for line in cfg:
+        if line['command'] == '' and line['key'] == '':
+            if section:
+                out.append(section)
+            section = [line['comment'], []]
 
-    #     else:
-    #         section[-1].append([line['key'], line['command'], line['mode'], line['comment']])
+        elif (not 'Сочетание клавиш' in line['command']) and (not 'Действие' in line['comment']) :
+            section[-1].append(['"' + (line['key'] or "") + '"',
+                                line['command'] or "nil",
+                                line['mode'] or "nil",
+                                '"' + (line['comment'] or "") + '"'])
 
-    # out.append(section)
+    out.append(section)
     # with open('hotkeys.json', 'w') as f:
     #     f.write(json.dumps(out, separators=(',',':'), sort_keys=True, indent=4, ensure_ascii=False))
-    pass
 
+    ctr = 0
+    for section in out:
+        header = section[0]
+
+        print('\n("%s"'% header)
+
+        x = [max([len(_[i]) for _ in section[1]]) for i in range(3)]
+        for s in section[1]:
+            if s[1]:
+                s[0] = s[0] + ' ' * (x[0] - len(s[0]))
+                s[1] = s[1] + ' ' * (x[1] - len(s[1]))
+                s[2] = s[2] + ' ' * (x[2] - len(s[2]))
+                fs = '(%s)' % '  '.join(s)
+                print(fs)
+        print(')')
+        ctr += 1
+    _print_doc.calced = True
+
+_print_doc.calced = False
 class Hotkeys:
     '''
     Класс горячих клавиш.
@@ -189,6 +215,8 @@ class Hotkeys:
                 hotkeys_docs += '\n   {comment}\n'.format(comment=key['comment'])
                 hotkeys_docs += split_line
         hotkeys_docs += '_'*key_len + '__|' + '_'*command_len + '__|' + '_'*mode_len + '__|' + '_'*comment_len + '\n'
+
+        
         return self.e_symbs(hotkeys_docs)
 
     def create_hotkeys(self):
