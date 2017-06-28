@@ -33,6 +33,8 @@
 (fkm:unset-kbds slime-repl-mode-map slime-repl-mode-hook '("M-p" "M-s"))
 (fkm:unset-kbds undo-tree-map undo-tree-mode-hook '("C-/"))
 (fkm:unset-kbds web-mode-map web-mode-hook '("M-;" "C-c"))
+(fkm:unset-kbds nroff-mode-map nroff-mode-hook '("M-s" "C-c" "M-p" "M-f"))
+(fkm:unset-kbds helm-map helm-mode-hook '("M-s" "C-c" "M-p" "M-f"))
 
 (defun unset-elisp-mode-keys()
   (interactive)
@@ -63,6 +65,7 @@
 
 ;; minibuffer (minibuffer-inactive-mode)
 (define-key minibuffer-local-map (kbd "M-s") nil)
+(define-key minibuffer-local-map (kbd "M-f") nil)
 (define-key minibuffer-local-map (kbd "M-r") nil)
 (define-key minibuffer-local-map (kbd "M-p") nil)
 

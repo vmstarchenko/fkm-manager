@@ -25,4 +25,5 @@
 ;; (require 'fkm-theme) ;; 0.1-0.2 sec
 (load-theme 'badwolf t)
 
+
 (provide 'fkm-mode)

@@ -313,7 +313,7 @@ Otherwise, one argument `-i' is passed to the shell.
   (switch-to-buffer (get-buffer-create "*Emacs Hotkeys*"))
   (kb-kill-beginning-of-buffer)
   (kb-kill-end-of-buffer)
-  (insert hotkeys-docs)
+  (insert (pp fkm:kbds-config))
   (beginning-of-buffer))
 
 

@@ -3,6 +3,3 @@ install:
 
 sync:
 	./sync.sh
-
-update:
-	./update.sh
