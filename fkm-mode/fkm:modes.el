@@ -106,6 +106,7 @@
 (require 'autopair)
 (autopair-global-mode)
 (add-hook 'web-mode-hook '(lambda() (autopair-mode -1)))
+(add-hook 'helm-mode-hook '(lambda() (autopair-mode -1)))
 
 ;; hs-mode
 (defun setup-hs-mode()
