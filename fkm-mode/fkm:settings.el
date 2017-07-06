@@ -272,6 +272,8 @@
 
 ;; show-trailing-whitespace
 (custom-set-variables '(show-trailing-whitespace t))
+;; (add-hook 'tabulated-list-mode-hook
+;;           '(lambda () (setq show-trailing-whitespace nil)))
 
 ;; ibuffer
 (defalias 'list-buffers 'ibuffer)

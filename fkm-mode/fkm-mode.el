@@ -23,7 +23,8 @@
 (require 'fkm:hotkeys) ;; 0 sec
 
 ;; (require 'fkm-theme) ;; 0.1-0.2 sec
-(load-theme 'badwolf t)
+(load-theme 'monokai t)
+
 
 
 (provide 'fkm-mode)

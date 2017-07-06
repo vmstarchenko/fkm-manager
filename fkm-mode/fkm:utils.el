@@ -305,16 +305,17 @@ Otherwise, one argument `-i' is passed to the shell.
   (interactive)
   (rope-show-doc ARGUMENTS)
   (other-window 1))
+
 (defun show-c++-docs()
   (interactive)
   (manual-entry (current-word)))
+
 (defun show-hotkeys()
   (interactive)
-  (switch-to-buffer (get-buffer-create "*Emacs Hotkeys*"))
-  (kb-kill-beginning-of-buffer)
-  (kb-kill-end-of-buffer)
-  (insert (pp fkm:kbds-config))
-  (beginning-of-buffer))
+  (fkm:display-table-in-buffer
+   fkm:kbds-config-header
+   (fkm:get-kbds-config-table)
+   "*Emacs Hotkeys*"))
 
 
 ;; Передвинуть регион
@@ -903,6 +904,41 @@ Example:
   `(add-hook ',hook '(lambda ()
                        (dolist (key ,kbds)
                          (define-key ,keymap (kbd key) nil)))))
+
+
+(defun fkm:make-tabulated-headers (column-names rows)
+  "column width are calculated by picking the max width of every cell under that
+column + the column name"
+  (let ((widths
+         (-reduce-from
+          (lambda (acc x)
+            (-zip-with (lambda (l r) (max l (length r))) acc (append x '())))
+          (-map #'length columns-names)
+          rows)))
+    (cl-map
+     #'vector #'identity
+     (-zip-with
+      (lambda (col size) (list col size nil))
+      columns-names widths))))
+
+(defun fkm:display-table-in-buffer (columns-names rows buffer-name)
+  "Create new buffer and display there table with headers"
+  (let ((headers (fkm:make-tabulated-headers columns-names rows)))
+    (with-current-buffer (get-buffer-create buffer-name)
+      (tabulated-list-mode)
+      (setq show-trailing-whitespace nil)
+      (setq tabulated-list-format headers)
+      (setq tabulated-list-padding 2)
+      (tabulated-list-init-header)
+      (setq tabulated-list-entries
+            (-zip-with
+             (lambda (i x) (list i x))
+             (-iterate '1+ 0 (length rows))
+             rows))
+      (tabulated-list-print t)
+      (switch-to-buffer buffer-name)
+      )))
+
 
 
 ;; (defmacro a(l)

@@ -1,3 +1,4 @@
+(setq fkm:kbds-config-header '("Kbd" "Command" "Mode map" "Description"))
 (setq
  fkm:kbds-config
  '(("Навигация"
@@ -328,25 +329,23 @@
 
 
 
-;;; 
+
+(defun fkm:get-kbds-config-table()
+  "Build kbds table from fkm:kbds-config list"
+  (let* ((table nil))
+    (dolist (section fkm:kbds-config)
+      (setq table (cons (vector (car section) "" "" "") table))
+      (dolist (section-line (cdr section))
+        (destructuring-bind (key func mode-map comment) section-line
+          (setq mode-map (if (null mode-map) "" (symbol-name mode-map)))
+          (setq table (cons (vector key (symbol-name func) mode-map comment)
+                            table))))
+      (setq table (cons ["" "" "" ""] table)))
+    (reverse table)))
+;;;
 
 (fkm:global-unset-keys fkm:extra-leader-keys)
 (fkm:define-input-decode-map fkm:hotkeys-decoded-leader-keys)
 (fkm:set-keys fkm:kbds-config)
-;; symbol to string - symbol-name
-
-;; (setq
-;;  fkm:kbds-config
-;;  '(("Навигация"
-;;     ("M-a j"  jedi:goto-definition             python-mode-map            "goto defenition")
-;;     ("M-a l"  jedi:goto-definition-pop-marker  python-mode-map            "return from defenition")
-;;     ("C-j"    backward-delete-char         nil                        "Удаление символа или отступа перед точкой"))
-;;    ("Emacs"
-;;     ("M-x"  helm-M-x                 nil  "выполнить комманду")
-;;     ("s-x"  reload-fkm-mode          nil  "Всё сохранить и выйти из")
-;;     ("s-p"  package-list-packages    nil  "Список пакетов"))
-;;    ))
-
-;; (setq sections fkm:kbds-config)
 
 (provide 'fkm:hotkeys)
