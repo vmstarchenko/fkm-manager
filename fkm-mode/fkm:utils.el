@@ -667,17 +667,22 @@ Otherwise, one argument `-i' is passed to the shell.
                     (indent-region rstart rend)))
   (deactivate-mark "irrelevant"))
 
-(defun clang-format-auto()
+(defun clang-format-auto ()
   "Correct style by clang-format in the region or all
    buffer if dont user region."
   (interactive)
-  (save-excursion (let* ((use-region (and transient-mark-mode
-                                          mark-active))
-                         (rstart (if use-region (region-beginning)
-                                   (point-min)))
-                         (rend   (if use-region (region-end)
-                                   (point-max))))
-                    (clang-format-region rstart rend)))
+  (save-excursion
+    (let* ((use-region (and transient-mark-mode
+                            mark-active))
+           (rstart (if use-region
+                       (region-beginning)
+                     (point-min)))
+           (rend (if use-region
+                     (region-end)
+                   (point-max))))
+      (clang-format-region
+       rstart
+       rend)))
   (deactivate-mark "irrelevant"))
 
 ;; TODO: handle shell-command errors
@@ -714,7 +719,29 @@ Otherwise, one argument `-i' is passed to the shell.
 (define-formatter scssformat "csscomb -c ~/.csscomb.json "
   "/tmp/#.emacs.formatter")
 
+(defun fkm:elformat-buffer ()
+  (interactive)
+  (message "wait...")
+  (save-excursion
+    (goto-char (point-max))
+    (lispy-alt-multiline t)
+    (lispy-up 1)
+    (do
+        ((position-value (point))
+         (prev-position-value -1))
+        ((= position-value
+            prev-position-value))
+      (lispy-alt-multiline t)
+      (setq prev-position-value
+            position-value)
+      (lispy-up 1)
+      (setq position-value (point))))
+  (message "Elformat finished."))
 
+
+(defun fkm:elformat ()
+  (interactive)
+  (lispy-alt-multiline nil))
 
 
 (defun switch-flycheck()
