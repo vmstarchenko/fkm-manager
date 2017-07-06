@@ -690,6 +690,7 @@ Otherwise, one argument `-i' is passed to the shell.
 (defmacro define-formatter (formatter-name command tmp-file-path)
   "Create formatter. Command must be abled to called from shell."
   ;; TODO: here check path
+  ;; TODO: really save-buffer ?
   `(defun ,formatter-name ()
      (interactive)
      (save-buffer)
@@ -709,7 +710,7 @@ Otherwise, one argument `-i' is passed to the shell.
            (progn (write-region rstart rend tmp-file)
                   (message (concat command tmp-file))
                   (shell-command (concat command tmp-file))
-                  (kill-region rstart rend)
+                  (delete-region rstart rend)
                   (insert-file-contents tmp-file)
                   (message ,(format "%s was used successfully"
                                     formatter-name))

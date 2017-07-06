@@ -88,6 +88,7 @@
 ;;   (delete-trailing-whitespace))
 ;; (setq elisp-format-column 70)
 (require 'lispy)
+(setq lispy-multiline-threshold 80)
 
 ;; undo-tree
 (require 'undo-tree)
