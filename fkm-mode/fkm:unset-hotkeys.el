@@ -35,6 +35,8 @@
 (fkm:unset-kbds web-mode-map web-mode-hook '("M-;" "C-c"))
 (fkm:unset-kbds nroff-mode-map nroff-mode-hook '("M-s" "C-c" "M-p" "M-f"))
 (fkm:unset-kbds helm-map helm-mode-hook '("M-s" "C-c" "M-p" "M-f"))
+(fkm:unset-kbds lispy-mode-map lispy-mode-hook '("M-i" "M-k" "M-j" "M-o" "M-m" "C-a" "C-d" "C-e" "C-j" "C-k" "C-," "M-RET" "M-," "M-." "M-J" "M-d" "M-m" "M-n" "M-q" "M-DEL" "C-M-,"))
+(fkm:unset-kbds lispy-mode-map-c-digits lispy-mode-hook '("C-1" "C-2" "C-3" "C-4" "C-7" "C-8" "C-9"))
 
 (defun unset-elisp-mode-keys()
   (interactive)

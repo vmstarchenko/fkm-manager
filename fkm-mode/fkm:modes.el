@@ -26,6 +26,11 @@
 (require 'tr-mode)
 (require 'fkm:asm-mode)
 
+;; coloring
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+
 ;; sphinx
 (add-hook 'python-mode-hook '(lambda ()
                                (require 'fkm:sphinx-mode)
@@ -76,12 +81,13 @@
 ;; lisp format
 ;; (require 'srefactor) ;; TODO: rm
 ;; (require 'srefactor-lisp)
-
-(require 'elisp-format)
-(defadvice elisp-format-buffer ;; delete trailing whitespaces
-    (after elisp-format-buffer-after activate)
-  (delete-trailing-whitespace))
-(setq elisp-format-column 70)
+;; (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+;; (require 'elisp-format)
+;; (defadvice elisp-format-buffer ;; delete trailing whitespaces
+;;     (after elisp-format-buffer-after activate)
+;;   (delete-trailing-whitespace))
+;; (setq elisp-format-column 70)
+(require 'lispy)
 
 ;; undo-tree
 (require 'undo-tree)
