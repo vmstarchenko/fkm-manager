@@ -15,7 +15,6 @@
 (fkm:define-keymap scss-mode-map)
 (fkm:define-keymap fkm:sphinx-mode-map)
 (fkm:define-keymap company-active-map)
-(fkm:define-keymap helm-map)
 
 ;;; inline modes
 (require 'fkm:linum) ;; нумерация строк
@@ -160,6 +159,7 @@
 (setq ido-enable-flex-matching t)
 
 ;; helm
+(require 'helm)
 (require 'helm-config)
 
 ;; Орг мод

@@ -27,7 +27,7 @@
     ("M-s-k"  isearch-repeat-forward           isearch-mode-map           "Повторить поиск вперед")
     ("M-s-i"  helm-previous-line               helm-map                   "up")
     ("M-s-k"  helm-next-line                   helm-map                   "down")
-    ("C-g"    helm-keyboard-quit               helm-map                   "down")
+    ("C-g"    helm-keyboard-quit               helm-map                   "exit")
     ("M-a j"  jedi:goto-definition             python-mode-map            "goto defenition")
     ("M-a l"  jedi:goto-definition-pop-marker  python-mode-map            "return from defenition"))
 
