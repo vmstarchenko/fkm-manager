@@ -15,6 +15,7 @@
 (fkm:define-keymap scss-mode-map)
 (fkm:define-keymap fkm:sphinx-mode-map)
 (fkm:define-keymap company-active-map)
+(fkm:define-keymap helm-M-x-map)
 
 ;;; inline modes
 (require 'fkm:linum) ;; нумерация строк
