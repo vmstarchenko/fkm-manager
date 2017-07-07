@@ -157,7 +157,7 @@
     ("s-h d"  show-c++-docs              c++-mode-map       "Показать документацию по C++ по слову под курсором")
     ("s-h d"  ac-help                    ac-completing-map  "ac-help")
     ("s-h s"  jedi:get-in-function-call  python-mode-map    "show function signature")
-    ("s-h h"  show-hotkeys               nil                "Показать горячие клавиши emacs"))
+    ("s-h h"  fkm:show-hotkeys           nil                "Показать горячие клавиши emacs"))
 
    ("Дополнительные сочетания"
     ("s-i"         shrink-window                nil                            "Уменьшить окно по вертикали")
@@ -292,11 +292,12 @@
     ("C-M-x u u"  latex-preview-pane-update      nil                   "Обновить отображенный документ"))
 
    ("Emacs"
-    ("M-x"  helm-M-x                 nil  "выполнить комманду")
-    ("s-z"  suspend-frame            nil  "Свернуть Emacs")
-    ("s-c"  save-buffers-kill-emacs  nil  "Всё сохранить и выйти из")
-    ("s-x"  reload-fkm-mode          nil  "Всё сохранить и выйти из")
-    ("s-p"  package-list-packages    nil  "Список пакетов"))
+    ("M-x"    helm-M-x                 nil  "выполнить комманду")
+    ("s-z"    suspend-frame            nil  "Свернуть Emacs")
+    ("s-c"    save-buffers-kill-emacs  nil  "Всё сохранить и выйти из")
+    ("s-x"    reload-fkm-mode          nil  "Всё сохранить и выйти из")
+    ("s-p"    package-list-packages    nil  "Список пакетов")
+    ("C-<f1>" fkm:about-emacs          nil  "Show fkm mode help"))
    ))
 
 (setq fkm:extra-leader-keys '("C-q" "M-q" "C-M-q" "C-w" "M-w" "C-M-w" "C-e" "M-e" "C-M-e" "C-r" "M-r" "C-M-r" "C-t" "M-t" "C-M-t" "C-y" "M-y" "C-M-y" "C-u" "M-u" "C-M-u" "C-i" "M-i" "C-M-i" "C-o" "M-o" "C-M-o" "C-p" "M-p" "C-M-p" "M-[" "C-]" "M-]" "C-M-]" "C-\\" "M-\\" "C-M-\\" "C-a" "M-a" "C-M-a" "C-s" "M-s" "C-M-s" "C-d" "M-d" "C-M-d" "C-f" "M-f" "C-M-f" "C-g" "M-g" "C-M-g" "C-h" "M-h" "C-M-h" "C-j" "M-j" "C-M-j" "C-k" "M-k" "C-M-k" "C-l" "M-l" "C-M-l" "C-;" "M-;" "C-M-;" "C-'" "M-'" "C-M-'" "C-z" "M-z" "C-M-z" "C-x" "C-c" "M-c" "C-M-c" "C-v" "M-v" "C-M-v" "C-b" "M-b" "C-M-b" "C-n" "M-n" "C-M-n" "M-m" "C-," "M-," "C-M-," "C-." "M-." "C-M-." "C-/" "M-/" "C-M-/" "C-{" "M-{" "C-M-{" "C-}" "M-}" "C-M-}" "C-|" "M-|" "C-M-|" "C-:" "M-:" "C-M-:" "C-\"" "M-\"" "C-M-\"" "C->" "M->" "C-M->" "C-?" "M-?" "C-M-?" "C-<" "M-<" "C-M-<" "C-`" "M-`" "C-M-`" "C-~" "M-~" "C-M-~" "C-1" "M-1" "C-M-1" "C-2" "M-2" "C-M-2" "C-3" "M-3" "C-M-3" "C-4" "M-4" "C-M-4" "C-5" "M-5" "C-M-5" "C-6" "M-6" "C-M-6" "C-7" "M-7" "C-M-7" "C-8" "M-8" "C-M-8" "C-9" "M-9" "C-M-9" "C-0" "M-0" "C-M-0" "C--" "M--" "C-M--" "C-=" "M-=" "C-M-=" "C-!" "M-!" "C-M-!" "C-@" "M-@" "C-M-@" "C-#" "M-#" "C-M-#" "C-$" "M-$" "C-M-$" "C-%" "M-%" "C-M-%" "C-^" "M-^" "C-M-^" "C-&" "M-&" "C-M-&" "C-*" "M-*" "C-M-*" "C-(" "M-(" "C-M-(" "C-)" "M-)" "C-M-)" "C-_" "M-_" "C-M-_" "C-+" "M-+" "C-M-+" "C-SPC" "M-SPC"))

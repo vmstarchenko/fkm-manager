@@ -310,13 +310,20 @@ Otherwise, one argument `-i' is passed to the shell.
   (interactive)
   (manual-entry (current-word)))
 
-(defun show-hotkeys()
+(defun fkm:show-hotkeys()
   (interactive)
   (fkm:display-table-in-buffer
    fkm:kbds-config-header
    (fkm:get-kbds-config-table)
    "*Emacs Hotkeys*"))
 
+(defun fkm:about-emacs ()
+  (interactive)
+  (switch-to-buffer "*Fkm:help*")
+  (insert
+   (substitute-command-keys
+    "Oops. There is no help yet. \
+But you can press <\\[fkm:show-hotkeys]> if you want all keybindings list")))
 
 ;; Передвинуть регион
 (defun move-region

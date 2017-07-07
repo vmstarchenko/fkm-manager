@@ -418,16 +418,25 @@
 ;; (cfg:reverse-input-method 'russian-computer)
 
 ;; Стартовое сообщение
-(add-hook 'after-init-hook
-          (lambda ()
-            (insert (concat ";; Hello me. Stop fun, start working.\n"
-                            ";; Press s-h h for hotkey help\n\n"
-                            ";; Emacs init time: " (emacs-init-time)
-                            "\n\n"
-                            ";; Symgols (press C-M-q for input):\n"
-                            ";;   tab(\t):\t\\t | ^I\n"
-                            ";;   newline:\t\\n | ^J\n"
-                            ";;   return:\t\\r | ^M\n"))))
+(setq-default
+ initial-scratch-message (concat
+                          ";; Hello me. Stop fun, start working.\n"
+                          ";; Press s-h h for hotkey help\n"
+                          "\n"
+                          (format ";; Emacs init time: %s\n" (emacs-init-time))
+                          "\n"
+                          ";; Symgols (press C-M-q for input):\n"
+                          ";;   tab(\t):\t\\t | ^I\n"
+                          ";;   newline:\t\\n | ^J\n"
+                          ";;   return:\t\\r | ^M\n")
+ inhibit-startup-echo-area-message 'fkm:show-hotkeys)
+
+(defun startup-echo-area-message ()
+  (if (daemonp)
+      "Starting Emacs daemon."
+    (substitute-command-keys
+     "For information about GNU Emacs and the GNU system, type \
+\\[fkm:about-emacs].")))
 
 ;; Subword. if demands normal: change Docs
 (require 'subword)
