@@ -5,6 +5,10 @@
           '(lambda()
              (set-face-attribute 'default nil :height 110)
              (set-default-font "DejaVu Sans Mono-11")))
+;; (add-hook 'after-init-hook
+;;           '(lambda()
+;;              (set-face-attribute 'default nil :height 110)
+;;              (set-default-font "Noto Sans")))
 
 ;; (set-face-attribute 'default nil :height 110)
 ;; (set-default-font "DejaVu Sans Mono-11")

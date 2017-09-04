@@ -723,8 +723,13 @@ But you can press <\\[fkm:show-hotkeys]> if you want all keybindings list")))
                                     formatter-name))
                   (goto-char p))))))
 
-(define-formatter pyformat "pyformat -i " "/tmp/#.emacs.formatter")
-(define-formatter scssformat "csscomb -c ~/.csscomb.json "
+(define-formatter
+  pyformat
+  "pyformat -i "
+  "/tmp/#.emacs.formatter")
+(define-formatter
+  scssformat
+  "csscomb -c ~/.csscomb.json "
   "/tmp/#.emacs.formatter")
 
 (defun fkm:elformat-buffer ()
@@ -827,15 +832,15 @@ But you can press <\\[fkm:show-hotkeys]> if you want all keybindings list")))
                       :height zoom-value))
 
 
-(defadvice fill-paragraph (around advice-fill-paragraph activate)
-  "interactive ask about required line width and save this value"
-  (interactive)
-  (let* ((input (read-string (format "Max line width (current %d): "
-                                     fill-column)))
-         (value (string-to-number input)))
-    (if (not (eq value 0))
-        (setq fill-column value)))
-  ad-do-it)
+;; (defadvice fill-paragraph (around advice-fill-paragraph activate)
+;;   "interactive ask about required line width and save this value"
+;;   (interactive)
+;;   (let* ((input (read-string (format "Max line width (current %d): "
+;;                                      fill-column)))
+;;          (value (string-to-number input)))
+;;     (if (not (eq value 0))
+;;         (setq fill-column value)))
+;;   ad-do-it)
 
 ;; TODO fix from to values
 ;; (defadvice fill-region (around advice-fill-region activate)
