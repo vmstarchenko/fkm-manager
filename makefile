@@ -4,6 +4,9 @@ install:
 sync:
 	./sync.sh
 
+install_melpa:
+	.scripts/install-melpa.py
+
 clean:
 	find . -name \*.pyc -delete
 	find . -name __pycache__ -delete
