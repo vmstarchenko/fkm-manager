@@ -167,6 +167,9 @@ Otherwise, one argument `-i' is passed to the shell.
       (shell-mode)))
   buffer)
 
+;; (defun fkm:shell()
+;;   (interactive)
+;;   (pop-to-buffer-same-window (shell-get-buffer-create)))
 
 ;; Открыть терминал
 (defun open-shell ()

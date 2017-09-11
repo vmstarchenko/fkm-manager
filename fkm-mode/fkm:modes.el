@@ -188,6 +188,8 @@
 
 ;; depandence: auto-complete
 ;; (require 'fkm:shell) ;; eshell
+(require 'shell)
+(setq explicit-shell-file-name "bash")
 
 ;; google translate
 (add-hook 'after-init-hook
@@ -337,20 +339,20 @@
 ;;; modes.el ends here
 
 ;; ;; LaTeX ;; its work
-;; (add-hook 'TeX-mode-hook
-;;          '(lambda()
-;;             (message "load")
-;;             (latex-preview-pane-mode t)))
-;; ;; fix docview-mode keys
-;; (defun set-docview-mode-keys()
-;;  (define-key (current-local-map)
-;;    [remap forward-paragraph]
-;;    'doc-view-next-page)
-;;  (define-key
-;;    (current-local-map)
-;;    [remap backward-paragraph]
-;;    'doc-view-previous-page))
-;; (add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
+(add-hook 'TeX-mode-hook
+         '(lambda()
+            (message "load")
+            (latex-preview-pane-mode t)))
+;; fix docview-mode keys
+(defun set-docview-mode-keys()
+ (define-key (current-local-map)
+   [remap forward-paragraph]
+   'doc-view-next-page)
+ (define-key
+   (current-local-map)
+   [remap backward-paragraph]
+   'doc-view-previous-page))
+(add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 
 ;; js

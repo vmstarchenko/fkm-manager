@@ -30,7 +30,6 @@ cd emacs-25.1/
 ./configure
 make
 sudo make install
-cd ..
 ```
 
 ## Install plugins

@@ -44,6 +44,16 @@
     srefactor
     rjsx-mode
     markdown-mode
+
+    ;; new
+    django-snippets
+    flycheck-mypy
+    lispy
+    nginx-mode
+    org
+    popup-complete
+    rainbow-delimiters
+
     ))
 
 (defun packages-installed-p ()
