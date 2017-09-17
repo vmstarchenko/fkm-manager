@@ -16,6 +16,7 @@
 (fkm:define-keymap fkm:sphinx-mode-map)
 (fkm:define-keymap company-active-map)
 (fkm:define-keymap helm-M-x-map)
+(fkm:define-keymap ein:notebook-multilang-mode-map)
 
 ;;; inline modes
 (require 'fkm:linum) ;; нумерация строк
@@ -35,6 +36,7 @@
 (add-hook 'python-mode-hook '(lambda ()
                                (require 'fkm:sphinx-mode)
                                (fkm:sphinx-mode t)))
+
 
 ;; fill column
 ;; (require 'fill-column-indicator)
@@ -198,6 +200,14 @@
             (require 'google-translate-default-ui)
             ))
 
+;; Python
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (pretty-lambda-mode t)
+             (jedi:setup)
+             (setq jedi:setup-keys t)
+             (setq jedi:complete-on-dot t)
+             ))
 ;; ;; rope
 ;; (defun ropemacs-setup ()
 ;;   (interactive)
@@ -277,6 +287,7 @@
 
 (defun flycheck-cpp-setup()
   (flycheck-setup)
+  (flycheck-disable-checker 'c/c++-clang)
   (setq flycheck-gcc-language-standard "c++11"))
 
 (defun flycheck-c-setup()
@@ -353,6 +364,9 @@
    [remap backward-paragraph]
    'doc-view-previous-page))
 (add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
+
+;; ein latex
+(require 'ein-preview-latex)
 
 
 ;; js

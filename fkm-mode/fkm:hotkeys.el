@@ -291,6 +291,18 @@
     ("C-M-x u t"  latex-preview-pane-mode        nil                   "Запустить режим отображения latex в горизонтальном окне")
     ("C-M-x u u"  latex-preview-pane-update      nil                   "Обновить отображенный документ"))
 
+   ("Jupyter notebook"
+    ("C-M-j l"   ein:notebooklist-login              nil                              "Login")
+    ("C-M-j d"   ein:notebooklist-open               nil                              "Открыть")
+    ("s-s"       ein:notebook-save-notebook-command  ein:notebook-multilang-mode-map  "Сохранить")
+    ("s-'"       ein:worksheet-execute-cell          ein:notebook-multilang-mode-map  "Выполнить ячейку")
+    ("C-M-j '"   ein:worksheet-execute-all-cell      ein:notebook-multilang-mode-map  "Выполнить все ячейки")
+    ("C-M j p a" ein-preview-latex-everywhere        ein:notebook-multilang-mode-map  "preview all")
+    ("C-M j p p" ein-preview-latex-at-point          ein:notebook-multilang-mode-map  "preview at point")
+    ("C-M j p g" ein-preview-latex-disable-at-point  ein:notebook-multilang-mode-map  "disable preview at point")
+    ("M-;"       ein:worksheet-goto-next-input       ein:notebook-multilang-mode-map  "Следующая клетка")
+    ("M-h"       ein:worksheet-goto-prev-input       ein:notebook-multilang-mode-map  "Предыдущая клетка"))
+
    ("Emacs"
     ("M-x"    helm-M-x                 nil  "выполнить комманду")
     ("s-z"    suspend-frame            nil  "Свернуть Emacs")
