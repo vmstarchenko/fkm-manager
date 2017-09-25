@@ -37,6 +37,9 @@
 (fkm:unset-kbds slime-repl-mode-map slime-repl-mode-hook '("M-p" "M-s"))
 (fkm:unset-kbds undo-tree-map undo-tree-mode-hook '("C-/"))
 (fkm:unset-kbds web-mode-map web-mode-hook '("M-;" "C-c"))
+(fkm:unset-kbds tex-mode-map tex-mode-hook '("s-p" "M-p"))
+(fkm:unset-kbds latex-preview-pane-mode-map tex-mode-hook '("s-p" "M-p" "M-P" "s-P"))
+
 
 
 (defun unset-elisp-mode-keys()

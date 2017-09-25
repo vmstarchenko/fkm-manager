@@ -361,24 +361,26 @@
 
 
 ;; Связять расширения and firstcomment с модами
-(setq auto-mode-alist (append '(("Makefile$" . makefile-mode)
-                                ("\\.\\(cpp\\|h\\|hpp\\|hxx\\)$" .
-                                 c++-mode)
-                                ("\\.\\(el\\|emacs\\)$" .
-                                 emacs-lisp-mode)
-                                ("\\.\\(p\\|gp\\|gnuplot\\)$" .
-                                 gnuplot-mode)
-                                ("\\.\\(py\\|pyw\\)$" . python-mode)
-                                ("\\.\\(html\\|djhtml\\)$" . web-mode)
-                                ("\\(\\.org\\|TODO\\)$" . org-mode)
-                                ("\\.js$" . web-mode)
-                                ("\\.jsx$" . web-mode)
-                                ("\\.json$" . js-mode)
-                                ("\\.txt$" . Fundamental-mode)
-                                ("\\.xml$" . sgml-mode))
-                              auto-mode-alist))
-(setq magic-mode-alist (append '(("#!/bin/\\(bash\\|sh\\)" .
-                                  bash-mode))))
+(setq auto-mode-alist
+      (append '(("Makefile$" . makefile-mode)
+                ("\\.\\(cpp\\|h\\|hpp\\|hxx\\)$" .
+                 c++-mode)
+                ("\\.\\(el\\|emacs\\)$" .
+                 emacs-lisp-mode)
+                ("\\.\\(p\\|gp\\|gnuplot\\)$" .
+                 gnuplot-mode)
+                ("\\.\\(py\\|pyw\\)$" . python-mode)
+                ("\\.\\(html\\|djhtml\\)$" . web-mode)
+                ("\\(\\.org\\|TODO\\)$" . org-mode)
+                ("\\.js$" . web-mode)
+                ("\\.jsx$" . web-mode)
+                ("\\.json$" . js-mode)
+                ("\\.txt$" . Fundamental-mode)
+                ("\\.xml$" . sgml-mode)
+                ("\\.qss$" . css-mode))
+              auto-mode-alist))
+(setq magic-mode-alist
+      (append '(("#!/bin/\\(bash\\|sh\\)" . bash-mode))))
 
 (global-font-lock-mode 1) ;; эта хитрая заточка, включает разум емакса для подсветки синтаксиса
 

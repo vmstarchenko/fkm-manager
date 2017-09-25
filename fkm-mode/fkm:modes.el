@@ -17,6 +17,7 @@
 (fkm:define-keymap company-active-map)
 (fkm:define-keymap helm-M-x-map)
 (fkm:define-keymap ein:notebook-multilang-mode-map)
+(fkm:define-keymap tex-mode-map)
 
 ;;; inline modes
 (require 'fkm:linum) ;; нумерация строк
@@ -350,7 +351,8 @@
 ;;; modes.el ends here
 
 ;; ;; LaTeX ;; its work
-(add-hook 'TeX-mode-hook
+(require 'latex-preview-pane)
+(add-hook 'tex-mode-hook
          '(lambda()
             (message "load")
             (latex-preview-pane-mode t)))

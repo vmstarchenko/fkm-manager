@@ -289,7 +289,7 @@
     ("C-M-x m"    python-shell-send-buffer       nil                   "Запустить буффер в интерактивной оболочке Python")
     ("C-M-x n"    python-shell-send-region       nil                   "Запустить регион в интерактивной оболочке Python")
     ("C-M-x u t"  latex-preview-pane-mode        nil                   "Запустить режим отображения latex в горизонтальном окне")
-    ("C-M-x u u"  latex-preview-pane-update      nil                   "Обновить отображенный документ"))
+    ("s-'"        latex-preview-pane-update      tex-mode-map          "Обновить отображенный документ"))
 
    ("Jupyter notebook"
     ("C-M-j l"   ein:notebooklist-login              nil                              "Login")
