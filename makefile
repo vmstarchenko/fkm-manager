@@ -2,7 +2,7 @@ install:
 	./install.sh
 
 sync:
-	./sync.sh
+	.scripts/sync.sh
 
 install_melpa:
 	.scripts/install-melpa.py

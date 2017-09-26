@@ -66,3 +66,12 @@ sudo python3 -m pip install pyformat
 ```bash
 sudo python3 -m pip install mypy
 ```
+
+## Activate
+
+add to your config
+
+```elisp
+(add-to-list 'load-path "~/.emacs.d/fkm-mode")
+(require 'fkm-mode)
+```

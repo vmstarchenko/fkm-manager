@@ -298,6 +298,15 @@
 (add-hook 'c++-mode-hook #'flycheck-cpp-setup)
 (add-hook 'c-mode-hook #'flycheck-c-setup)
 
+;; flychec latex
+;; (defun flycheck-latex-setup()
+;;   (flycheck-setup)
+;;   (flycheck-add-next-checker 'tex-chktex
+;;                              '(warning . tex-lacheck))
+;;  )
+
+;; (add-hook 'tex-mode-hook #'flycheck-latex-setup)
+
 ;; flycheck javascript
 ;; (defun flycheck-js-setup()
 ;;   (flycheck-mode)
@@ -333,7 +342,7 @@
   (require 'flycheck-mypy)
   (add-hook 'python-mode-hook 'flycheck-mode)
   (flycheck-add-next-checker 'python-pylint
-                                  '(warning . python-mypy))
+                             '(warning . python-mypy))
   (add-to-list 'flycheck-disabled-checkers 'python-flake8)
   (add-to-list 'flycheck-disabled-checkers 'python-pycompile))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
@@ -352,19 +361,23 @@
 
 ;; ;; LaTeX ;; its work
 (require 'latex-preview-pane)
+;; (setq pdf-latex-command "pdflatex --output-directory=build ")
 (add-hook 'tex-mode-hook
-         '(lambda()
-            (message "load")
-            (latex-preview-pane-mode t)))
+          '(lambda()
+             (message "load")
+             (setq after-save-hook-b (copy-list after-save-hook))
+             (latex-preview-pane-mode t)
+             (setq after-save-hook after-save-hook-b)
+             ))
 ;; fix docview-mode keys
 (defun set-docview-mode-keys()
- (define-key (current-local-map)
-   [remap forward-paragraph]
-   'doc-view-next-page)
- (define-key
-   (current-local-map)
-   [remap backward-paragraph]
-   'doc-view-previous-page))
+  (define-key (current-local-map)
+    [remap forward-paragraph]
+    'doc-view-next-page)
+  (define-key
+    (current-local-map)
+    [remap backward-paragraph]
+    'doc-view-previous-page))
 (add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 ;; ein latex
