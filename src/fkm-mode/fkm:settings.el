@@ -324,7 +324,7 @@
             (setq indent-tabs-mode nil))) ;;+
 (add-hook 'c++-mode-hook
           (lambda()
-            (setq c-basic-offset 2)
+            (setq c-basic-offset 4)
             (setq indent-tabs-mode nil))) ;;c-basic-indent???
 (add-hook 'org-mode
           (lambda()
@@ -365,6 +365,7 @@
       (append '(("Makefile$" . makefile-mode)
                 ("\\.\\(cpp\\|h\\|hpp\\|hxx\\)$" .
                  c++-mode)
+                ("\\.\\(cu\\)$" . c-mode)
                 ("\\.\\(el\\|emacs\\)$" .
                  emacs-lisp-mode)
                 ("\\.\\(p\\|gp\\|gnuplot\\)$" .

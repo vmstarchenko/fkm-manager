@@ -2,7 +2,7 @@
 ;; todo: auto completeon doesnt work with newline 
 
 ;; show menu automatically
-(setq ac-show-menu-immediately-on-auto-complete t)
+;; (setq ac-show-menu-immediately-on-auto-complete t)
 ;; dont show automatically
 ;;(setq ac-auto-show-menu t)
 ;;(setq ac-auto-start nil)

@@ -240,12 +240,27 @@
 (add-hook 'after-init-hook
           (lambda()
             (semantic-mode 1)
-            (setq semanticdb-default-save-directory (format "%s/%s" fkm-tmp-dir ".semanticdb"))
-            (shell-command (concat "mkdir -p " semanticdb-default-save-directory))))
+            (require 'semantic/ia)
+            (require 'semantic/bovine/gcc)
+            (require 'cedet-global)
+
+            ;; если вы хотите включить поддержку gnu global
+            (when (cedet-gnu-global-version-check t)
+              (semanticdb-enable-gnu-global-databases 'c-mode)
+              (semanticdb-enable-gnu-global-databases 'c++-mode))
+
+
+            ;; (setq semanticdb-default-save-directory (format "%s/%s" fkm-tmp-dir ".semanticdb"))
+            ;; (shell-command (concat "mkdir -p " semanticdb-default-save-directory))
+            ))
 
 (defun add-semantic-autocomplete()
-  (add-to-list 'ac-sources 'ac-source-semantic))
+  (add-to-list 'ac-sources 'ac-source-semantic)
+  )
 (add-hook 'c-mode-common-hook 'add-semantic-autocomplete)
+
+;; (require 'rtags)
+;; (cmake-ide-setup)
 
 ;; emmet
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -295,8 +310,9 @@
   (flycheck-setup)
   (setq flycheck-gcc-language-standard "gnu11"))
 
-(add-hook 'c++-mode-hook #'flycheck-cpp-setup)
-(add-hook 'c-mode-hook #'flycheck-c-setup)
+(add-hook 'c++-mode-hook #'flycheck-cpp-setup) ;; COMMENT
+(add-hook 'c-mode-hook #'flycheck-c-setup) ;; COMMENT
+;; (add-hook 'c++-mode-hook 'flycheck-setup)
 
 ;; flychec latex
 ;; (defun flycheck-latex-setup()
@@ -381,7 +397,7 @@
 (add-hook 'doc-view-mode-hook 'set-docview-mode-keys)
 
 ;; ein latex
-(require 'ein-preview-latex)
+;; (require 'ein-preview-latex)
 
 
 ;; js
