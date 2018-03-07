@@ -126,14 +126,15 @@
     ("M-d s 1"  xscreen                     nil  "Window confuguration 1"))
 
    ("Работа с файлами"
-    ("s-f"  helm-find-files      nil  "Открыть файл на диске")
-    ("s-r"  find-file-read-only  nil  "Открыть файл в режиме чтения")
-    ("s-s"  save-buffer          nil  "Сохранить буфер на диске")
-    ("s-w"  write-file           nil  "Сохранить буфер в файле с новым именем")
-    ("s-e"  rename-file          nil  "Переименовать файл")
-    ("s-d"  dired                nil  "Открыть файловый менеджер")
-    ("s-n"  helm-bookmarks       nil  "Открыть закладки")
-    ("s-m"  magit-status         nil  "Open git status"))
+    ("s-f"  fkm:find-file                  nil  "Открыть файл в проекте или на диске")
+    ("s-e"  helm-find-files                nil  "Открыть файл на диске")
+    ("s-r"  find-file-read-only            nil  "Открыть файл в режиме чтения")
+    ("s-s"  save-buffer                    nil  "Сохранить буфер на диске")
+    ("s-q"  rename-file                    nil  "Сохранить буфер в файле с новым именем")
+    ("s-w"  helm-projectile-switch-project nil  "Переименовать файл")
+    ("s-d"  dired                          nil  "Открыть файловый менеджер")
+    ("s-n"  helm-bookmarks                 nil  "Открыть закладки")
+    ("s-m"  magit-status                   nil  "Open git status"))
 
    ("Сниппеты и обертки"
     ("C-M-y"    yas-expand              nil                 "Дополнить")

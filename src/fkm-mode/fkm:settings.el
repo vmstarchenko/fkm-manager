@@ -266,6 +266,8 @@
       version-control t) ;; use versioned backups
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
 
+(defadvice emacs-session-filename (around session-to-var activate)
+  (expand-file-name (concat "~/.emacs.d/sessions/" session-id)))
 (setq backup-directory-alist `((".*" . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix emacs-tmp-dir)

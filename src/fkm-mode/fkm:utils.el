@@ -995,4 +995,11 @@ column + the column name"
 ;;   (fkm:define-keymap (car maps))
 ;;   (setq maps (cdr maps)))
 
+(defun fkm:find-file()
+  (interactive)
+  (if (projectile-project-p)
+      (helm-projectile-find-file)
+    (helm-find-files nil)))
+
+
 (provide 'fkm:utils)

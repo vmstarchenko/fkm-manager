@@ -362,12 +362,15 @@
   (add-to-list 'flycheck-disabled-checkers 'python-flake8)
   (add-to-list 'flycheck-disabled-checkers 'python-pycompile))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
+(setq flycheck-python-mypy-args '("--cache-dir" "/tmp/.mypy_cache"))
 
 ;; flycheck python
 (defun flycheck-sh-setup ()
   (flycheck-mode))
 (add-hook 'sh-mode-hook #'flycheck-sh-setup)
 
+
+(setq flycheck-temp-prefix "/tmp/flycheck/flycheck")
 
 ;; flycheck java
 ;; (defun flycheck-java-setup ()
@@ -432,6 +435,36 @@
 (add-hook 'css-mode-hook 'hex-color)
 (add-hook 'html-mode-hook 'hex-color)
 (add-hook 'emacs-lisp-mode-hook 'hex-color)
+
+
+(require 'projectile)
+(projectile-mode)
+ (setq projectile-enable-caching t)
+;; (setq projectile-switch-project-action #'projectile-dired)
+(setq projectile-switch-project-action
+      '(lambda ()
+         (venv-projectile-auto-workon)
+         (projectile-find-file)
+         ;; (projectile-dired)
+         (message (projectile-project-root))))
+;; (setq projectile-project-root-cache (make-hash-table :test 'equal))
+(setq projectile-project-root-files
+      (append projectile-project-root-files '(".git")))
+(setq projectile-globally-ignored-directories
+      (append projectile-globally-ignored-directories
+              '("venv" ".venv" ".virtualenv" "__pycache__" ".mypy_cache")))
+
+(require 'helm-projectile)
+(helm-projectile-on)
+
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells) ;; if you want interactive shell support
+(venv-initialize-eshell) ;; if you want eshell support
+;; note that setting `venv-location` is not necessary if you
+;; use the default location (`~/.virtualenvs`), or if the
+;; the environment variable `WORKON_HOME` points to the right place
+(setq venv-location '("venv" ".venv" "pyenv" ".virtual"))
+(setq venv-dirlookup-names '(".venv" "pyenv" ".virtual" "venv"))
 
 
 (provide 'fkm:modes)

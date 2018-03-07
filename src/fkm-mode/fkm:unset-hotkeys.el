@@ -15,7 +15,7 @@
 
 (fkm:unset-kbds c++-mode-map c++-mode-hook '("C-d" "C-M-a" "C-M-e" "C-;" "C-M-q"))
 (fkm:unset-kbds c-mode-map c-mode-hook '("C-d" "C-M-a" "C-M-e" "C-;" "C-M-q"))
-(fkm:unset-kbds dired-mode-map dired-mode-hook '("M-s"))
+(fkm:unset-kbds dired-mode-map dired-mode-hook '("M-s" "S-SPC"))
 (fkm:unset-kbds eshell-mode-map eshell-mode-hook '("M-p" "M-r" "C-m" "M-s"))
 (fkm:unset-kbds helm-M-x-map helm-after-initialize-hook '("C-u" "M-o"))
 (fkm:unset-kbds helm-map helm-mode-hook '("M-s" "C-c" "M-p" "M-f" "s-h" "M-v"))

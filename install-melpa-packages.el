@@ -74,3 +74,48 @@
       (package-install package))))
 
 (kill-emacs)
+
+
+;; ac-math
+;; auto-complete-clang
+;; auto-complete-auto-complete-clang-async
+;; autopair
+;; clang-format
+;; cmake-ide
+;; cmake-mode
+;; company
+;; company-math
+;; cuda-mode
+;; django-snippets
+;; ein
+;; emmet-mode
+;; flycheck
+;; flycheck-mypy
+;; google-translate
+;; helm
+;; helm-gtags
+;; iedit
+;; irony
+;; jedi
+;; latex-math-preview
+;; latex-preview-pane
+;; lispy
+;; magit
+;; markdown-mode
+;; multiple-cursors
+;; nginx-mode
+;; php-mode
+;; popup-complete
+;; powerline
+;; pretty-lambdada
+;; projectile
+;; rainbow-delimiters
+;; readline-complete
+;; rjsx-mode
+;; rtags
+;; s
+;; smartrep
+;; sr-speedbar
+;; srefactor
+;; web-mode
+;; yasnippet
