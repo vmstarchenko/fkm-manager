@@ -19,6 +19,7 @@
 (fkm:unset-kbds eshell-mode-map eshell-mode-hook '("M-p" "M-r" "C-m" "M-s"))
 (fkm:unset-kbds helm-M-x-map helm-after-initialize-hook '("C-u" "M-o"))
 (fkm:unset-kbds helm-map helm-mode-hook '("M-s" "C-c" "M-p" "M-f" "s-h" "M-v"))
+(fkm:unset-kbds helm-find-files-map helm-after-initialize-hook '("M-l"))
 (fkm:unset-kbds help-mode-map help-mode-hook '("S-SPC"))
 (fkm:unset-kbds ido-file-dir-completion-map ido-setup-hook '("M-p" "M-l"))
 (fkm:unset-kbds inferior-python-mode-map inferior-python-hook '("M-p" "M-r"))

@@ -9,51 +9,41 @@
 
 ;; Package list
 (defvar required-packages
-  '(;; slime
-    s
-    auto-complete
-    projectile
-		;; my
-    ;; auto-complete-c-headers
-    flycheck
-    google-translate
-    iedit
-
-    ;; auctex
-    ;; latex-preview-pane
-    ac-math
-
-    yasnippet
-
-    ;; other
-    js2-mode ;; not checked
-    powerline
-    emmet-mode
-    jedi
-    sr-speedbar
-    web-mode
+  '(ac-math
+    autopair
     clang-format
-    helm
-    helm-gtags
     cmake-mode
     company
-    readline-complete
-    magit
-    autopair
-    multiple-cursors
-    srefactor
-    rjsx-mode
-    markdown-mode
-
-    ;; new
+    cython-mode
     django-snippets
+    emmet-mode
+    flycheck
     flycheck-mypy
+    google-translate
+    helm
+    helm-gtags
+    helm-projectile
+    iedit
+    jedi
+    latex-preview-pane
     lispy
+    magit
+    markdown-mode
+    multiple-cursors
     nginx-mode
-    org
     popup-complete
+    powerline
+    pretty-symbols
+    projectile
     rainbow-delimiters
-
+    readline-complete
+    rjsx-mode
+    s
+    sr-speedbar
+    srefactor
+    virtualenvwrapper
+    web-mode
+    yasnippet
     ))
 
 (defun packages-installed-p ()

@@ -204,8 +204,9 @@
 ;; Python
 (add-hook 'python-mode-hook
           '(lambda ()
-             (pretty-lambda-mode t)
+             (pretty-symbols-mode t) ;; lambda
              (jedi:setup)
+             ;; (jedi:ac-setup)
              (setq jedi:setup-keys t)
              (setq jedi:complete-on-dot t)
              ))
@@ -453,6 +454,10 @@
 (setq projectile-globally-ignored-directories
       (append projectile-globally-ignored-directories
               '("venv" ".venv" ".virtualenv" "__pycache__" ".mypy_cache")))
+(setq projectile-mode-line
+      '(:eval (if (projectile-project-p)
+                  (format " {%s}" (projectile-project-name))
+                " Proj")))
 
 (require 'helm-projectile)
 (helm-projectile-on)
@@ -460,11 +465,15 @@
 (require 'virtualenvwrapper)
 (venv-initialize-interactive-shells) ;; if you want interactive shell support
 (venv-initialize-eshell) ;; if you want eshell support
+
 ;; note that setting `venv-location` is not necessary if you
 ;; use the default location (`~/.virtualenvs`), or if the
 ;; the environment variable `WORKON_HOME` points to the right place
 (setq venv-location '("venv" ".venv" "pyenv" ".virtual"))
 (setq venv-dirlookup-names '(".venv" "pyenv" ".virtual" "venv"))
 
+
+;; (require 'magit)
+;; (setq magit-process-yes-or-no-prompt-regexp nil)
 
 (provide 'fkm:modes)
