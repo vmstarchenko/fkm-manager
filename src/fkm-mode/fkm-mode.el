@@ -3,6 +3,11 @@
 (setq fkm:themes-directory (expand-file-name (concat fkm:fkm-path "themes/")))
 (setq fkm:modes-directory (expand-file-name (concat fkm:fkm-path "modes/")))
 
+;; tmp emacs folder
+(setq fkm:tmp-dir "/tmp/.emacs-fkm")
+(make-directory fkm:tmp-dir t)
+
+
 (add-to-list 'load-path fkm:modes-directory)
 (add-to-list 'custom-theme-load-path fkm:themes-directory)
 

@@ -14,13 +14,8 @@
 
 ;; Название открытого буфера в шапке окна
 (setq frame-title-format "Emacs:   %b")
-
-;; tmp emacs folder
-(setq fkm-tmp-dir "/tmp/.emacs-fkm") ;; fkm-var
-;; (add-hook 'after-init-hook
-;;           (lambda() (shell-command (concat "mkdir -p " fkm-tmp-dir))))
 (defconst emacs-tmp-dir
-  (format "%s/%s-%s/" fkm-tmp-dir "emacs" (user-uid)))
+  (format "%s/%s-%s/" fkm:tmp-dir "emacs" (user-uid)))
 
 ;; modeline
 (line-number-mode)

@@ -29,9 +29,11 @@
 (require 'fkm:asm-mode)
 
 ;; coloring
-(require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+(save-place-mode t)
+(setq save-place-file (concat (concat fkm:tmp-dir "/.saved-places"))
+      save-place-forget-unreadable-files t)
 
 ;; sphinx
 (add-hook 'python-mode-hook '(lambda ()
@@ -363,7 +365,10 @@
   (add-to-list 'flycheck-disabled-checkers 'python-flake8)
   (add-to-list 'flycheck-disabled-checkers 'python-pycompile))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
-(setq flycheck-python-mypy-args '("--cache-dir" "/tmp/.mypy_cache"))
+
+(setq mypy-cache-dir (concat fkm:tmp-dir "/.mypy_cache"))
+(make-directory mypy-cache-dir t)
+(setq flycheck-python-mypy-args '("--cache-dir" mypy-cache-dir))
 
 ;; flycheck python
 (defun flycheck-sh-setup ()
@@ -371,7 +376,9 @@
 (add-hook 'sh-mode-hook #'flycheck-sh-setup)
 
 
-(setq flycheck-temp-prefix "/tmp/flycheck/flycheck")
+(setq flycheck-tmp-dir (concat fkm:tmp-dir "/flycheck"))
+(make-directory flycheck-tmp-dir t)
+(setq flycheck-temp-prefix flycheck-tmp-dir)
 
 ;; flycheck java
 ;; (defun flycheck-java-setup ()

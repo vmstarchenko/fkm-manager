@@ -726,14 +726,17 @@ But you can press <\\[fkm:show-hotkeys]> if you want all keybindings list")))
                                     formatter-name))
                   (goto-char p))))))
 
+(setq fkm:formatters-tmp-dir (concat fkm:tmp-dir "/formatters"))
+(make-directory fkm:formatters-tmp-dir t)
+
 (define-formatter
   pyformat
   "pyformat -i "
-  "/tmp/#.emacs.formatter")
+  (concat fkm:formatters-tmp-dir "/.pyformat"))
 (define-formatter
   scssformat
   "csscomb -c ~/.csscomb.json "
-  "/tmp/#.emacs.formatter")
+  (concat fkm:formatters-tmp-dir "/.csscomb"))
 
 (defun fkm:elformat-buffer ()
   (interactive)
